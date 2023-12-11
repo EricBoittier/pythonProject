@@ -35,7 +35,7 @@ def mol2data(mol: rdkit.Chem.Mol, filename=None):
     :return:
     """
     elements = [a.GetSymbol() for a in mol.GetAtoms()]
-    # Generate a conformation
+    # Generate a conformation (this will change the geometry)
     # AllChem.EmbedMolecule(mol)
     coordinates = mol.GetConformer(0).GetPositions().astype(dtype)
     if filename is not None:
@@ -67,4 +67,4 @@ def get_pdb_data():
     return pdb_mols[0]
 
 
-get_pdb_data()
+# get_pdb_data()

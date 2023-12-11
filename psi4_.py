@@ -36,6 +36,11 @@ def get_surface_points(coordinates):
         np.where(np.all(cdist(surface_points, monomer_coords) >= (CUTOFF - 1e-1), axis=-1))[0]]
     return surface_points
 
+
+def get_points_from_cube(filename):
+    pass
+
+
 def get_grid_points(coordinates):
     """
     create a uniform grid of points around the molecule,
@@ -61,7 +66,6 @@ def get_grid_points(coordinates):
     grid_points = grid_points[
         np.where(np.all(cdist(grid_points, coordinates) >= (2 - 1e-1), axis=-1))[0]]
 
-
     return grid_points
 
 
@@ -72,20 +76,42 @@ def test_mbis(test="water"):
     """
     if test == "water":
         elements, monomer_coords = get_water_data()
+    elif test == "cube":
+        from cubes_ import cube
+        import numpy as np
+        cube_file = "cubes/gaussian/testjax.chk.p.cube"
+        cube1 = cube(cube_file)
+        elements, monomer_coords = cube1.get_atom_data()
     elif test == "pdb":
         elements, monomer_coords = get_pdb_data()
     else:
         raise NotImplementedError
 
-    # surface_points = get_surface_points(monomer_coords)
-    surface_points = get_grid_points(monomer_coords)
+    for e,c in zip(elements, monomer_coords):
+        print(e, " ".join([str(_) for _ in c]))
+
+    if test == "cube":
+        surface_points = cube1.get_grid()
+    else:
+        # surface_points = get_surface_points(monomer_coords)
+        surface_points = get_grid_points(monomer_coords)
     make_grid_data(surface_points)
     psi4_mol = psi4.core.Molecule.from_arrays(monomer_coords, elem=elements,
                                               fix_orientation=True,
                                               fix_com=True,)
     psi4.core.set_output_file('output.dat', False)
     e, wfn = psi4.energy('PBE0', molecule=psi4_mol, return_wfn=True)
+    print(e, -76.3755896)
     psi4.oeprop(wfn, 'GRID_ESP', 'MBIS_CHARGES', title='MBIS Multipoles')
-    reference_esp = [float(x) for x in open('grid_esp.dat')]
 
-test_mbis(test="pdb")
+
+    reference_esp = [float(x) for x in open('grid_esp.dat')]
+    data = cube1.data.flatten()
+    MSE = np.mean((data - reference_esp) ** 2)
+    print(MSE)
+
+    # for i in range(len(reference_esp)):
+    #     print(i, data[i], reference_esp[i], data[i] / reference_esp[i])
+
+# test_mbis(test="pdb")
+test_mbis(test="cube")
