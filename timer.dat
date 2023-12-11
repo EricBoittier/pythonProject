@@ -1,0 +1,1407 @@
+
+Host: dyn-38-242.mobile.unibas.ch
+
+Timers On : Fri Dec  8 15:25:13 2023
+Timers Off: Fri Dec  8 15:25:16 2023
+
+Wall Time:        2.97 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+V: Grid                             :      0.017u      0.000s      0.022w      1 calls
+build grid                          :      0.033u      0.000s      0.021w      2 calls
+post-process grid                   :      0.000u      0.000s      0.014w      2 calls
+DFH: sparsity prep                  :      0.000u      0.017s      0.029w      1 calls
+Libint2ERI::Libint2ERI              :      0.000u      0.017s      0.029w      3 calls
+DFH: initialize()                   :      0.017u      0.000s      0.020w      1 calls
+DFH: AO Construction                :      0.000u      0.000s      0.006w      1 calls
+DFH: AO-Met. Contraction            :      0.000u      0.000s      0.002w      1 calls
+HF: Form core H                     :      0.000u      0.017s      0.011w      1 calls
+HF: Form S/X                        :      0.000u      0.000s      0.001w      1 calls
+HF: Guess                           :      0.033u      0.000s      0.024w      1 calls
+SAD Guess                           :      0.033u      0.000s      0.023w      1 calls
+HF: Form G                          :      0.800u      0.050s      0.476w      8 calls
+RV: Form V                          :      0.783u      0.050s      0.470w      8 calls
+Properties                          :      0.217u      0.017s      0.132w   4424 calls
+Functional                          :      0.283u      0.000s      0.183w   4424 calls
+V_xc                                :      0.283u      0.000s      0.143w   4424 calls
+JK: D                               :      0.000u      0.000s      0.000w      8 calls
+JK: USO2AO                          :      0.000u      0.000s      0.000w      8 calls
+JK: JK                              :      0.017u      0.000s      0.004w      8 calls
+DFH: compute_JK()                   :      0.017u      0.000s      0.004w      8 calls
+DFH: Grabbing AOs                   :      0.000u      0.000s      0.000w      8 calls
+DFH: compute_J                      :      0.000u      0.000s      0.001w      8 calls
+DFH: compute_K                      :      0.017u      0.000s      0.002w      8 calls
+JK: AO2USO                          :      0.000u      0.000s      0.000w      8 calls
+HF: Form F                          :      0.000u      0.000s      0.000w      8 calls
+HF: Form D                          :      0.000u      0.000s      0.000w      8 calls
+HF: DIIS                            :      0.217u      0.083s      1.265w      7 calls
+HF: Form C                          :      0.000u      0.000s      0.002w      7 calls
+MBIS                                :      0.567u      0.017s      0.354w      1 calls
+
+--------------------------------------------------------------------------------------
+V: Grid                             :      0.017u      0.000s      0.022w      1 calls
+| build grid                        :      0.017u      0.000s      0.013w      1 calls
+| post-process grid                 :      0.000u      0.000s      0.009w      1 calls
+DFH: sparsity prep                  :      0.000u      0.017s      0.029w      1 calls
+| Libint2ERI::Libint2ERI            :      0.000u      0.017s      0.028w      1 calls
+DFH: initialize()                   :      0.017u      0.000s      0.020w      1 calls
+| Libint2ERI::Libint2ERI            :      0.000u      0.000s      0.002w      2 calls
+| DFH: AO Construction              :      0.000u      0.000s      0.006w      1 calls
+| DFH: AO-Met. Contraction          :      0.000u      0.000s      0.002w      1 calls
+HF: Form core H                     :      0.000u      0.017s      0.011w      1 calls
+HF: Form S/X                        :      0.000u      0.000s      0.001w      1 calls
+HF: Guess                           :      0.033u      0.000s      0.024w      1 calls
+| SAD Guess                         :      0.033u      0.000s      0.023w      1 calls
+HF: Form G                          :      0.800u      0.050s      0.476w      8 calls
+| RV: Form V                        :      0.783u      0.050s      0.470w      8 calls
+| | Properties                      :      0.217u      0.017s      0.132w   4424 calls
+| | Functional                      :      0.283u      0.000s      0.183w   4424 calls
+| | V_xc                            :      0.283u      0.000s      0.143w   4424 calls
+| JK: D                             :      0.000u      0.000s      0.000w      8 calls
+| JK: USO2AO                        :      0.000u      0.000s      0.000w      8 calls
+| JK: JK                            :      0.017u      0.000s      0.004w      8 calls
+| | DFH: compute_JK()               :      0.017u      0.000s      0.004w      8 calls
+| | | DFH: Grabbing AOs             :      0.000u      0.000s      0.000w      8 calls
+| | | DFH: compute_J                :      0.000u      0.000s      0.001w      8 calls
+| | | DFH: compute_K                :      0.017u      0.000s      0.002w      8 calls
+| JK: AO2USO                        :      0.000u      0.000s      0.000w      8 calls
+HF: Form F                          :      0.000u      0.000s      0.000w      8 calls
+HF: Form D                          :      0.000u      0.000s      0.000w      8 calls
+HF: DIIS                            :      0.217u      0.083s      1.265w      7 calls
+HF: Form C                          :      0.000u      0.000s      0.002w      7 calls
+MBIS                                :      0.567u      0.017s      0.354w      1 calls
+| build grid                        :      0.017u      0.000s      0.009w      1 calls
+| post-process grid                 :      0.000u      0.000s      0.005w      1 calls
+
+**************************************************************************************
+
+Host: dyn-38-242.mobile.unibas.ch
+
+Timers On : Fri Dec  8 15:28:20 2023
+Timers Off: Fri Dec  8 15:28:22 2023
+
+Wall Time:        2.10 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+V: Grid                             :      0.033u      0.000s      0.024w      1 calls
+build grid                          :      0.050u      0.000s      0.023w      2 calls
+post-process grid                   :      0.017u      0.000s      0.015w      2 calls
+DFH: sparsity prep                  :      0.017u      0.017s      0.019w      1 calls
+Libint2ERI::Libint2ERI              :      0.000u      0.017s      0.019w      3 calls
+DFH: initialize()                   :      0.017u      0.000s      0.016w      1 calls
+DFH: AO Construction                :      0.017u      0.000s      0.006w      1 calls
+DFH: AO-Met. Contraction            :      0.000u      0.000s      0.002w      1 calls
+HF: Form core H                     :      0.000u      0.000s      0.004w      1 calls
+HF: Form S/X                        :      0.000u      0.000s      0.001w      1 calls
+HF: Guess                           :      0.017u      0.000s      0.022w      1 calls
+SAD Guess                           :      0.017u      0.000s      0.021w      1 calls
+HF: Form G                          :      0.733u      0.033s      0.472w      8 calls
+RV: Form V                          :      0.733u      0.033s      0.466w      8 calls
+Properties                          :      0.233u      0.017s      0.131w   4424 calls
+Functional                          :      0.333u      0.017s      0.181w   4424 calls
+V_xc                                :      0.167u      0.000s      0.142w   4424 calls
+JK: D                               :      0.000u      0.000s      0.000w      8 calls
+JK: USO2AO                          :      0.000u      0.000s      0.000w      8 calls
+JK: JK                              :      0.000u      0.000s      0.004w      8 calls
+DFH: compute_JK()                   :      0.000u      0.000s      0.004w      8 calls
+DFH: Grabbing AOs                   :      0.000u      0.000s      0.000w      8 calls
+DFH: compute_J                      :      0.000u      0.000s      0.001w      8 calls
+DFH: compute_K                      :      0.000u      0.000s      0.002w      8 calls
+JK: AO2USO                          :      0.000u      0.000s      0.000w      8 calls
+HF: Form F                          :      0.000u      0.000s      0.000w      8 calls
+HF: Form D                          :      0.000u      0.000s      0.000w      8 calls
+HF: DIIS                            :      0.083u      0.033s      0.098w      7 calls
+HF: Form C                          :      0.000u      0.000s      0.002w      7 calls
+MBIS                                :      0.583u      0.017s      0.366w      1 calls
+
+--------------------------------------------------------------------------------------
+V: Grid                             :      0.033u      0.000s      0.024w      1 calls
+| build grid                        :      0.033u      0.000s      0.014w      1 calls
+| post-process grid                 :      0.000u      0.000s      0.010w      1 calls
+DFH: sparsity prep                  :      0.017u      0.017s      0.019w      1 calls
+| Libint2ERI::Libint2ERI            :      0.000u      0.017s      0.018w      1 calls
+DFH: initialize()                   :      0.017u      0.000s      0.016w      1 calls
+| Libint2ERI::Libint2ERI            :      0.000u      0.000s      0.001w      2 calls
+| DFH: AO Construction              :      0.017u      0.000s      0.006w      1 calls
+| DFH: AO-Met. Contraction          :      0.000u      0.000s      0.002w      1 calls
+HF: Form core H                     :      0.000u      0.000s      0.004w      1 calls
+HF: Form S/X                        :      0.000u      0.000s      0.001w      1 calls
+HF: Guess                           :      0.017u      0.000s      0.022w      1 calls
+| SAD Guess                         :      0.017u      0.000s      0.021w      1 calls
+HF: Form G                          :      0.733u      0.033s      0.472w      8 calls
+| RV: Form V                        :      0.733u      0.033s      0.466w      8 calls
+| | Properties                      :      0.233u      0.017s      0.131w   4424 calls
+| | Functional                      :      0.333u      0.017s      0.181w   4424 calls
+| | V_xc                            :      0.167u      0.000s      0.142w   4424 calls
+| JK: D                             :      0.000u      0.000s      0.000w      8 calls
+| JK: USO2AO                        :      0.000u      0.000s      0.000w      8 calls
+| JK: JK                            :      0.000u      0.000s      0.004w      8 calls
+| | DFH: compute_JK()               :      0.000u      0.000s      0.004w      8 calls
+| | | DFH: Grabbing AOs             :      0.000u      0.000s      0.000w      8 calls
+| | | DFH: compute_J                :      0.000u      0.000s      0.001w      8 calls
+| | | DFH: compute_K                :      0.000u      0.000s      0.002w      8 calls
+| JK: AO2USO                        :      0.000u      0.000s      0.000w      8 calls
+HF: Form F                          :      0.000u      0.000s      0.000w      8 calls
+HF: Form D                          :      0.000u      0.000s      0.000w      8 calls
+HF: DIIS                            :      0.083u      0.033s      0.098w      7 calls
+HF: Form C                          :      0.000u      0.000s      0.002w      7 calls
+MBIS                                :      0.583u      0.017s      0.366w      1 calls
+| build grid                        :      0.017u      0.000s      0.008w      1 calls
+| post-process grid                 :      0.017u      0.000s      0.005w      1 calls
+
+**************************************************************************************
+
+Host: dyn-38-242.mobile.unibas.ch
+
+Timers On : Fri Dec  8 15:38:17 2023
+Timers Off: Fri Dec  8 15:38:19 2023
+
+Wall Time:        1.97 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+V: Grid                             :      0.033u      0.000s      0.023w      1 calls
+build grid                          :      0.033u      0.000s      0.021w      2 calls
+post-process grid                   :      0.017u      0.000s      0.015w      2 calls
+DFH: sparsity prep                  :      0.000u      0.017s      0.018w      1 calls
+Libint2ERI::Libint2ERI              :      0.000u      0.017s      0.018w      3 calls
+DFH: initialize()                   :      0.017u      0.000s      0.016w      1 calls
+DFH: AO Construction                :      0.000u      0.000s      0.006w      1 calls
+DFH: AO-Met. Contraction            :      0.000u      0.000s      0.002w      1 calls
+HF: Form core H                     :      0.000u      0.000s      0.004w      1 calls
+HF: Form S/X                        :      0.000u      0.000s      0.001w      1 calls
+HF: Guess                           :      0.033u      0.000s      0.022w      1 calls
+SAD Guess                           :      0.033u      0.000s      0.021w      1 calls
+HF: Form G                          :      0.783u      0.033s      0.475w      8 calls
+RV: Form V                          :      0.783u      0.033s      0.470w      8 calls
+Properties                          :      0.183u      0.017s      0.131w   4472 calls
+Functional                          :      0.267u      0.000s      0.184w   4472 calls
+V_xc                                :      0.333u      0.017s      0.142w   4472 calls
+JK: D                               :      0.000u      0.000s      0.000w      8 calls
+JK: USO2AO                          :      0.000u      0.000s      0.000w      8 calls
+JK: JK                              :      0.000u      0.000s      0.004w      8 calls
+DFH: compute_JK()                   :      0.000u      0.000s      0.004w      8 calls
+DFH: Grabbing AOs                   :      0.000u      0.000s      0.000w      8 calls
+DFH: compute_J                      :      0.000u      0.000s      0.001w      8 calls
+DFH: compute_K                      :      0.000u      0.000s      0.002w      8 calls
+JK: AO2USO                          :      0.000u      0.000s      0.000w      8 calls
+HF: Form F                          :      0.000u      0.000s      0.000w      8 calls
+HF: Form D                          :      0.000u      0.000s      0.000w      8 calls
+HF: DIIS                            :      0.067u      0.033s      0.098w      7 calls
+HF: Form C                          :      0.000u      0.000s      0.002w      7 calls
+MBIS                                :      0.583u      0.017s      0.355w      1 calls
+
+--------------------------------------------------------------------------------------
+V: Grid                             :      0.033u      0.000s      0.023w      1 calls
+| build grid                        :      0.017u      0.000s      0.013w      1 calls
+| post-process grid                 :      0.017u      0.000s      0.010w      1 calls
+DFH: sparsity prep                  :      0.000u      0.017s      0.018w      1 calls
+| Libint2ERI::Libint2ERI            :      0.000u      0.017s      0.017w      1 calls
+DFH: initialize()                   :      0.017u      0.000s      0.016w      1 calls
+| Libint2ERI::Libint2ERI            :      0.000u      0.000s      0.002w      2 calls
+| DFH: AO Construction              :      0.000u      0.000s      0.006w      1 calls
+| DFH: AO-Met. Contraction          :      0.000u      0.000s      0.002w      1 calls
+HF: Form core H                     :      0.000u      0.000s      0.004w      1 calls
+HF: Form S/X                        :      0.000u      0.000s      0.001w      1 calls
+HF: Guess                           :      0.033u      0.000s      0.022w      1 calls
+| SAD Guess                         :      0.033u      0.000s      0.021w      1 calls
+HF: Form G                          :      0.783u      0.033s      0.475w      8 calls
+| RV: Form V                        :      0.783u      0.033s      0.470w      8 calls
+| | Properties                      :      0.183u      0.017s      0.131w   4472 calls
+| | Functional                      :      0.267u      0.000s      0.184w   4472 calls
+| | V_xc                            :      0.333u      0.017s      0.142w   4472 calls
+| JK: D                             :      0.000u      0.000s      0.000w      8 calls
+| JK: USO2AO                        :      0.000u      0.000s      0.000w      8 calls
+| JK: JK                            :      0.000u      0.000s      0.004w      8 calls
+| | DFH: compute_JK()               :      0.000u      0.000s      0.004w      8 calls
+| | | DFH: Grabbing AOs             :      0.000u      0.000s      0.000w      8 calls
+| | | DFH: compute_J                :      0.000u      0.000s      0.001w      8 calls
+| | | DFH: compute_K                :      0.000u      0.000s      0.002w      8 calls
+| JK: AO2USO                        :      0.000u      0.000s      0.000w      8 calls
+HF: Form F                          :      0.000u      0.000s      0.000w      8 calls
+HF: Form D                          :      0.000u      0.000s      0.000w      8 calls
+HF: DIIS                            :      0.067u      0.033s      0.098w      7 calls
+HF: Form C                          :      0.000u      0.000s      0.002w      7 calls
+MBIS                                :      0.583u      0.017s      0.355w      1 calls
+| build grid                        :      0.017u      0.000s      0.008w      1 calls
+| post-process grid                 :      0.000u      0.000s      0.005w      1 calls
+
+**************************************************************************************
+
+Host: dyn-38-242.mobile.unibas.ch
+
+Timers On : Fri Dec  8 15:38:38 2023
+Timers Off: Fri Dec  8 15:42:51 2023
+
+Wall Time:      253.60 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+V: Grid                             :      4.417u      0.083s      2.700w      1 calls
+build grid                          :      6.900u      0.083s      4.187w      2 calls
+post-process grid                   :      0.550u      0.033s      0.363w      2 calls
+DFH: sparsity prep                  :      0.333u      0.017s      0.227w      1 calls
+Libint2ERI::Libint2ERI              :      0.633u      0.017s      0.416w      4 calls
+JK: (A|Q)^-1                        :      2.433u      0.617s      1.499w      1 calls
+JK: (A|mn)                          :      5.833u      0.150s      3.599w      4 calls
+JK: (Q|mn)                          :     17.500u      0.083s     10.584w      4 calls
+JK: (Q|mn) Write                    :      0.000u      0.633s      0.738w      4 calls
+HF: Form core H                     :      0.150u      0.017s      0.104w      1 calls
+HF: Form S/X                        :      0.233u      0.000s      0.143w      1 calls
+HF: Guess                           :      0.083u      0.017s      0.067w      1 calls
+SAD Guess                           :      0.083u      0.017s      0.065w      1 calls
+HF: Form G                          :    239.533u      5.467s    148.010w     12 calls
+RV: Form V                          :    185.783u      1.350s    112.733w     12 calls
+Properties                          :    105.367u      0.717s     63.824w  55368 calls
+Functional                          :      3.833u      0.050s      2.365w  55368 calls
+V_xc                                :     76.267u      0.483s     46.372w  55368 calls
+JK: D                               :      0.017u      0.000s      0.011w     12 calls
+JK: USO2AO                          :      0.000u      0.000s      0.001w     12 calls
+JK: JK                              :     53.733u      4.100s     35.255w     12 calls
+JK: (Q|mn) Read                     :      0.050u      3.067s      2.352w     60 calls
+JK: J                               :      2.067u      0.367s      1.411w     60 calls
+JK: J1                              :      1.083u      0.350s      0.795w     60 calls
+JK: J2                              :      0.983u      0.017s      0.591w     60 calls
+JK: K                               :     51.600u      0.367s     31.338w     60 calls
+JK: K1                              :     31.433u      0.233s     19.077w     60 calls
+JK: K2                              :     20.133u      0.133s     12.253w     60 calls
+JK: AO2USO                          :      0.000u      0.000s      0.000w     12 calls
+HF: Form F                          :      0.000u      0.000s      0.004w     12 calls
+HF: Form D                          :      0.050u      0.000s      0.011w     12 calls
+HF: DIIS                            :      0.717u      0.200s      0.674w     11 calls
+HF: Form C                          :      2.450u      0.033s      1.562w     11 calls
+MBIS                                :    122.767u      1.133s     74.685w      1 calls
+
+--------------------------------------------------------------------------------------
+V: Grid                             :      4.417u      0.083s      2.700w      1 calls
+| build grid                        :      4.083u      0.050s      2.480w      1 calls
+| post-process grid                 :      0.333u      0.033s      0.220w      1 calls
+DFH: sparsity prep                  :      0.333u      0.017s      0.227w      1 calls
+| Libint2ERI::Libint2ERI            :      0.217u      0.017s      0.154w      1 calls
+Libint2ERI::Libint2ERI              :      0.417u      0.000s      0.261w      2 calls
+JK: (A|Q)^-1                        :      2.433u      0.617s      1.499w      1 calls
+| Libint2ERI::Libint2ERI            :      0.000u      0.000s      0.000w      1 calls
+JK: (A|mn)                          :      5.833u      0.150s      3.599w      4 calls
+JK: (Q|mn)                          :     17.500u      0.083s     10.584w      4 calls
+JK: (Q|mn) Write                    :      0.000u      0.633s      0.738w      4 calls
+HF: Form core H                     :      0.150u      0.017s      0.104w      1 calls
+HF: Form S/X                        :      0.233u      0.000s      0.143w      1 calls
+HF: Guess                           :      0.083u      0.017s      0.067w      1 calls
+| SAD Guess                         :      0.083u      0.017s      0.065w      1 calls
+HF: Form G                          :    239.533u      5.467s    148.010w     12 calls
+| RV: Form V                        :    185.783u      1.350s    112.733w     12 calls
+| | Properties                      :    105.367u      0.717s     63.824w  55368 calls
+| | Functional                      :      3.833u      0.050s      2.365w  55368 calls
+| | V_xc                            :     76.267u      0.483s     46.372w  55368 calls
+| JK: D                             :      0.017u      0.000s      0.011w     12 calls
+| JK: USO2AO                        :      0.000u      0.000s      0.001w     12 calls
+| JK: JK                            :     53.733u      4.100s     35.255w     12 calls
+| | JK: (Q|mn) Read                 :      0.050u      3.067s      2.352w     60 calls
+| | JK: J                           :      2.067u      0.367s      1.411w     60 calls
+| | | JK: J1                        :      1.083u      0.350s      0.795w     60 calls
+| | | JK: J2                        :      0.983u      0.017s      0.591w     60 calls
+| | JK: K                           :     51.600u      0.367s     31.338w     60 calls
+| | | JK: K1                        :     31.433u      0.233s     19.077w     60 calls
+| | | JK: K2                        :     20.133u      0.133s     12.253w     60 calls
+| JK: AO2USO                        :      0.000u      0.000s      0.000w     12 calls
+HF: Form F                          :      0.000u      0.000s      0.004w     12 calls
+HF: Form D                          :      0.050u      0.000s      0.011w     12 calls
+HF: DIIS                            :      0.717u      0.200s      0.674w     11 calls
+HF: Form C                          :      2.450u      0.033s      1.562w     11 calls
+MBIS                                :    122.767u      1.133s     74.685w      1 calls
+| build grid                        :      2.817u      0.033s      1.708w      1 calls
+| post-process grid                 :      0.217u      0.000s      0.143w      1 calls
+
+**************************************************************************************
+
+Host: dyn-38-242.mobile.unibas.ch
+
+Timers On : Fri Dec  8 16:39:45 2023
+Timers Off: Fri Dec  8 16:39:46 2023
+
+Wall Time:        1.26 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+
+--------------------------------------------------------------------------------------
+
+**************************************************************************************
+
+Host: dyn-38-242.mobile.unibas.ch
+
+Timers On : Fri Dec  8 16:39:52 2023
+Timers Off: Fri Dec  8 16:39:52 2023
+
+Wall Time:        0.62 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+
+--------------------------------------------------------------------------------------
+
+**************************************************************************************
+
+Host: dyn-38-242.mobile.unibas.ch
+
+Timers On : Fri Dec  8 16:48:20 2023
+Timers Off: Fri Dec  8 16:48:20 2023
+
+Wall Time:        0.60 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+
+--------------------------------------------------------------------------------------
+
+**************************************************************************************
+
+Host: dyn-38-242.mobile.unibas.ch
+
+Timers On : Fri Dec  8 16:48:38 2023
+Timers Off: Fri Dec  8 16:49:13 2023
+
+Wall Time:       34.69 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+V: Grid                             :      4.417u      0.067s      2.691w      1 calls
+build grid                          :      4.083u      0.050s      2.480w      1 calls
+post-process grid                   :      0.333u      0.017s      0.211w      1 calls
+DFH: sparsity prep                  :      0.333u      0.000s      0.204w      1 calls
+Libint2ERI::Libint2ERI              :      0.650u      0.000s      0.401w      4 calls
+JK: (A|Q)^-1                        :      2.417u      1.300s      1.463w      1 calls
+JK: (A|mn)                          :      5.783u      0.117s      3.546w      4 calls
+JK: (Q|mn)                          :     17.467u      0.100s     10.567w      4 calls
+JK: (Q|mn) Write                    :      0.017u      0.383s      0.327w      4 calls
+HF: Form core H                     :      0.150u      0.000s      0.100w      1 calls
+HF: Form S/X                        :      0.233u      0.000s      0.142w      1 calls
+HF: Guess                           :      0.100u      0.017s      0.067w      1 calls
+SAD Guess                           :      0.100u      0.017s      0.065w      1 calls
+HF: Form G                          :      0.000u      0.000s      0.000w      0 calls
+RV: Form V                          :     15.817u      0.167s      9.597w      1 calls
+Properties                          :      8.900u      0.067s      5.454w   4614 calls
+Functional                          :      0.317u      0.000s      0.203w   4614 calls
+V_xc                                :      6.600u      0.067s      3.923w   4614 calls
+JK: D                               :      0.017u      0.000s      0.001w      1 calls
+JK: USO2AO                          :      0.000u      0.000s      0.000w      1 calls
+JK: JK                              :      6.283u      0.400s      4.093w      1 calls
+JK: (Q|mn) Read                     :      0.017u      0.283s      0.229w      5 calls
+JK: J                               :      0.150u      0.017s      0.114w      5 calls
+JK: J1                              :      0.033u      0.017s      0.060w      5 calls
+JK: J2                              :      0.117u      0.000s      0.051w      5 calls
+JK: K                               :      6.117u      0.100s      3.745w      5 calls
+JK: K1                              :      3.450u      0.067s      2.129w      5 calls
+JK: K2                              :      2.667u      0.033s      1.612w      5 calls
+JK: AO2USO                          :      0.000u      0.000s      0.000w      1 calls
+
+--------------------------------------------------------------------------------------
+V: Grid                             :      4.417u      0.067s      2.691w      1 calls
+| build grid                        :      4.083u      0.050s      2.480w      1 calls
+| post-process grid                 :      0.333u      0.017s      0.211w      1 calls
+DFH: sparsity prep                  :      0.333u      0.000s      0.204w      1 calls
+| Libint2ERI::Libint2ERI            :      0.217u      0.000s      0.136w      1 calls
+Libint2ERI::Libint2ERI              :      0.433u      0.000s      0.264w      2 calls
+JK: (A|Q)^-1                        :      2.417u      1.300s      1.463w      1 calls
+| Libint2ERI::Libint2ERI            :      0.000u      0.000s      0.000w      1 calls
+JK: (A|mn)                          :      5.783u      0.117s      3.546w      4 calls
+JK: (Q|mn)                          :     17.467u      0.100s     10.567w      4 calls
+JK: (Q|mn) Write                    :      0.017u      0.383s      0.327w      4 calls
+HF: Form core H                     :      0.150u      0.000s      0.100w      1 calls
+HF: Form S/X                        :      0.233u      0.000s      0.142w      1 calls
+HF: Guess                           :      0.100u      0.017s      0.067w      1 calls
+| SAD Guess                         :      0.100u      0.017s      0.065w      1 calls
+HF: Form G                          :      0.000u      0.000s      0.000w      1 calls
+| RV: Form V                        :     15.817u      0.167s      9.597w      1 calls
+| | Properties                      :      8.900u      0.067s      5.454w   4614 calls
+| | Functional                      :      0.317u      0.000s      0.203w   4614 calls
+| | V_xc                            :      6.600u      0.067s      3.923w   4614 calls
+| JK: D                             :      0.017u      0.000s      0.001w      1 calls
+| JK: USO2AO                        :      0.000u      0.000s      0.000w      1 calls
+| JK: JK                            :      6.283u      0.400s      4.093w      1 calls
+| | JK: (Q|mn) Read                 :      0.017u      0.283s      0.229w      5 calls
+| | JK: J                           :      0.150u      0.017s      0.114w      5 calls
+| | | JK: J1                        :      0.033u      0.017s      0.060w      5 calls
+| | | JK: J2                        :      0.117u      0.000s      0.051w      5 calls
+| | JK: K                           :      6.117u      0.100s      3.745w      5 calls
+| | | JK: K1                        :      3.450u      0.067s      2.129w      5 calls
+| | | JK: K2                        :      2.667u      0.033s      1.612w      5 calls
+| JK: AO2USO                        :      0.000u      0.000s      0.000w      1 calls
+
+**************************************************************************************
+
+Host: dyn-38-242.mobile.unibas.ch
+
+Timers On : Fri Dec  8 16:50:08 2023
+Timers Off: Fri Dec  8 16:53:53 2023
+
+Wall Time:      224.38 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+V: Grid                             :      4.433u      0.083s      2.743w      1 calls
+build grid                          :      6.267u      0.067s      3.838w      2 calls
+post-process grid                   :      0.567u      0.067s      0.398w      2 calls
+DFH: sparsity prep                  :      0.350u      0.017s      0.229w      1 calls
+Libint2ERI::Libint2ERI              :      0.683u      0.017s      0.427w      4 calls
+JK: (A|Q)^-1                        :      2.417u      1.383s      1.539w      1 calls
+JK: (A|mn)                          :      5.733u      0.117s      3.548w      4 calls
+JK: (Q|mn)                          :     17.350u      0.083s     10.507w      4 calls
+JK: (Q|mn) Write                    :      0.000u      0.300s      0.325w      4 calls
+HF: Form core H                     :      0.167u      0.000s      0.108w      1 calls
+HF: Form S/X                        :      0.233u      0.000s      0.145w      1 calls
+HF: Guess                           :      0.100u      0.033s      0.087w      1 calls
+SAD Guess                           :      0.100u      0.033s      0.083w      1 calls
+HF: Form G                          :    218.833u      5.000s    135.881w     12 calls
+RV: Form V                          :    169.300u      0.900s    102.691w     12 calls
+Properties                          :     97.450u      0.483s     58.199w  55368 calls
+Functional                          :      3.233u      0.017s      2.151w  55368 calls
+V_xc                                :     68.367u      0.200s     42.179w  55368 calls
+JK: D                               :      0.033u      0.000s      0.010w     12 calls
+JK: USO2AO                          :      0.000u      0.000s      0.001w     12 calls
+JK: JK                              :     49.500u      4.083s     33.169w     12 calls
+JK: (Q|mn) Read                     :      0.050u      3.500s      2.933w     60 calls
+JK: J                               :      1.817u      0.283s      1.279w     60 calls
+JK: J1                              :      0.900u      0.267s      0.718w     60 calls
+JK: J2                              :      0.833u      0.017s      0.538w     60 calls
+JK: K                               :     47.617u      0.133s     28.821w     60 calls
+JK: K1                              :     29.100u      0.117s     17.749w     60 calls
+JK: K2                              :     18.517u      0.017s     11.062w     60 calls
+JK: AO2USO                          :      0.000u      0.000s      0.000w     12 calls
+HF: Form F                          :      0.017u      0.000s      0.005w     12 calls
+HF: Form D                          :      0.033u      0.000s      0.010w     12 calls
+HF: DIIS                            :      0.633u      0.250s      0.643w     11 calls
+HF: Form C                          :      2.200u      0.017s      1.326w     11 calls
+MBIS                                :     96.417u      0.967s     59.680w      1 calls
+
+--------------------------------------------------------------------------------------
+V: Grid                             :      4.433u      0.083s      2.743w      1 calls
+| build grid                        :      4.083u      0.050s      2.505w      1 calls
+| post-process grid                 :      0.350u      0.033s      0.237w      1 calls
+DFH: sparsity prep                  :      0.350u      0.017s      0.229w      1 calls
+| Libint2ERI::Libint2ERI            :      0.233u      0.017s      0.158w      1 calls
+Libint2ERI::Libint2ERI              :      0.450u      0.000s      0.269w      2 calls
+JK: (A|Q)^-1                        :      2.417u      1.383s      1.539w      1 calls
+| Libint2ERI::Libint2ERI            :      0.000u      0.000s      0.000w      1 calls
+JK: (A|mn)                          :      5.733u      0.117s      3.548w      4 calls
+JK: (Q|mn)                          :     17.350u      0.083s     10.507w      4 calls
+JK: (Q|mn) Write                    :      0.000u      0.300s      0.325w      4 calls
+HF: Form core H                     :      0.167u      0.000s      0.108w      1 calls
+HF: Form S/X                        :      0.233u      0.000s      0.145w      1 calls
+HF: Guess                           :      0.100u      0.033s      0.087w      1 calls
+| SAD Guess                         :      0.100u      0.033s      0.083w      1 calls
+HF: Form G                          :    218.833u      5.000s    135.881w     12 calls
+| RV: Form V                        :    169.300u      0.900s    102.691w     12 calls
+| | Properties                      :     97.450u      0.483s     58.199w  55368 calls
+| | Functional                      :      3.233u      0.017s      2.151w  55368 calls
+| | V_xc                            :     68.367u      0.200s     42.179w  55368 calls
+| JK: D                             :      0.033u      0.000s      0.010w     12 calls
+| JK: USO2AO                        :      0.000u      0.000s      0.001w     12 calls
+| JK: JK                            :     49.500u      4.083s     33.169w     12 calls
+| | JK: (Q|mn) Read                 :      0.050u      3.500s      2.933w     60 calls
+| | JK: J                           :      1.817u      0.283s      1.279w     60 calls
+| | | JK: J1                        :      0.900u      0.267s      0.718w     60 calls
+| | | JK: J2                        :      0.833u      0.017s      0.538w     60 calls
+| | JK: K                           :     47.617u      0.133s     28.821w     60 calls
+| | | JK: K1                        :     29.100u      0.117s     17.749w     60 calls
+| | | JK: K2                        :     18.517u      0.017s     11.062w     60 calls
+| JK: AO2USO                        :      0.000u      0.000s      0.000w     12 calls
+HF: Form F                          :      0.017u      0.000s      0.005w     12 calls
+HF: Form D                          :      0.033u      0.000s      0.010w     12 calls
+HF: DIIS                            :      0.633u      0.250s      0.643w     11 calls
+HF: Form C                          :      2.200u      0.017s      1.326w     11 calls
+MBIS                                :     96.417u      0.967s     59.680w      1 calls
+| build grid                        :      2.183u      0.017s      1.332w      1 calls
+| post-process grid                 :      0.217u      0.033s      0.161w      1 calls
+
+**************************************************************************************
+
+Host: dyn-38-242.mobile.unibas.ch
+
+Timers On : Fri Dec  8 17:04:35 2023
+Timers Off: Fri Dec  8 17:08:07 2023
+
+Wall Time:      212.38 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+V: Grid                             :      3.417u      0.050s      2.090w      1 calls
+build grid                          :      5.333u      0.033s      3.242w      2 calls
+post-process grid                   :      0.450u      0.050s      0.287w      2 calls
+DFH: sparsity prep                  :      0.267u      0.000s      0.182w      1 calls
+Libint2ERI::Libint2ERI              :      0.583u      0.000s      0.387w      4 calls
+JK: (A|Q)^-1                        :      2.000u      1.733s      3.529w      1 calls
+JK: (A|mn)                          :      4.567u      0.133s      2.861w      4 calls
+JK: (Q|mn)                          :     13.917u      0.133s      8.615w      4 calls
+JK: (Q|mn) Write                    :      0.000u      0.450s      0.616w      4 calls
+HF: Form core H                     :      0.117u      0.017s      0.103w      1 calls
+HF: Form S/X                        :      0.183u      0.000s      0.112w      1 calls
+HF: Guess                           :      0.083u      0.033s      0.078w      1 calls
+SAD Guess                           :      0.083u      0.033s      0.074w      1 calls
+HF: Form G                          :    194.300u      6.350s    124.168w     12 calls
+RV: Form V                          :    149.483u      1.417s     92.017w     12 calls
+Properties                          :     86.567u      0.750s     52.463w  55368 calls
+Functional                          :      3.083u      0.067s      1.938w  55368 calls
+V_xc                                :     59.700u      0.433s     37.451w  55368 calls
+JK: D                               :      0.033u      0.000s      0.010w     12 calls
+JK: USO2AO                          :      0.000u      0.000s      0.002w     12 calls
+JK: JK                              :     44.767u      4.917s     32.103w     12 calls
+JK: (Q|mn) Read                     :      0.050u      3.983s      4.104w     60 calls
+JK: J                               :      1.600u      0.267s      1.157w     60 calls
+JK: J1                              :      0.767u      0.233s      0.654w     60 calls
+JK: J2                              :      0.783u      0.033s      0.479w     60 calls
+JK: K                               :     43.083u      0.467s     26.671w     60 calls
+JK: K1                              :     27.100u      0.350s     16.704w     60 calls
+JK: K2                              :     15.983u      0.117s      9.956w     60 calls
+JK: AO2USO                          :      0.000u      0.000s      0.000w     12 calls
+HF: Form F                          :      0.000u      0.000s      0.006w     12 calls
+HF: Form D                          :      0.000u      0.000s      0.009w     12 calls
+HF: DIIS                            :      0.617u      0.217s      0.991w     11 calls
+HF: Form C                          :      1.950u      0.083s      1.202w     11 calls
+MBIS                                :     95.633u      0.983s     58.385w      1 calls
+
+--------------------------------------------------------------------------------------
+V: Grid                             :      3.417u      0.050s      2.090w      1 calls
+| build grid                        :      3.150u      0.017s      1.912w      1 calls
+| post-process grid                 :      0.267u      0.033s      0.177w      1 calls
+DFH: sparsity prep                  :      0.267u      0.000s      0.182w      1 calls
+| Libint2ERI::Libint2ERI            :      0.183u      0.000s      0.123w      1 calls
+Libint2ERI::Libint2ERI              :      0.400u      0.000s      0.264w      2 calls
+JK: (A|Q)^-1                        :      2.000u      1.733s      3.529w      1 calls
+| Libint2ERI::Libint2ERI            :      0.000u      0.000s      0.000w      1 calls
+JK: (A|mn)                          :      4.567u      0.133s      2.861w      4 calls
+JK: (Q|mn)                          :     13.917u      0.133s      8.615w      4 calls
+JK: (Q|mn) Write                    :      0.000u      0.450s      0.616w      4 calls
+HF: Form core H                     :      0.117u      0.017s      0.103w      1 calls
+HF: Form S/X                        :      0.183u      0.000s      0.112w      1 calls
+HF: Guess                           :      0.083u      0.033s      0.078w      1 calls
+| SAD Guess                         :      0.083u      0.033s      0.074w      1 calls
+HF: Form G                          :    194.300u      6.350s    124.168w     12 calls
+| RV: Form V                        :    149.483u      1.417s     92.017w     12 calls
+| | Properties                      :     86.567u      0.750s     52.463w  55368 calls
+| | Functional                      :      3.083u      0.067s      1.938w  55368 calls
+| | V_xc                            :     59.700u      0.433s     37.451w  55368 calls
+| JK: D                             :      0.033u      0.000s      0.010w     12 calls
+| JK: USO2AO                        :      0.000u      0.000s      0.002w     12 calls
+| JK: JK                            :     44.767u      4.917s     32.103w     12 calls
+| | JK: (Q|mn) Read                 :      0.050u      3.983s      4.104w     60 calls
+| | JK: J                           :      1.600u      0.267s      1.157w     60 calls
+| | | JK: J1                        :      0.767u      0.233s      0.654w     60 calls
+| | | JK: J2                        :      0.783u      0.033s      0.479w     60 calls
+| | JK: K                           :     43.083u      0.467s     26.671w     60 calls
+| | | JK: K1                        :     27.100u      0.350s     16.704w     60 calls
+| | | JK: K2                        :     15.983u      0.117s      9.956w     60 calls
+| JK: AO2USO                        :      0.000u      0.000s      0.000w     12 calls
+HF: Form F                          :      0.000u      0.000s      0.006w     12 calls
+HF: Form D                          :      0.000u      0.000s      0.009w     12 calls
+HF: DIIS                            :      0.617u      0.217s      0.991w     11 calls
+HF: Form C                          :      1.950u      0.083s      1.202w     11 calls
+MBIS                                :     95.633u      0.983s     58.385w      1 calls
+| build grid                        :      2.183u      0.017s      1.330w      1 calls
+| post-process grid                 :      0.183u      0.017s      0.110w      1 calls
+
+**************************************************************************************
+
+Host: dyn-38-242.mobile.unibas.ch
+
+Timers On : Fri Dec  8 17:10:41 2023
+Timers Off: Fri Dec  8 17:14:05 2023
+
+Wall Time:      203.22 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+V: Grid                             :      3.433u      0.100s      2.141w      1 calls
+build grid                          :      5.367u      0.100s      3.311w      2 calls
+post-process grid                   :      0.467u      0.050s      0.339w      2 calls
+DFH: sparsity prep                  :      0.250u      0.017s      0.335w      1 calls
+Libint2ERI::Libint2ERI              :      0.500u      0.017s      0.482w      4 calls
+JK: (A|Q)^-1                        :      2.150u      1.000s      1.517w      1 calls
+JK: (A|mn)                          :      4.600u      0.133s      2.910w      4 calls
+JK: (Q|mn)                          :     13.850u      0.167s      8.521w      4 calls
+JK: (Q|mn) Write                    :      0.000u      0.400s      0.776w      4 calls
+HF: Form core H                     :      0.133u      0.000s      0.086w      1 calls
+HF: Form S/X                        :      0.167u      0.017s      0.112w      1 calls
+HF: Guess                           :      0.067u      0.017s      0.057w      1 calls
+SAD Guess                           :      0.067u      0.017s      0.055w      1 calls
+HF: Form G                          :    190.033u      4.767s    117.973w     12 calls
+RV: Form V                          :    146.167u      1.033s     88.860w     12 calls
+Properties                          :     83.900u      0.450s     50.531w  55380 calls
+Functional                          :      2.817u      0.033s      1.865w  55380 calls
+V_xc                                :     59.300u      0.333s     36.322w  55380 calls
+JK: D                               :      0.033u      0.000s      0.009w     12 calls
+JK: USO2AO                          :      0.000u      0.000s      0.001w     12 calls
+JK: JK                              :     43.833u      3.733s     29.094w     12 calls
+JK: (Q|mn) Read                     :      0.050u      3.017s      2.296w     60 calls
+JK: J                               :      1.600u      0.233s      1.090w     60 calls
+JK: J1                              :      0.833u      0.200s      0.611w     60 calls
+JK: J2                              :      0.683u      0.000s      0.458w     60 calls
+JK: K                               :     42.183u      0.250s     25.559w     60 calls
+JK: K1                              :     26.467u      0.150s     16.061w     60 calls
+JK: K2                              :     15.717u      0.100s      9.491w     60 calls
+JK: AO2USO                          :      0.000u      0.000s      0.000w     12 calls
+HF: Form F                          :      0.000u      0.000s      0.004w     12 calls
+HF: Form D                          :      0.033u      0.000s      0.008w     12 calls
+HF: DIIS                            :      0.550u      0.217s      0.649w     11 calls
+HF: Form C                          :      1.917u      0.033s      1.156w     11 calls
+MBIS                                :     96.700u      1.683s     59.961w      1 calls
+
+--------------------------------------------------------------------------------------
+V: Grid                             :      3.433u      0.100s      2.141w      1 calls
+| build grid                        :      3.167u      0.067s      1.958w      1 calls
+| post-process grid                 :      0.267u      0.033s      0.182w      1 calls
+DFH: sparsity prep                  :      0.250u      0.017s      0.335w      1 calls
+| Libint2ERI::Libint2ERI            :      0.167u      0.017s      0.278w      1 calls
+Libint2ERI::Libint2ERI              :      0.333u      0.000s      0.204w      2 calls
+JK: (A|Q)^-1                        :      2.150u      1.000s      1.517w      1 calls
+| Libint2ERI::Libint2ERI            :      0.000u      0.000s      0.000w      1 calls
+JK: (A|mn)                          :      4.600u      0.133s      2.910w      4 calls
+JK: (Q|mn)                          :     13.850u      0.167s      8.521w      4 calls
+JK: (Q|mn) Write                    :      0.000u      0.400s      0.776w      4 calls
+HF: Form core H                     :      0.133u      0.000s      0.086w      1 calls
+HF: Form S/X                        :      0.167u      0.017s      0.112w      1 calls
+HF: Guess                           :      0.067u      0.017s      0.057w      1 calls
+| SAD Guess                         :      0.067u      0.017s      0.055w      1 calls
+HF: Form G                          :    190.033u      4.767s    117.973w     12 calls
+| RV: Form V                        :    146.167u      1.033s     88.860w     12 calls
+| | Properties                      :     83.900u      0.450s     50.531w  55380 calls
+| | Functional                      :      2.817u      0.033s      1.865w  55380 calls
+| | V_xc                            :     59.300u      0.333s     36.322w  55380 calls
+| JK: D                             :      0.033u      0.000s      0.009w     12 calls
+| JK: USO2AO                        :      0.000u      0.000s      0.001w     12 calls
+| JK: JK                            :     43.833u      3.733s     29.094w     12 calls
+| | JK: (Q|mn) Read                 :      0.050u      3.017s      2.296w     60 calls
+| | JK: J                           :      1.600u      0.233s      1.090w     60 calls
+| | | JK: J1                        :      0.833u      0.200s      0.611w     60 calls
+| | | JK: J2                        :      0.683u      0.000s      0.458w     60 calls
+| | JK: K                           :     42.183u      0.250s     25.559w     60 calls
+| | | JK: K1                        :     26.467u      0.150s     16.061w     60 calls
+| | | JK: K2                        :     15.717u      0.100s      9.491w     60 calls
+| JK: AO2USO                        :      0.000u      0.000s      0.000w     12 calls
+HF: Form F                          :      0.000u      0.000s      0.004w     12 calls
+HF: Form D                          :      0.033u      0.000s      0.008w     12 calls
+HF: DIIS                            :      0.550u      0.217s      0.649w     11 calls
+HF: Form C                          :      1.917u      0.033s      1.156w     11 calls
+MBIS                                :     96.700u      1.683s     59.961w      1 calls
+| build grid                        :      2.200u      0.033s      1.353w      1 calls
+| post-process grid                 :      0.200u      0.017s      0.157w      1 calls
+
+**************************************************************************************
+
+Host: dyn-38-242.mobile.unibas.ch
+
+Timers On : Fri Dec  8 17:22:30 2023
+Timers Off: Fri Dec  8 17:22:30 2023
+
+Wall Time:        0.66 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+
+--------------------------------------------------------------------------------------
+
+**************************************************************************************
+
+Host: dyn-38-242.mobile.unibas.ch
+
+Timers On : Fri Dec  8 17:24:00 2023
+Timers Off: Fri Dec  8 17:26:17 2023
+
+Wall Time:      136.71 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+V: Grid                             :      2.217u      0.067s      1.371w      1 calls
+build grid                          :      3.383u      0.067s      2.072w      2 calls
+post-process grid                   :      0.350u      0.017s      0.227w      2 calls
+DFH: sparsity prep                  :      0.217u      0.017s      0.156w      1 calls
+Libint2ERI::Libint2ERI              :      0.433u      0.017s      0.281w      4 calls
+JK: (A|Q)^-1                        :      1.367u      0.667s      0.830w      1 calls
+JK: (A|mn)                          :      3.250u      0.117s      2.059w      3 calls
+JK: (Q|mn)                          :      8.917u      0.100s      5.423w      3 calls
+JK: (Q|mn) Write                    :      0.000u      0.417s      0.334w      3 calls
+HF: Form core H                     :      0.083u      0.000s      0.063w      1 calls
+HF: Form S/X                        :      0.133u      0.000s      0.084w      1 calls
+HF: Guess                           :      0.067u      0.017s      0.054w      1 calls
+SAD Guess                           :      0.067u      0.017s      0.052w      1 calls
+HF: Form G                          :    124.367u      3.367s     77.536w     11 calls
+RV: Form V                          :     96.850u      0.767s     59.080w     11 calls
+Properties                          :     56.500u      0.417s     33.866w  43010 calls
+Functional                          :      2.033u      0.017s      1.461w  43010 calls
+V_xc                                :     38.200u      0.217s     23.641w  43010 calls
+JK: D                               :      0.000u      0.000s      0.006w     11 calls
+JK: USO2AO                          :      0.000u      0.000s      0.001w     11 calls
+JK: JK                              :     27.517u      2.600s     18.444w     11 calls
+JK: (Q|mn) Read                     :      0.000u      2.033s      1.453w     44 calls
+JK: J                               :      1.133u      0.183s      0.796w     44 calls
+JK: J1                              :      0.567u      0.183s      0.473w     44 calls
+JK: J2                              :      0.550u      0.000s      0.309w     44 calls
+JK: K                               :     26.350u      0.167s     16.067w     44 calls
+JK: K1                              :     17.217u      0.133s     10.518w     44 calls
+JK: K2                              :      9.133u      0.033s      5.544w     44 calls
+JK: AO2USO                          :      0.000u      0.000s      0.000w     11 calls
+HF: Form F                          :      0.000u      0.000s      0.002w     11 calls
+HF: Form D                          :      0.017u      0.000s      0.005w     11 calls
+HF: DIIS                            :      0.400u      0.150s      0.371w     10 calls
+HF: Form C                          :      1.283u      0.000s      0.814w     10 calls
+MBIS                                :     67.250u      0.917s     41.875w      1 calls
+
+--------------------------------------------------------------------------------------
+V: Grid                             :      2.217u      0.067s      1.371w      1 calls
+| build grid                        :      2.000u      0.050s      1.233w      1 calls
+| post-process grid                 :      0.217u      0.017s      0.138w      1 calls
+DFH: sparsity prep                  :      0.217u      0.017s      0.156w      1 calls
+| Libint2ERI::Libint2ERI            :      0.150u      0.017s      0.108w      1 calls
+Libint2ERI::Libint2ERI              :      0.283u      0.000s      0.173w      2 calls
+JK: (A|Q)^-1                        :      1.367u      0.667s      0.830w      1 calls
+| Libint2ERI::Libint2ERI            :      0.000u      0.000s      0.000w      1 calls
+JK: (A|mn)                          :      3.250u      0.117s      2.059w      3 calls
+JK: (Q|mn)                          :      8.917u      0.100s      5.423w      3 calls
+JK: (Q|mn) Write                    :      0.000u      0.417s      0.334w      3 calls
+HF: Form core H                     :      0.083u      0.000s      0.063w      1 calls
+HF: Form S/X                        :      0.133u      0.000s      0.084w      1 calls
+HF: Guess                           :      0.067u      0.017s      0.054w      1 calls
+| SAD Guess                         :      0.067u      0.017s      0.052w      1 calls
+HF: Form G                          :    124.367u      3.367s     77.536w     11 calls
+| RV: Form V                        :     96.850u      0.767s     59.080w     11 calls
+| | Properties                      :     56.500u      0.417s     33.866w  43010 calls
+| | Functional                      :      2.033u      0.017s      1.461w  43010 calls
+| | V_xc                            :     38.200u      0.217s     23.641w  43010 calls
+| JK: D                             :      0.000u      0.000s      0.006w     11 calls
+| JK: USO2AO                        :      0.000u      0.000s      0.001w     11 calls
+| JK: JK                            :     27.517u      2.600s     18.444w     11 calls
+| | JK: (Q|mn) Read                 :      0.000u      2.033s      1.453w     44 calls
+| | JK: J                           :      1.133u      0.183s      0.796w     44 calls
+| | | JK: J1                        :      0.567u      0.183s      0.473w     44 calls
+| | | JK: J2                        :      0.550u      0.000s      0.309w     44 calls
+| | JK: K                           :     26.350u      0.167s     16.067w     44 calls
+| | | JK: K1                        :     17.217u      0.133s     10.518w     44 calls
+| | | JK: K2                        :      9.133u      0.033s      5.544w     44 calls
+| JK: AO2USO                        :      0.000u      0.000s      0.000w     11 calls
+HF: Form F                          :      0.000u      0.000s      0.002w     11 calls
+HF: Form D                          :      0.017u      0.000s      0.005w     11 calls
+HF: DIIS                            :      0.400u      0.150s      0.371w     10 calls
+HF: Form C                          :      1.283u      0.000s      0.814w     10 calls
+MBIS                                :     67.250u      0.917s     41.875w      1 calls
+| build grid                        :      1.383u      0.017s      0.838w      1 calls
+| post-process grid                 :      0.133u      0.000s      0.089w      1 calls
+
+**************************************************************************************
+
+Host: dyn-38-242.mobile.unibas.ch
+
+Timers On : Fri Dec  8 17:48:22 2023
+Timers Off: Fri Dec  8 17:48:24 2023
+
+Wall Time:        1.63 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+
+--------------------------------------------------------------------------------------
+
+**************************************************************************************
+
+Host: dyn-38-242.mobile.unibas.ch
+
+Timers On : Fri Dec  8 17:49:13 2023
+Timers Off: Fri Dec  8 17:49:14 2023
+
+Wall Time:        0.78 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+
+--------------------------------------------------------------------------------------
+
+**************************************************************************************
+
+Host: dyn-38-242.mobile.unibas.ch
+
+Timers On : Fri Dec  8 17:49:38 2023
+Timers Off: Fri Dec  8 17:49:38 2023
+
+Wall Time:        0.66 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+
+--------------------------------------------------------------------------------------
+
+**************************************************************************************
+
+Host: dyn-38-242.mobile.unibas.ch
+
+Timers On : Fri Dec  8 17:52:15 2023
+Timers Off: Fri Dec  8 17:52:27 2023
+
+Wall Time:       11.99 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+V: Grid                             :      2.183u      0.050s      1.336w      1 calls
+build grid                          :      1.967u      0.033s      1.198w      1 calls
+post-process grid                   :      0.217u      0.017s      0.137w      1 calls
+DFH: sparsity prep                  :      0.217u      0.017s      0.148w      1 calls
+Libint2ERI::Libint2ERI              :      0.417u      0.000s      0.269w      4 calls
+JK: (A|Q)^-1                        :      1.350u      0.767s      1.372w      1 calls
+JK: (A|mn)                          :      3.200u      0.083s      1.995w      3 calls
+JK: (Q|mn)                          :      8.867u      0.067s      5.382w      3 calls
+JK: (Q|mn) Write                    :      0.000u      0.233s      0.209w      3 calls
+
+--------------------------------------------------------------------------------------
+V: Grid                             :      2.183u      0.050s      1.336w      1 calls
+| build grid                        :      1.967u      0.033s      1.198w      1 calls
+| post-process grid                 :      0.217u      0.017s      0.137w      1 calls
+DFH: sparsity prep                  :      0.217u      0.017s      0.148w      1 calls
+| Libint2ERI::Libint2ERI            :      0.150u      0.000s      0.104w      1 calls
+Libint2ERI::Libint2ERI              :      0.267u      0.000s      0.164w      2 calls
+JK: (A|Q)^-1                        :      1.350u      0.767s      1.372w      1 calls
+| Libint2ERI::Libint2ERI            :      0.000u      0.000s      0.000w      1 calls
+JK: (A|mn)                          :      3.200u      0.083s      1.995w      3 calls
+JK: (Q|mn)                          :      8.867u      0.067s      5.382w      3 calls
+JK: (Q|mn) Write                    :      0.000u      0.233s      0.209w      3 calls
+
+**************************************************************************************
+
+Host: dyn-38-242.mobile.unibas.ch
+
+Timers On : Fri Dec  8 17:52:30 2023
+Timers Off: Fri Dec  8 17:52:31 2023
+
+Wall Time:        0.49 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+
+--------------------------------------------------------------------------------------
+
+**************************************************************************************
+
+Host: dyn-38-242.mobile.unibas.ch
+
+Timers On : Fri Dec  8 17:53:29 2023
+Timers Off: Fri Dec  8 17:53:30 2023
+
+Wall Time:        0.74 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+
+--------------------------------------------------------------------------------------
+
+**************************************************************************************
+
+Host: dyn-38-242.mobile.unibas.ch
+
+Timers On : Fri Dec  8 17:53:44 2023
+Timers Off: Fri Dec  8 17:53:45 2023
+
+Wall Time:        0.70 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+
+--------------------------------------------------------------------------------------
+
+**************************************************************************************
+
+Host: dyn-38-242.mobile.unibas.ch
+
+Timers On : Fri Dec  8 17:55:54 2023
+Timers Off: Fri Dec  8 17:55:55 2023
+
+Wall Time:        0.67 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+
+--------------------------------------------------------------------------------------
+
+**************************************************************************************
+
+Host: dyn-38-242.mobile.unibas.ch
+
+Timers On : Fri Dec  8 17:56:11 2023
+Timers Off: Fri Dec  8 17:56:12 2023
+
+Wall Time:        0.69 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+
+--------------------------------------------------------------------------------------
+
+**************************************************************************************
+
+Host: dyn-38-242.mobile.unibas.ch
+
+Timers On : Fri Dec  8 17:56:51 2023
+Timers Off: Fri Dec  8 17:56:51 2023
+
+Wall Time:        0.74 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+
+--------------------------------------------------------------------------------------
+
+**************************************************************************************
+
+Host: dyn-38-242.mobile.unibas.ch
+
+Timers On : Fri Dec  8 17:57:13 2023
+Timers Off: Fri Dec  8 17:57:14 2023
+
+Wall Time:        0.65 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+
+--------------------------------------------------------------------------------------
+
+**************************************************************************************
+
+Host: dyn-38-242.mobile.unibas.ch
+
+Timers On : Fri Dec  8 17:57:23 2023
+Timers Off: Fri Dec  8 17:57:24 2023
+
+Wall Time:        0.69 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+
+--------------------------------------------------------------------------------------
+
+**************************************************************************************
+
+Host: dyn-38-242.mobile.unibas.ch
+
+Timers On : Fri Dec  8 17:57:46 2023
+Timers Off: Fri Dec  8 17:57:47 2023
+
+Wall Time:        0.71 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+
+--------------------------------------------------------------------------------------
+
+**************************************************************************************
+
+Host: dyn-38-242.mobile.unibas.ch
+
+Timers On : Fri Dec  8 17:57:59 2023
+Timers Off: Fri Dec  8 17:57:59 2023
+
+Wall Time:        0.67 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+
+--------------------------------------------------------------------------------------
+
+**************************************************************************************
+
+Host: dyn-38-242.mobile.unibas.ch
+
+Timers On : Fri Dec  8 17:58:42 2023
+Timers Off: Fri Dec  8 17:58:42 2023
+
+Wall Time:        0.70 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+
+--------------------------------------------------------------------------------------
+
+**************************************************************************************
+
+Host: dyn-38-242.mobile.unibas.ch
+
+Timers On : Fri Dec  8 17:59:03 2023
+Timers Off: Fri Dec  8 17:59:04 2023
+
+Wall Time:        0.66 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+
+--------------------------------------------------------------------------------------
+
+**************************************************************************************
+
+Host: dyn-38-242.mobile.unibas.ch
+
+Timers On : Fri Dec  8 18:01:08 2023
+Timers Off: Fri Dec  8 18:01:09 2023
+
+Wall Time:        0.73 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+
+--------------------------------------------------------------------------------------
+
+**************************************************************************************
+
+Host: dyn-38-242.mobile.unibas.ch
+
+Timers On : Fri Dec  8 18:02:17 2023
+Timers Off: Fri Dec  8 18:02:18 2023
+
+Wall Time:        0.70 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+
+--------------------------------------------------------------------------------------
+
+**************************************************************************************
+
+Host: dyn-38-242.mobile.unibas.ch
+
+Timers On : Fri Dec  8 18:12:08 2023
+Timers Off: Fri Dec  8 18:14:26 2023
+
+Wall Time:      138.75 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+V: Grid                             :      2.233u      0.050s      1.383w      1 calls
+build grid                          :      3.400u      0.050s      2.088w      2 calls
+post-process grid                   :      0.367u      0.050s      0.231w      2 calls
+DFH: sparsity prep                  :      0.233u      0.017s      0.153w      1 calls
+Libint2ERI::Libint2ERI              :      0.417u      0.033s      0.280w      4 calls
+JK: (A|Q)^-1                        :      1.317u      0.350s      0.810w      1 calls
+JK: (A|mn)                          :      3.233u      0.100s      2.008w      3 calls
+JK: (Q|mn)                          :      8.900u      0.083s      5.400w      3 calls
+JK: (Q|mn) Write                    :      0.000u      0.183s      0.178w      3 calls
+HF: Form core H                     :      0.100u      0.000s      0.063w      1 calls
+HF: Form S/X                        :      0.133u      0.000s      0.084w      1 calls
+HF: Guess                           :      0.067u      0.017s      0.055w      1 calls
+SAD Guess                           :      0.067u      0.017s      0.054w      1 calls
+HF: Form G                          :    125.767u      4.117s     79.873w     11 calls
+RV: Form V                          :     97.467u      1.017s     59.870w     11 calls
+Properties                          :     55.617u      0.533s     34.364w  43010 calls
+Functional                          :      2.150u      0.050s      1.481w  43010 calls
+V_xc                                :     39.533u      0.300s     23.902w  43010 calls
+JK: D                               :      0.000u      0.000s      0.006w     11 calls
+JK: USO2AO                          :      0.000u      0.000s      0.001w     11 calls
+JK: JK                              :     28.300u      3.100s     19.985w     11 calls
+JK: (Q|mn) Read                     :      0.050u      2.250s      1.868w     44 calls
+JK: J                               :      1.200u      0.167s      0.826w     44 calls
+JK: J1                              :      0.650u      0.167s      0.496w     44 calls
+JK: J2                              :      0.517u      0.000s      0.314w     44 calls
+JK: K                               :     27.050u      0.483s     17.160w     44 calls
+JK: K1                              :     17.817u      0.400s     11.339w     44 calls
+JK: K2                              :      9.233u      0.067s      5.815w     44 calls
+JK: AO2USO                          :      0.000u      0.000s      0.000w     11 calls
+HF: Form F                          :      0.000u      0.000s      0.005w     11 calls
+HF: Form D                          :      0.000u      0.000s      0.006w     11 calls
+HF: DIIS                            :      0.400u      0.150s      0.792w     10 calls
+HF: Form C                          :      1.300u      0.033s      0.809w     10 calls
+MBIS                                :     67.483u      0.900s     42.444w      1 calls
+
+--------------------------------------------------------------------------------------
+V: Grid                             :      2.233u      0.050s      1.383w      1 calls
+| build grid                        :      2.017u      0.017s      1.239w      1 calls
+| post-process grid                 :      0.217u      0.033s      0.143w      1 calls
+DFH: sparsity prep                  :      0.233u      0.017s      0.153w      1 calls
+| Libint2ERI::Libint2ERI            :      0.133u      0.017s      0.107w      1 calls
+Libint2ERI::Libint2ERI              :      0.283u      0.000s      0.172w      2 calls
+JK: (A|Q)^-1                        :      1.317u      0.350s      0.810w      1 calls
+| Libint2ERI::Libint2ERI            :      0.000u      0.017s      0.000w      1 calls
+JK: (A|mn)                          :      3.233u      0.100s      2.008w      3 calls
+JK: (Q|mn)                          :      8.900u      0.083s      5.400w      3 calls
+JK: (Q|mn) Write                    :      0.000u      0.183s      0.178w      3 calls
+HF: Form core H                     :      0.100u      0.000s      0.063w      1 calls
+HF: Form S/X                        :      0.133u      0.000s      0.084w      1 calls
+HF: Guess                           :      0.067u      0.017s      0.055w      1 calls
+| SAD Guess                         :      0.067u      0.017s      0.054w      1 calls
+HF: Form G                          :    125.767u      4.117s     79.873w     11 calls
+| RV: Form V                        :     97.467u      1.017s     59.870w     11 calls
+| | Properties                      :     55.617u      0.533s     34.364w  43010 calls
+| | Functional                      :      2.150u      0.050s      1.481w  43010 calls
+| | V_xc                            :     39.533u      0.300s     23.902w  43010 calls
+| JK: D                             :      0.000u      0.000s      0.006w     11 calls
+| JK: USO2AO                        :      0.000u      0.000s      0.001w     11 calls
+| JK: JK                            :     28.300u      3.100s     19.985w     11 calls
+| | JK: (Q|mn) Read                 :      0.050u      2.250s      1.868w     44 calls
+| | JK: J                           :      1.200u      0.167s      0.826w     44 calls
+| | | JK: J1                        :      0.650u      0.167s      0.496w     44 calls
+| | | JK: J2                        :      0.517u      0.000s      0.314w     44 calls
+| | JK: K                           :     27.050u      0.483s     17.160w     44 calls
+| | | JK: K1                        :     17.817u      0.400s     11.339w     44 calls
+| | | JK: K2                        :      9.233u      0.067s      5.815w     44 calls
+| JK: AO2USO                        :      0.000u      0.000s      0.000w     11 calls
+HF: Form F                          :      0.000u      0.000s      0.005w     11 calls
+HF: Form D                          :      0.000u      0.000s      0.006w     11 calls
+HF: DIIS                            :      0.400u      0.150s      0.792w     10 calls
+HF: Form C                          :      1.300u      0.033s      0.809w     10 calls
+MBIS                                :     67.483u      0.900s     42.444w      1 calls
+| build grid                        :      1.383u      0.033s      0.849w      1 calls
+| post-process grid                 :      0.150u      0.017s      0.087w      1 calls
+
+**************************************************************************************
+
+Host: dyn-38-242.mobile.unibas.ch
+
+Timers On : Fri Dec  8 18:17:20 2023
+Timers Off: Fri Dec  8 18:19:47 2023
+
+Wall Time:      147.01 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+V: Grid                             :      2.633u      0.067s      2.073w      1 calls
+build grid                          :      3.767u      0.050s      2.648w      2 calls
+post-process grid                   :      0.383u      0.033s      0.357w      2 calls
+DFH: sparsity prep                  :      0.283u      0.017s      0.306w      1 calls
+Libint2ERI::Libint2ERI              :      0.517u      0.033s      0.585w      4 calls
+JK: (A|Q)^-1                        :      1.750u      0.367s      1.511w      1 calls
+JK: (A|mn)                          :      3.767u      0.117s      2.822w      3 calls
+JK: (Q|mn)                          :     10.383u      0.100s      8.120w      3 calls
+JK: (Q|mn) Write                    :      0.000u      0.400s      0.955w      3 calls
+HF: Form core H                     :      0.100u      0.000s      0.069w      1 calls
+HF: Form S/X                        :      0.150u      0.000s      0.094w      1 calls
+HF: Guess                           :      0.067u      0.017s      0.061w      1 calls
+SAD Guess                           :      0.067u      0.017s      0.059w      1 calls
+HF: Form G                          :    125.000u      4.150s     80.875w     11 calls
+RV: Form V                          :     97.333u      1.000s     60.938w     11 calls
+Properties                          :     54.950u      0.417s     34.973w  43010 calls
+Functional                          :      2.467u      0.033s      1.497w  43010 calls
+V_xc                                :     39.750u      0.283s     24.352w  43010 calls
+JK: D                               :      0.000u      0.017s      0.007w     11 calls
+JK: USO2AO                          :      0.000u      0.000s      0.001w     11 calls
+JK: JK                              :     27.667u      3.117s     19.918w     11 calls
+JK: (Q|mn) Read                     :      0.033u      2.333s      2.185w     44 calls
+JK: J                               :      1.150u      0.250s      0.896w     44 calls
+JK: J1                              :      0.617u      0.250s      0.555w     44 calls
+JK: J2                              :      0.533u      0.000s      0.325w     44 calls
+JK: K                               :     26.433u      0.350s     16.694w     44 calls
+JK: K1                              :     17.317u      0.267s     10.904w     44 calls
+JK: K2                              :      9.117u      0.083s      5.782w     44 calls
+JK: AO2USO                          :      0.000u      0.000s      0.000w     11 calls
+HF: Form F                          :      0.000u      0.017s      0.006w     11 calls
+HF: Form D                          :      0.033u      0.000s      0.006w     11 calls
+HF: DIIS                            :      0.400u      0.183s      0.660w     10 calls
+HF: Form C                          :      1.267u      0.017s      0.813w     10 calls
+MBIS                                :     66.650u      0.883s     40.845w      1 calls
+
+--------------------------------------------------------------------------------------
+V: Grid                             :      2.633u      0.067s      2.073w      1 calls
+| build grid                        :      2.383u      0.033s      1.804w      1 calls
+| post-process grid                 :      0.250u      0.033s      0.269w      1 calls
+DFH: sparsity prep                  :      0.283u      0.017s      0.306w      1 calls
+| Libint2ERI::Libint2ERI            :      0.183u      0.017s      0.209w      1 calls
+Libint2ERI::Libint2ERI              :      0.333u      0.017s      0.376w      2 calls
+JK: (A|Q)^-1                        :      1.750u      0.367s      1.511w      1 calls
+| Libint2ERI::Libint2ERI            :      0.000u      0.000s      0.000w      1 calls
+JK: (A|mn)                          :      3.767u      0.117s      2.822w      3 calls
+JK: (Q|mn)                          :     10.383u      0.100s      8.120w      3 calls
+JK: (Q|mn) Write                    :      0.000u      0.400s      0.955w      3 calls
+HF: Form core H                     :      0.100u      0.000s      0.069w      1 calls
+HF: Form S/X                        :      0.150u      0.000s      0.094w      1 calls
+HF: Guess                           :      0.067u      0.017s      0.061w      1 calls
+| SAD Guess                         :      0.067u      0.017s      0.059w      1 calls
+HF: Form G                          :    125.000u      4.150s     80.875w     11 calls
+| RV: Form V                        :     97.333u      1.000s     60.938w     11 calls
+| | Properties                      :     54.950u      0.417s     34.973w  43010 calls
+| | Functional                      :      2.467u      0.033s      1.497w  43010 calls
+| | V_xc                            :     39.750u      0.283s     24.352w  43010 calls
+| JK: D                             :      0.000u      0.017s      0.007w     11 calls
+| JK: USO2AO                        :      0.000u      0.000s      0.001w     11 calls
+| JK: JK                            :     27.667u      3.117s     19.918w     11 calls
+| | JK: (Q|mn) Read                 :      0.033u      2.333s      2.185w     44 calls
+| | JK: J                           :      1.150u      0.250s      0.896w     44 calls
+| | | JK: J1                        :      0.617u      0.250s      0.555w     44 calls
+| | | JK: J2                        :      0.533u      0.000s      0.325w     44 calls
+| | JK: K                           :     26.433u      0.350s     16.694w     44 calls
+| | | JK: K1                        :     17.317u      0.267s     10.904w     44 calls
+| | | JK: K2                        :      9.117u      0.083s      5.782w     44 calls
+| JK: AO2USO                        :      0.000u      0.000s      0.000w     11 calls
+HF: Form F                          :      0.000u      0.017s      0.006w     11 calls
+HF: Form D                          :      0.033u      0.000s      0.006w     11 calls
+HF: DIIS                            :      0.400u      0.183s      0.660w     10 calls
+HF: Form C                          :      1.267u      0.017s      0.813w     10 calls
+MBIS                                :     66.650u      0.883s     40.845w      1 calls
+| build grid                        :      1.383u      0.017s      0.844w      1 calls
+| post-process grid                 :      0.133u      0.000s      0.088w      1 calls
+
+**************************************************************************************
+
+Host: dyn-38-242.mobile.unibas.ch
+
+Timers On : Fri Dec  8 18:23:50 2023
+Timers Off: Fri Dec  8 18:26:04 2023
+
+Wall Time:      133.63 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+V: Grid                             :      2.183u      0.050s      1.340w      1 calls
+build grid                          :      3.350u      0.050s      2.045w      2 calls
+post-process grid                   :      0.350u      0.033s      0.221w      2 calls
+DFH: sparsity prep                  :      0.217u      0.000s      0.152w      1 calls
+Libint2ERI::Libint2ERI              :      0.450u      0.017s      0.279w      4 calls
+JK: (A|Q)^-1                        :      1.333u      0.350s      0.833w      1 calls
+JK: (A|mn)                          :      3.233u      0.117s      2.043w      3 calls
+JK: (Q|mn)                          :      8.867u      0.067s      5.373w      3 calls
+JK: (Q|mn) Write                    :      0.017u      0.267s      0.316w      3 calls
+HF: Form core H                     :      0.083u      0.000s      0.057w      1 calls
+HF: Form S/X                        :      0.133u      0.000s      0.084w      1 calls
+HF: Guess                           :      0.067u      0.017s      0.050w      1 calls
+SAD Guess                           :      0.067u      0.017s      0.048w      1 calls
+HF: Form G                          :    123.517u      3.133s     76.769w     11 calls
+RV: Form V                          :     96.033u      0.617s     58.476w     11 calls
+Properties                          :     55.117u      0.250s     33.404w  43010 calls
+Functional                          :      2.017u      0.033s      1.425w  43010 calls
+V_xc                                :     38.800u      0.150s     23.542w  43010 calls
+JK: D                               :      0.000u      0.000s      0.006w     11 calls
+JK: USO2AO                          :      0.000u      0.000s      0.001w     11 calls
+JK: JK                              :     27.483u      2.517s     18.279w     11 calls
+JK: (Q|mn) Read                     :      0.067u      1.883s      1.287w     44 calls
+JK: J                               :      1.083u      0.200s      0.787w     44 calls
+JK: J1                              :      0.533u      0.167s      0.453w     44 calls
+JK: J2                              :      0.533u      0.033s      0.320w     44 calls
+JK: K                               :     26.300u      0.150s     16.085w     44 calls
+JK: K1                              :     17.217u      0.117s     10.551w     44 calls
+JK: K2                              :      9.067u      0.033s      5.531w     44 calls
+JK: AO2USO                          :      0.000u      0.000s      0.000w     11 calls
+HF: Form F                          :      0.000u      0.000s      0.002w     11 calls
+HF: Form D                          :      0.000u      0.000s      0.005w     11 calls
+HF: DIIS                            :      0.367u      0.067s      0.335w     10 calls
+HF: Form C                          :      1.250u      0.017s      0.790w     10 calls
+MBIS                                :     66.800u      0.700s     40.907w      1 calls
+
+--------------------------------------------------------------------------------------
+V: Grid                             :      2.183u      0.050s      1.340w      1 calls
+| build grid                        :      1.983u      0.033s      1.206w      1 calls
+| post-process grid                 :      0.200u      0.017s      0.134w      1 calls
+DFH: sparsity prep                  :      0.217u      0.000s      0.152w      1 calls
+| Libint2ERI::Libint2ERI            :      0.150u      0.000s      0.107w      1 calls
+Libint2ERI::Libint2ERI              :      0.300u      0.017s      0.173w      2 calls
+JK: (A|Q)^-1                        :      1.333u      0.350s      0.833w      1 calls
+| Libint2ERI::Libint2ERI            :      0.000u      0.000s      0.000w      1 calls
+JK: (A|mn)                          :      3.233u      0.117s      2.043w      3 calls
+JK: (Q|mn)                          :      8.867u      0.067s      5.373w      3 calls
+JK: (Q|mn) Write                    :      0.017u      0.267s      0.316w      3 calls
+HF: Form core H                     :      0.083u      0.000s      0.057w      1 calls
+HF: Form S/X                        :      0.133u      0.000s      0.084w      1 calls
+HF: Guess                           :      0.067u      0.017s      0.050w      1 calls
+| SAD Guess                         :      0.067u      0.017s      0.048w      1 calls
+HF: Form G                          :    123.517u      3.133s     76.769w     11 calls
+| RV: Form V                        :     96.033u      0.617s     58.476w     11 calls
+| | Properties                      :     55.117u      0.250s     33.404w  43010 calls
+| | Functional                      :      2.017u      0.033s      1.425w  43010 calls
+| | V_xc                            :     38.800u      0.150s     23.542w  43010 calls
+| JK: D                             :      0.000u      0.000s      0.006w     11 calls
+| JK: USO2AO                        :      0.000u      0.000s      0.001w     11 calls
+| JK: JK                            :     27.483u      2.517s     18.279w     11 calls
+| | JK: (Q|mn) Read                 :      0.067u      1.883s      1.287w     44 calls
+| | JK: J                           :      1.083u      0.200s      0.787w     44 calls
+| | | JK: J1                        :      0.533u      0.167s      0.453w     44 calls
+| | | JK: J2                        :      0.533u      0.033s      0.320w     44 calls
+| | JK: K                           :     26.300u      0.150s     16.085w     44 calls
+| | | JK: K1                        :     17.217u      0.117s     10.551w     44 calls
+| | | JK: K2                        :      9.067u      0.033s      5.531w     44 calls
+| JK: AO2USO                        :      0.000u      0.000s      0.000w     11 calls
+HF: Form F                          :      0.000u      0.000s      0.002w     11 calls
+HF: Form D                          :      0.000u      0.000s      0.005w     11 calls
+HF: DIIS                            :      0.367u      0.067s      0.335w     10 calls
+HF: Form C                          :      1.250u      0.017s      0.790w     10 calls
+MBIS                                :     66.800u      0.700s     40.907w      1 calls
+| build grid                        :      1.367u      0.017s      0.839w      1 calls
+| post-process grid                 :      0.150u      0.017s      0.088w      1 calls
+
+**************************************************************************************
+
+Host: dyn-38-242.mobile.unibas.ch
+
+Timers On : Fri Dec  8 18:41:36 2023
+Timers Off: Fri Dec  8 18:43:57 2023
+
+Wall Time:      140.42 seconds
+
+                                                       Time (seconds)
+Module                                       User      System        Wall        Calls
+V: Grid                             :      2.317u      0.083s      1.705w      1 calls
+build grid                          :      3.467u      0.050s      2.236w      2 calls
+post-process grid                   :      0.367u      0.067s      0.399w      2 calls
+DFH: sparsity prep                  :      0.317u      0.017s      0.292w      1 calls
+Libint2ERI::Libint2ERI              :      0.550u      0.017s      0.454w      4 calls
+JK: (A|Q)^-1                        :      1.783u      0.350s      1.396w      1 calls
+JK: (A|mn)                          :      3.717u      0.100s      2.577w      3 calls
+JK: (Q|mn)                          :      9.417u      0.083s      6.000w      3 calls
+JK: (Q|mn) Write                    :      0.000u      0.267s      0.461w      3 calls
+HF: Form core H                     :      0.083u      0.000s      0.076w      1 calls
+HF: Form S/X                        :      0.133u      0.000s      0.088w      1 calls
+HF: Guess                           :      0.083u      0.033s      0.079w      1 calls
+SAD Guess                           :      0.083u      0.033s      0.077w      1 calls
+HF: Form G                          :    126.033u      3.433s     79.885w     11 calls
+RV: Form V                          :     98.100u      0.667s     60.546w     11 calls
+Properties                          :     56.150u      0.433s     34.822w  43010 calls
+Functional                          :      2.300u      0.017s      1.502w  43010 calls
+V_xc                                :     39.500u      0.150s     24.100w  43010 calls
+JK: D                               :      0.017u      0.000s      0.006w     11 calls
+JK: USO2AO                          :      0.000u      0.000s      0.001w     11 calls
+JK: JK                              :     27.917u      2.767s     19.323w     11 calls
+JK: (Q|mn) Read                     :      0.000u      2.217s      1.751w     44 calls
+JK: J                               :      1.117u      0.217s      0.845w     44 calls
+JK: J1                              :      0.567u      0.200s      0.487w     44 calls
+JK: J2                              :      0.550u      0.000s      0.340w     44 calls
+JK: K                               :     26.783u      0.183s     16.595w     44 calls
+JK: K1                              :     17.500u      0.167s     10.882w     44 calls
+JK: K2                              :      9.283u      0.017s      5.705w     44 calls
+JK: AO2USO                          :      0.000u      0.000s      0.000w     11 calls
+HF: Form F                          :      0.000u      0.017s      0.003w     11 calls
+HF: Form D                          :      0.000u      0.000s      0.006w     11 calls
+HF: DIIS                            :      0.400u      0.133s      0.429w     10 calls
+HF: Form C                          :      1.283u      0.050s      0.792w     10 calls
+MBIS                                :     66.983u      0.617s     40.988w      1 calls
+
+--------------------------------------------------------------------------------------
+V: Grid                             :      2.317u      0.083s      1.705w      1 calls
+| build grid                        :      2.083u      0.033s      1.394w      1 calls
+| post-process grid                 :      0.233u      0.050s      0.310w      1 calls
+DFH: sparsity prep                  :      0.317u      0.017s      0.292w      1 calls
+| Libint2ERI::Libint2ERI            :      0.217u      0.017s      0.214w      1 calls
+Libint2ERI::Libint2ERI              :      0.333u      0.000s      0.239w      2 calls
+JK: (A|Q)^-1                        :      1.783u      0.350s      1.396w      1 calls
+| Libint2ERI::Libint2ERI            :      0.000u      0.000s      0.001w      1 calls
+JK: (A|mn)                          :      3.717u      0.100s      2.577w      3 calls
+JK: (Q|mn)                          :      9.417u      0.083s      6.000w      3 calls
+JK: (Q|mn) Write                    :      0.000u      0.267s      0.461w      3 calls
+HF: Form core H                     :      0.083u      0.000s      0.076w      1 calls
+HF: Form S/X                        :      0.133u      0.000s      0.088w      1 calls
+HF: Guess                           :      0.083u      0.033s      0.079w      1 calls
+| SAD Guess                         :      0.083u      0.033s      0.077w      1 calls
+HF: Form G                          :    126.033u      3.433s     79.885w     11 calls
+| RV: Form V                        :     98.100u      0.667s     60.546w     11 calls
+| | Properties                      :     56.150u      0.433s     34.822w  43010 calls
+| | Functional                      :      2.300u      0.017s      1.502w  43010 calls
+| | V_xc                            :     39.500u      0.150s     24.100w  43010 calls
+| JK: D                             :      0.017u      0.000s      0.006w     11 calls
+| JK: USO2AO                        :      0.000u      0.000s      0.001w     11 calls
+| JK: JK                            :     27.917u      2.767s     19.323w     11 calls
+| | JK: (Q|mn) Read                 :      0.000u      2.217s      1.751w     44 calls
+| | JK: J                           :      1.117u      0.217s      0.845w     44 calls
+| | | JK: J1                        :      0.567u      0.200s      0.487w     44 calls
+| | | JK: J2                        :      0.550u      0.000s      0.340w     44 calls
+| | JK: K                           :     26.783u      0.183s     16.595w     44 calls
+| | | JK: K1                        :     17.500u      0.167s     10.882w     44 calls
+| | | JK: K2                        :      9.283u      0.017s      5.705w     44 calls
+| JK: AO2USO                        :      0.000u      0.000s      0.000w     11 calls
+HF: Form F                          :      0.000u      0.017s      0.003w     11 calls
+HF: Form D                          :      0.000u      0.000s      0.006w     11 calls
+HF: DIIS                            :      0.400u      0.133s      0.429w     10 calls
+HF: Form C                          :      1.283u      0.050s      0.792w     10 calls
+MBIS                                :     66.983u      0.617s     40.988w      1 calls
+| build grid                        :      1.383u      0.017s      0.842w      1 calls
+| post-process grid                 :      0.133u      0.017s      0.090w      1 calls
+
+**************************************************************************************
