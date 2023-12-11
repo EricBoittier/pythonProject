@@ -1,0 +1,214 @@
+1
+                 Chemistry at HARvard Macromolecular Mechanics
+           (CHARMM) - Developmental Version 46a2   February 15, 2021            
+                             Git commit ID c5355bd                              
+       Copyright(c) 1984-2020  President and Fellows of Harvard College
+                              All Rights Reserved
+  Current operating system: Linux-3.10.0-1160.el7.x86_64(x86_64)@node49.clust   
+                 Created on 10/23/23 at 12:58:50 by user: boittier    
+
+            Maximum number of ATOMS:    360720, and RESidues:      120240
+ RDTITL> * DCM WATER/ION PARAMS TEST FOR ENERGY AND FORCES
+ RDTITL> *
+  
+ CHARMM>     
+  
+ CHARMM>    set base     /home/boittier/charmm/test
+ Parameter: BASE <- "/HOME/BOITTIER/CHARMM/TEST"
+  
+ CHARMM>    set pardir   @base
+ Parameter: BASE -> "/HOME/BOITTIER/CHARMM/TEST"
+ Parameter: PARDIR <- "/HOME/BOITTIER/CHARMM/TEST"
+  
+ CHARMM>    set crddir   @base
+ Parameter: BASE -> "/HOME/BOITTIER/CHARMM/TEST"
+ Parameter: CRDDIR <- "/HOME/BOITTIER/CHARMM/TEST"
+  
+ CHARMM>     
+  
+ CHARMM>    PRNLev 5
+  
+ CHARMM>     
+  
+ CHARMM>     
+  
+ CHARMM>    read rtf card
+ MAINIO> Residue topology file being read from unit   5.
+ RDTITL> * METHANOL
+ RDTITL> *
+
+ DRUDES PARTICLES WILL BE GENERATED AUTOMATICALLY FOR ALL ATOMS WITH NON-ZERO ALPHA
+ Thole-type dipole screening, Slater-Delta shape {S(u) = 1 - (1+u/2)*exp(-u)}, default radius =  1.300000
+  
+ CHARMM>     
+  
+ CHARMM>    read parameter card
+
+          PARAMETER FILE BEING READ FROM UNIT  5
+ RDTITL> * METHANOL
+ RDTITL> *
+ PARMIO> NONBOND, HBOND lists and IMAGE atoms cleared.
+  
+ CHARMM>     
+  
+ CHARMM>    !================================================================
+ CHARMM>    ! Read coordinates
+ CHARMM>    !================================================================
+ CHARMM>    OPEN UNIT 1 READ FORM NAME 1-1.xyz.pdb
+ VOPEN> Attempting to open::1-1.xyz.pdb::
+ OPNLGU> Unit  1 opened for READONLY access to 1-1.xyz.pdb
+  
+ CHARMM>    READ SEQU PDB UNIT 1
+ MAINIO> Sequence information being read from unit   1.
+ TITLE>  *
+
+          RESIDUE SEQUENCE --     2 RESIDUES
+          TIP3TIP3
+  
+ CHARMM>    CLOSE UNIT 1
+ VCLOSE: Closing unit    1 with status "KEEP"
+  
+ CHARMM>    GENERATE LIG FIRST NONE LAST NONE SETUP NOANG NODIHED
+ NO PATCHING WILL BE DONE ON THE FIRST RESIDUE
+ NO PATCHING WILL BE DONE ON THE LAST  RESIDUE
+ GENPSF> Segment   1 has been generated. Its identifier is LIG.
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        1   Number of residues   =        2
+         Number of atoms         =        6   Number of groups     =        2
+         Number of bonds         =        6   Number of angles     =        2
+         Number of dihedrals     =        0   Number of impropers  =        0
+         Number of cross-terms   =        0
+         Number of HB acceptors  =        2   Number of HB donors  =        0
+         Number of NB exclusions =        0   Total charge =    0.00000
+ QXFORM> Expanded format used.
+         More than 4 character atom type used.
+  
+ CHARMM>     
+  
+ CHARMM>    OPEN UNIT 1 READ FORM NAME 1-1.xyz.pdb
+ VOPEN> Attempting to open::1-1.xyz.pdb::
+ OPNLGU> Unit  1 opened for READONLY access to 1-1.xyz.pdb
+  
+ CHARMM>    READ COOR PDB UNIT 1
+  read CHARMM-pdb format
+          SPATIAL COORDINATES BEING READ FROM UNIT  1
+ TITLE>  *
+  
+ CHARMM>    CLOSE UNIT 1
+ VCLOSE: Closing unit    1 with status "KEEP"
+  
+ CHARMM>     
+  
+ CHARMM>    !================================================================
+ CHARMM>    ! MDCM
+ CHARMM>    !================================================================
+ CHARMM>    open unit 15 write card name dcm.xyz
+ VOPEN> Attempting to open::dcm.xyz::
+ OPNLGU> Unit 15 opened for WRITE access to dcm.xyz
+  
+ CHARMM>    open unit 11 card read name pbe0_dz.mdcm
+ VOPEN> Attempting to open::pbe0_dz.mdcm::
+ OPNLGU> Unit 11 opened for READONLY access to pbe0_dz.mdcm
+  
+ CHARMM>    DCM IUDCM 11 TSHIFT XYZ 15
+ DCM> INPUT FILE FOR DCM CHARGES: UNIT   11
+ DCM> TIPNP SHIFT FUNCTION WILL BE USED FOR CUTOFFS
+ DCM> WORD XYZ
+ DCM> DCM CHARGE COORDS WILL BE WRITTEN TO FILE UNIT   15
+ DCM>          READING PARAMETERS FOR RESIDUE TIP3    
+
+      ***** LEVEL  1 WARNING FROM <DCM> DCMINIT *****
+      ***** CENTRAL CHARGE FOR ATOM ALREADY DEFINED
+      ******************************************
+      BOMLEV (  0) IS NOT REACHED. WRNLEV IS  5
+
+<DCM> ATOM    2 CHARGE ALREADY DEFINED, PERHAPS IN TOPOLOGY FILE? OVERWRITING FOR THIS AND ALL FURTHER CLASHES
+ DCM>          TOTAL DCM RESIDUES IN SYSTEM:      2
+ DCM>          TOTAL DCM CHARGES IN SYSTEM:     12
+  
+ CHARMM>     
+  
+ CHARMM>    NBONd CUTNb 100.0 CTONnb 90.0 CTOFnb 94.0 E14FAC 0.0 FSWITch VSWItch CDIElectric EPSilon 1.0 NBXMOD 5
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  FSWItch  VATOm    VSWItch 
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  =100.000 CTEXNB =999.000 CTONNB = 90.000 CTOFNB = 94.000
+ CGONNB =  0.000 CGOFNB = 10.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  0.000 EPS    =  1.000
+ NBXMOD =      5
+ There are        0 atom  pairs and        0 atom  exclusions.
+ There are        0 group pairs and        0 group exclusions.
+ <MAKINB> with mode   5 found      6 exclusions and      0 interactions(1-4)
+ <MAKGRP> found      0 group exclusions.
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR       13 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+        9 ATOM PAIRS WERE FOUND FOR ATOM LIST
+        0 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+  
+ CHARMM>     
+  
+ CHARMM>    ENERGY
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  FSWItch  VATOm    VSWItch 
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  =100.000 CTEXNB =999.000 CTONNB = 90.000 CTOFNB = 94.000
+ CGONNB =  0.000 CGOFNB = 10.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  0.000 EPS    =  1.000
+ NBXMOD =      5
+ There are        9 atom  pairs and        6 atom  exclusions.
+ There are        0 group pairs and        0 group exclusions.
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR       13 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+        9 ATOM PAIRS WERE FOUND FOR ATOM LIST
+        0 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+ENER ENR:  Eval#     ENERgy      Delta-E         GRMS
+ENER INTERN:          BONDs       ANGLes       UREY-b    DIHEdrals    IMPRopers
+ENER EXTERN:        VDWaals         ELEC       HBONds          ASP         USER
+ ----------       ---------    ---------    ---------    ---------    ---------
+ENER>        0      5.47640      0.00000     16.36417
+ENER INTERN>        0.29325      4.01339      0.00000      0.00000      0.00000
+ENER EXTERN>       10.23080     -9.06104      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+  
+ VCLOSE: Closing unit   11 with status "KEEP"
+ VCLOSE: Closing unit   15 with status "KEEP"
+      $$$$$$  New timer profile Local node$$$$$
+   List time                       0.00 Other:            0.00
+      Nonbond force                   0.00 Other:            0.00
+         Bond energy                     0.00 Other:            0.00
+         Angle energy                    0.00 Other:            0.00
+         Dihedral energy                 0.00 Other:            0.00
+         Restraints energy               0.00 Other:            0.00
+      INTRNL energy                   0.00 Other:            0.00
+      Comm energy                     0.00 Other:            0.00
+      Comm force                      0.00 Other:            0.00
+   Energy time                     0.00 Other:            0.00
+ Total time                      0.11 Other:            0.11
+         $$$$$$  Average   profile $$$$$
+   List time                       0.00 Other:            0.00
+      Nonbond force                   0.00 Other:            0.00
+         Bond energy                     0.00 Other:            0.00
+         Angle energy                    0.00 Other:            0.00
+         Dihedral energy                 0.00 Other:            0.00
+         Restraints energy               0.00 Other:            0.00
+      INTRNL energy                   0.00 Other:            0.00
+      Comm energy                     0.00 Other:            0.00
+      Comm force                      0.00 Other:            0.00
+   Energy time                     0.00 Other:            0.00
+ Total time                      0.11 Other:            0.11
+
+                    NORMAL TERMINATION BY END OF FILE
+                    MOST SEVERE WARNING WAS AT LEVEL  1
+
+                    $$$$$ JOB ACCOUNTING INFORMATION $$$$$
+                     ELAPSED TIME:     0.16  SECONDS 
+                         CPU TIME:     0.08  SECONDS 
