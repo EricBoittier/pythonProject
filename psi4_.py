@@ -1,9 +1,9 @@
 import psi4
-from rdkit_ import get_water_data, get_pdb_data
-import numpy as np
 
+from constants import mdcm_path, cubes_path
+from rdkit_ import get_water_data, get_pdb_data
+import jax.numpy as np
 from scipy.spatial.distance import cdist
-from scipy.spatial.transform import Rotation as R
 
 psi4.set_options({'basis': 'def2-TZVP', })
 B_to_A = 0.529177249
@@ -30,10 +30,13 @@ def get_surface_points(coordinates):
     N_points, CUTOFF = 400, 1.0
     monomer_coords = coordinates.copy()
     surface_points = np.random.normal(size=[N_points, 3])
-    surface_points = (surface_points / np.linalg.norm(surface_points, axis=-1, keepdims=True)) * CUTOFF
-    surface_points = np.reshape(surface_points[None] + monomer_coords[:, None], [-1, 3])
+    surface_points = (surface_points / np.linalg.norm(
+        surface_points, axis=-1, keepdims=True)) * CUTOFF
+    surface_points = np.reshape(
+        surface_points[None] + monomer_coords[:, None], [-1, 3])
     surface_points = surface_points[
-        np.where(np.all(cdist(surface_points, monomer_coords) >= (CUTOFF - 1e-1), axis=-1))[0]]
+        np.where(np.all(cdist(surface_points, monomer_coords
+                              ) >= (CUTOFF - 1e-1), axis=-1))[0]]
     return surface_points
 
 
@@ -79,7 +82,7 @@ def test_mbis(test="water"):
     elif test == "cube":
         from cubes_ import cube
         import numpy as np
-        cube_file = "cubes/gaussian/testjax.chk.p.cube"
+        cube_file = cubes_path / "gaussian/testjax.chk.p.cube"
         cube1 = cube(cube_file)
         elements, monomer_coords = cube1.get_atom_data()
     elif test == "pdb":
@@ -108,14 +111,16 @@ def test_mbis(test="water"):
 
 
     reference_esp = [float(x) for x in open('grid_esp.dat')]
-    # data = cube1.data.flatten()
-    # MSE = np.mean((data - reference_esp) ** 2)
-    # print(MSE)
-    data = None
-    return surface_points, data, reference_esp, monomer_coords
+    if cube1 is not None:
+        data = cube1.data.flatten()
+        MSE = np.mean((data - reference_esp) ** 2)
+        print("mse-psi4", MSE)
 
-    # for i in range(len(reference_esp)):
-    #     print(i, data[i], reference_esp[i], data[i] / reference_esp[i])
+
+    for i in range(len(reference_esp)):
+        print(i, data[i], reference_esp[i], data[i] / reference_esp[i])
+    return surface_points, data, reference_esp, monomer_coords
 
 # test_mbis(test="pdb")
 surface_points, data, reference_esp, monomer_coords = test_mbis(test="cube")
+
