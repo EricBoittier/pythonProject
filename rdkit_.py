@@ -55,7 +55,7 @@ def read_pdb(filename):
         print(pdb)
     mol = Chem.MolFromPDBBlock(pdb, sanitize=False, removeHs=False)
 
-    return mol2data(mol, filename=filename)
+    return mol
 
 def get_pdb_data():
     """load test pdb files"""
