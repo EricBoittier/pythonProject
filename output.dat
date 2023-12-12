@@ -7,16 +7,16 @@ Scratch directory: /tmp/
     Onebody   basis highest AM E, G, H:  6, 5, 4
     Solid Harmonics ordering:            gaussian
 
-*** tstart() called on pc-mm025
-*** at Mon Dec 11 14:08:28 2023
+*** tstart() called on dyn-34-45.mobile.unibas.ch
+*** at Tue Dec 12 03:06:13 2023
 
    => Loading Basis Set <=
 
     Name: DEF2-TZVP
     Role: ORBITAL
     Keyword: BASIS
-    atoms 1   entry O          line   189 file /home/boittier/miniconda3/envs/pycharmm/share/psi4/basis/def2-tzvp.gbs 
-    atoms 2-3 entry H          line    15 file /home/boittier/miniconda3/envs/pycharmm/share/psi4/basis/def2-tzvp.gbs 
+    atoms 1   entry O          line   189 file /Users/ericboittier/miniforge3/envs/jax/share/psi4/basis/def2-tzvp.gbs 
+    atoms 2-3 entry H          line    15 file /Users/ericboittier/miniforge3/envs/jax/share/psi4/basis/def2-tzvp.gbs 
 
 
          ---------------------------------------------------------
@@ -132,8 +132,8 @@ Scratch directory: /tmp/
     Name: (DEF2-TZVP AUX)
     Role: JKFIT
     Keyword: DF_BASIS_SCF
-    atoms 1   entry O          line   318 file /home/boittier/miniconda3/envs/pycharmm/share/psi4/basis/def2-universal-jkfit.gbs 
-    atoms 2-3 entry H          line    18 file /home/boittier/miniconda3/envs/pycharmm/share/psi4/basis/def2-universal-jkfit.gbs 
+    atoms 1   entry O          line   318 file /Users/ericboittier/miniforge3/envs/jax/share/psi4/basis/def2-universal-jkfit.gbs 
+    atoms 2-3 entry H          line    18 file /Users/ericboittier/miniforge3/envs/jax/share/psi4/basis/def2-universal-jkfit.gbs 
 
   ==> Integral Setup <==
 
@@ -185,21 +185,21 @@ Scratch directory: /tmp/
 
                            Total Energy        Delta E     RMS |[F,P]|
 
-   @DF-RKS iter SAD:   -75.98111394285318   -7.59811e+01   0.00000e+00 
-   @DF-RKS iter   1:   -76.22093336114416   -2.39819e-01   2.00263e-02 DIIS/ADIIS
-   @DF-RKS iter   2:   -76.01328113462442    2.07652e-01   2.98444e-02 DIIS/ADIIS
-   @DF-RKS iter   3:   -76.37525215611683   -3.61971e-01   1.11802e-03 DIIS/ADIIS
-   @DF-RKS iter   4:   -76.37561930193732   -3.67146e-04   1.60663e-04 DIIS/ADIIS
-   @DF-RKS iter   5:   -76.37562871331642   -9.41138e-06   1.66290e-05 DIIS
-   @DF-RKS iter   6:   -76.37562881590976   -1.02593e-07   1.53855e-06 DIIS
-   @DF-RKS iter   7:   -76.37562881694461   -1.03485e-09   1.03739e-07 DIIS
+   @DF-RKS iter SAD:   -75.98111394286018   -7.59811e+01   0.00000e+00 
+   @DF-RKS iter   1:   -76.22093336115078   -2.39819e-01   2.00263e-02 ADIIS/DIIS
+   @DF-RKS iter   2:   -76.01328113463020    2.07652e-01   2.98444e-02 ADIIS/DIIS
+   @DF-RKS iter   3:   -76.37525215612450   -3.61971e-01   1.11802e-03 ADIIS/DIIS
+   @DF-RKS iter   4:   -76.37561930194494   -3.67146e-04   1.60663e-04 ADIIS/DIIS
+   @DF-RKS iter   5:   -76.37562871332398   -9.41138e-06   1.66290e-05 DIIS
+   @DF-RKS iter   6:   -76.37562881591734   -1.02593e-07   1.53855e-06 DIIS
+   @DF-RKS iter   7:   -76.37562881695217   -1.03483e-09   1.03739e-07 DIIS
   Energy and wave function converged.
 
 
   ==> Post-Iterations <==
 
    Electrons on quadrature grid:
-      Ntotal   =    9.9999999942 ; deviation = -5.843e-09 
+      Ntotal   =    9.9999999942 ; deviation = -5.844e-09 
 
     Orbital Energies [Eh]
     ---------------------
@@ -231,17 +231,17 @@ Scratch directory: /tmp/
     NA   [     4,    1 ]
     NB   [     4,    1 ]
 
-  @DF-RKS Final Energy:   -76.37562881694461
+  @DF-RKS Final Energy:   -76.37562881695217
 
    => Energetics <=
 
     Nuclear Repulsion Energy =              8.9188803143604112
-    One-Electron Energy =                -122.6161706623307310
-    Two-Electron Energy =                  44.3271214868791361
-    DFT Exchange-Correlation Energy =      -7.0054599558534170
+    One-Electron Energy =                -122.6161706623397123
+    Two-Electron Energy =                  44.3271214868814596
+    DFT Exchange-Correlation Energy =      -7.0054599558543176
     Empirical Dispersion Energy =           0.0000000000000000
     VV10 Nonlocal Energy =                  0.0000000000000000
-    Total Energy =                        -76.3756288169445980
+    Total Energy =                        -76.3756288169521724
 
 Computation Completed
 
@@ -265,14 +265,14 @@ Properties computed using the SCF density matrix
 
  ------------------------------------------------------------------------------------
 
-*** tstop() called on pc-mm025 at Mon Dec 11 14:08:29 2023
+*** tstop() called on dyn-34-45.mobile.unibas.ch at Tue Dec 12 03:06:14 2023
 Module time:
-	user time   =       0.67 seconds =       0.01 minutes
-	system time =       0.03 seconds =       0.00 minutes
+	user time   =       0.55 seconds =       0.01 minutes
+	system time =       0.07 seconds =       0.00 minutes
 	total time  =          1 seconds =       0.02 minutes
 Total time:
-	user time   =       0.67 seconds =       0.01 minutes
-	system time =       0.03 seconds =       0.00 minutes
+	user time   =       0.55 seconds =       0.01 minutes
+	system time =       0.07 seconds =       0.00 minutes
 	total time  =          1 seconds =       0.02 minutes
 
 
@@ -295,19 +295,19 @@ Properties computed using the MBIS Multipoles density matrix
    Center  Symbol  Z        X           Y           Z
       1       O    8   -0.001592    0.179753    0.000000
       2       H    1   -0.025335    0.001239    0.000000
-      3       H    1    0.025820    0.001720   -0.000000
+      3       H    1    0.025820    0.001720    0.000000
 
   MBIS Quadrupoles: [e a0^2]
    Center  Symbol  Z      XX        XY        XZ        YY        YZ        ZZ
       1       O    8   -4.7097    0.0007    0.0000   -4.9190   -0.0000   -5.0888
-      2       H    1   -0.2658   -0.0044   -0.0000   -0.2665    0.0000   -0.2773
-      3       H    1   -0.2726    0.0043   -0.0000   -0.2732    0.0000   -0.2845
+      2       H    1   -0.2658   -0.0044   -0.0000   -0.2665   -0.0000   -0.2773
+      3       H    1   -0.2726    0.0043    0.0000   -0.2732    0.0000   -0.2845
 
   MBIS Octupoles: [e a0^3]
    Center  Symbol  Z      XXX       XXY       XXZ       XYY       XYZ       XZZ       YYY       YYZ       YZZ       ZZZ
       1       O    8   -0.0121    0.4218   -0.0000    0.0014    0.0000   -0.0021    0.5337   -0.0000    0.1236   -0.0000
       2       H    1   -0.0153    0.0108    0.0000   -0.0083   -0.0000   -0.0055    0.0330   -0.0000    0.0092   -0.0000
-      3       H    1    0.0154    0.0110    0.0000    0.0086    0.0000    0.0055    0.0348   -0.0000    0.0097    0.0000
+      3       H    1    0.0154    0.0110   -0.0000    0.0086    0.0000    0.0055    0.0348   -0.0000    0.0097    0.0000
 
   MBIS Radial Moments:
    Center  Symbol  Z      [a0^2]      [a0^3]      [a0^4]      

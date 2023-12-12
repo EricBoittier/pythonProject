@@ -27,7 +27,7 @@ def get_surface_points(coordinates):
     :param coordinates:
     :return:
     """
-    N_points, CUTOFF = 400, 4.0
+    N_points, CUTOFF = 400, 1.0
     monomer_coords = coordinates.copy()
     surface_points = np.random.normal(size=[N_points, 3])
     surface_points = (surface_points / np.linalg.norm(surface_points, axis=-1, keepdims=True)) * CUTOFF
@@ -64,7 +64,7 @@ def get_grid_points(coordinates):
     grid_points = np.reshape(grid_points.T, [-1, 3])
     #  exclude points that are too close to the molecule
     grid_points = grid_points[
-        np.where(np.all(cdist(grid_points, coordinates) >= (2 - 1e-1), axis=-1))[0]]
+        np.where(np.all(cdist(grid_points, coordinates) >= (1.0 - 1e-1), axis=-1))[0]]
 
     return grid_points
 
@@ -92,6 +92,8 @@ def test_mbis(test="water"):
 
     if test == "cube":
         surface_points = cube1.get_grid()
+        # surface_points = get_grid_points(monomer_coords)
+        # surface_points = get_surface_points(monomer_coords)
     else:
         # surface_points = get_surface_points(monomer_coords)
         surface_points = get_grid_points(monomer_coords)
@@ -106,12 +108,14 @@ def test_mbis(test="water"):
 
 
     reference_esp = [float(x) for x in open('grid_esp.dat')]
-    data = cube1.data.flatten()
-    MSE = np.mean((data - reference_esp) ** 2)
-    print(MSE)
+    # data = cube1.data.flatten()
+    # MSE = np.mean((data - reference_esp) ** 2)
+    # print(MSE)
+    data = None
+    return surface_points, data, reference_esp, monomer_coords
 
     # for i in range(len(reference_esp)):
     #     print(i, data[i], reference_esp[i], data[i] / reference_esp[i])
 
 # test_mbis(test="pdb")
-test_mbis(test="cube")
+surface_points, data, reference_esp, monomer_coords = test_mbis(test="cube")

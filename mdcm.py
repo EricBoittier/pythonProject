@@ -7,7 +7,6 @@ import jax
 import jax.numpy as jnp
 from jax import jit
 
-
 # Constants
 eps = 1e-12  # A small epsilon value
 
@@ -80,7 +79,6 @@ def conv_clcl_cxyz(
         fatom_pos: jnp.ndarray,
         fatom_elcl: jnp.ndarray,
         mdcm_clcl: jnp.ndarray,
-        charge: jnp.ndarray,
 ) -> jnp.ndarray:
     """Convert from local to global coordinates
     :param fatom_pos:
@@ -97,17 +95,20 @@ def conv_clcl_cxyz(
     result = result.sum(axis=3) + fatom_pos[None,:,:]
     # transpose to (natm,3)
     result = result.transpose(1,0,2).reshape(-1,3)
-    # flatten the charges
-    charge = charge.flatten()
-    # stack the results
-    final = jnp.zeros((result.shape[0], 4))
-    final = final.at[:,:-1].set(result)
-    final = final.at[:, -1].set(charge)
-    jax.debug.print("{x}", x=final)
-    print("""0.0000   -0.2910    1.1197    0.1979
-0.0000    0.2910    1.2251    0.1055
--0.2910   -0.0065   -0.0004   -0.3034
-0.2910   -0.0065   -0.0004   -0.3034
-0.0000    1.0110   -0.5623    0.1979
-0.0000    1.2589   -0.0251    0.1055""")
-    return final
+    jax.debug.print("{x}", x=result)
+    return result
+
+#     # flatten the charges
+#     charge = charge.flatten()
+#     # stack the results
+#     final = jnp.zeros((result.shape[0], 4))
+#     final = final.at[:,:-1].set(result)
+#     final = final.at[:, -1].set(charge)
+#     jax.debug.print("{x}", x=final)
+#     print("""0.0000   -0.2910    1.1197    0.1979
+# 0.0000    0.2910    1.2251    0.1055
+# -0.2910   -0.0065   -0.0004   -0.3034
+# 0.2910   -0.0065   -0.0004   -0.3034
+# 0.0000    1.0110   -0.5623    0.1979
+# 0.0000    1.2589   -0.0251    0.1055""")
+#     return final

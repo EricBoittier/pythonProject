@@ -1,6 +1,8 @@
 import jax.numpy as jnp
-# import numpy as jnp
-
+from mdcm import conv_clcl_cxyz
+from mdcm import compute_local_axes
+import jax
+from psi4_ import surface_points, data, reference_esp, monomer_coords
 
 def read_charmm_mdcm(filename):
     """
@@ -46,28 +48,57 @@ def read_charmm_mdcm(filename):
 
 
 atoms, stackData, charges = read_charmm_mdcm("mdcm/charmm/pbe0_dz.mdcm")
-
+charges = charges.reshape(-1)
+print("chgs",charges)
 
 test_coords = jnp.array( [
     [0.000, 0.000, 0.000],
     [0.000, 0.000, 0.970],
     [0.000, 0.939, -0.243]
 ])
-
-from mdcm import conv_clcl_cxyz
-from mdcm import compute_local_axes
-
-
+test_coords = monomer_coords
 
 cla = compute_local_axes(test_coords.T[0,:],
                          test_coords.T[1,:],
                          test_coords.T[2,:],
                          2, 1, 3, 0)
 
-Nqdim = 6
-conv_clcl_cxyz(
+positions = conv_clcl_cxyz(
     test_coords[[1,0,2],:],
     cla,
     stackData,
-    charges,
 )
+coloumns_constant = 3.32063711e2 / 627.509469
+# evaluate grid points
+def coulomb(q1, q2, r12):
+    return coloumns_constant * (q1 * q2 / r12)
+
+def compute_esp(positions, charges, grid_points):
+    esp = jnp.zeros_like(grid_points.shape[0])
+    jax.debug.print("{x}", x=grid_points.shape)
+    jax.debug.print("chg{x}", x=charges.shape)
+
+    for i in range(len(charges)):
+        distances = jnp.linalg.norm(grid_points - positions[i], axis=1)
+        if i == 0:
+            jax.debug.print("dist: {x}", x=distances)
+        esp += coulomb(charges[i,None], 1.0, distances)
+    # esp = esp.reshape(-1)
+    return esp
+
+esp = compute_esp(positions, charges, surface_points)
+error = (esp - jnp.array(reference_esp))**2
+MSE = jnp.sqrt(error.sum()) / len(esp)
+RMSE = jnp.sqrt(error.sum()) / len(esp)
+MAE = jnp.abs(error).sum() / len(esp)
+MAXERROR = jnp.abs(error).max()
+print("MSE", MSE*627.509469)
+print("RMSE", RMSE*627.509469)
+print("MAE", MAE*627.509469)
+print("MAXERROR", MAXERROR*627.509469)
+
+# print("error", abs((esp - jnp.array(reference_esp)).sum())/len(esp))
+# print("MSE", jnp.sqrt(error.sum()) / len(esp) )
+for i in range(len(esp)):
+    if i % 1000 == 0:
+        print(esp[i], reference_esp[i], esp[i] - reference_esp[i])
