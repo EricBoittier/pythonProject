@@ -3,21 +3,19 @@ Frames
 local to global
 global to local
 """
-
+import jax
 import jax.numpy as jnp
 from jax import jit
-# import numpy as jnp
-from typing import Tuple
+
 
 # Constants
 eps = 1e-12  # A small epsilon value
 
-
+@jit
 def compute_local_axes(X, Y, Z,
                        ATM1, ATM2, ATM3,
                        FR):
     # assign arrays
-
     ATM1 = ATM1 - 1
     ATM2 = ATM2 - 1
     ATM3 = ATM3 - 1
@@ -69,66 +67,47 @@ def compute_local_axes(X, Y, Z,
     XEJ = YEI * ZEK - YEK * ZEI
     XEK = YEJ * ZEI - YEI * ZEJ
 
-    print(ZEI)
-    print(ZEJ)
-    print(ZEK)
-    print(YEI)
-    print(YEJ)
-    print(YEK)
-    print(XEI)
-    print(XEJ)
-    print(XEK)
-
     return jnp.stack([
-
         jnp.stack([XEI, XEJ, XEK]),
         jnp.stack([YEI, YEJ, YEK]),
         jnp.stack([ZEI, ZEJ, ZEK]),
-
-    ]
-    )
+        ])
 
 
-# Constants
-eps = 1e-12  # A small epsilon value
 
-
+@jit
 def conv_clcl_cxyz(
         fatom_pos: jnp.ndarray,
         fatom_elcl: jnp.ndarray,
-        Nqdim: int,
-        mdcm_afrm: jnp.ndarray,
-        mdcm_nchg: jnp.ndarray,
-        mdcm_clcl: jnp.ndarray
+        mdcm_clcl: jnp.ndarray,
+        charge: jnp.ndarray,
 ) -> jnp.ndarray:
-    """
-
+    """Convert from local to global coordinates
     :param fatom_pos:
     :param fatom_elcl:
-    :param Nqdim:
-    :param mdcm_afrm:
-    :param mdcm_nchg:
     :param mdcm_clcl:
+    :param charge:
     :return:
     """
-    nframes = 1
-    fatom_cxyz = jnp.zeros(Nqdim * 4)
-    l_count = 0
-    # loop over frames
-    for i in range(nframes):
-        # loop over atoms in frame
-        for j, frAt in enumerate(mdcm_afrm[1, :]):
-            for chg in range(mdcm_nchg[frAt][0]):
-                e_frame = fatom_elcl[:, :, j]
-                a = mdcm_clcl[l_count]
-                b = mdcm_clcl[l_count + 1]
-                c = mdcm_clcl[l_count + 2]
-                TX = a * e_frame[0, 0] + b * e_frame[1, 0] + c * e_frame[2, 0]
-                TY = a * e_frame[0, 1] + b * e_frame[1, 1] + c * e_frame[2, 1]
-                TZ = a * e_frame[0, 2] + b * e_frame[1, 2] + c * e_frame[2, 2]
-                print(fatom_pos[frAt - 1] + jnp.array([TX, TY, TZ]))
-                l_count += 4
-
-    print(fatom_cxyz)
-
-    return fatom_cxyz
+    # transpose mdcm_clcl so that it is (3,3,natm)
+    mdcm_clcl = jnp.transpose(mdcm_clcl, (1, 0, 2))
+    # multiply the local charge centers by the local axes
+    result = mdcm_clcl[:,:,jnp.newaxis,:] * fatom_elcl.T[None,:,:,:]
+    # sum over the local axes
+    result = result.sum(axis=3) + fatom_pos[None,:,:]
+    # transpose to (natm,3)
+    result = result.transpose(1,0,2).reshape(-1,3)
+    # flatten the charges
+    charge = charge.flatten()
+    # stack the results
+    final = jnp.zeros((result.shape[0], 4))
+    final = final.at[:,:-1].set(result)
+    final = final.at[:, -1].set(charge)
+    jax.debug.print("{x}", x=final)
+    print("""0.0000   -0.2910    1.1197    0.1979
+0.0000    0.2910    1.2251    0.1055
+-0.2910   -0.0065   -0.0004   -0.3034
+0.2910   -0.0065   -0.0004   -0.3034
+0.0000    1.0110   -0.5623    0.1979
+0.0000    1.2589   -0.0251    0.1055""")
+    return final

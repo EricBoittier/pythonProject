@@ -8,7 +8,6 @@ def read_charmm_mdcm(filename):
     :param filename:
     :return:
     """
-
     lines = open(filename).readlines()
     Nframes = int(lines[0].split()[0])
     #  blank line
@@ -26,19 +25,15 @@ def read_charmm_mdcm(filename):
     atom2 = lines[7 + Nchg1:7 + Nchg1 + Nchg2]
     Nchg3 = int(lines[7 + Nchg1 + Nchg2].split()[0])
     atom3 = lines[8 + Nchg1 + Nchg2:8 + Nchg1 + Nchg2 + Nchg3]
-
-    atom1 = [[float(x) for x in line.split()] for line in atom1]
-    atom2 = [[float(x) for x in line.split()] for line in atom2]
-    atom3 = [[float(x) for x in line.split()] for line in atom3]
-    atom1 = jnp.array(atom1)
-    atom2 = jnp.array(atom2)
-    atom3 = jnp.array(atom3)
-
-    print(a1, a2, a3, frametype)
-    print(atom1)
-    print(atom2)
-    print(atom3)
-
+    aatom1 = [[float(x) for x in line.split()[:-1]] for line in atom1]
+    aatom2 = [[float(x) for x in line.split()[:-1]] for line in atom2]
+    aatom3 = [[float(x) for x in line.split()[:-1]] for line in atom3]
+    cAt1 = [[float(x) for x in line.split()[-1:]] for line in atom1]
+    cAt2 = [[float(x) for x in line.split()[-1:]] for line in atom2]
+    cAt3 = [[float(x) for x in line.split()[-1:]] for line in atom3]
+    atom1 = jnp.array(aatom1)
+    atom2 = jnp.array(aatom2)
+    atom3 = jnp.array(aatom3)
     ATOMS = []
     for _ in atom1:
         ATOMS.append(_)
@@ -46,14 +41,12 @@ def read_charmm_mdcm(filename):
         ATOMS.append(_)
     for _ in atom3:
         ATOMS.append(_)
-    stackedData = jnp.array(ATOMS)
-    print(stackedData)
-    print(stackedData.shape)
-
-    return jnp.array([a1, a2, a3]), stackedData
+    stackedData = jnp.array([atom1, atom2, atom3])
+    return jnp.array([a1, a2, a3]), stackedData, jnp.array([cAt1, cAt2, cAt3])
 
 
-atoms, stackData = read_charmm_mdcm("mdcm/charmm/pbe0_dz.mdcm")
+atoms, stackData, charges = read_charmm_mdcm("mdcm/charmm/pbe0_dz.mdcm")
+
 
 test_coords = jnp.array( [
     [0.000, 0.000, 0.000],
@@ -62,30 +55,19 @@ test_coords = jnp.array( [
 ])
 
 from mdcm import conv_clcl_cxyz
-# from mdcm import calc_axis_locl_pos
 from mdcm import compute_local_axes
 
-# fatom_elcl = calc_axis_locl_pos(
-#     test_coords,
-#     1,
-#     jnp.array([[2,1,3],[2,1,3],[2,1,3]]),
-#     jnp.array([0]),
-# )
-# print(fatom_elcl)
-# print(fatom_elcl.shape)
+
 
 cla = compute_local_axes(test_coords.T[0,:],
                          test_coords.T[1,:],
                          test_coords.T[2,:],
                          2, 1, 3, 0)
 
-print(cla)
-
+Nqdim = 6
 conv_clcl_cxyz(
-    test_coords,
+    test_coords[[1,0,2],:],
     cla,
-    6,
-    jnp.array([[2,1,3],[2,1,3],[2,1,3]]),
-    jnp.array([[2,],[2,],[2,]]),
-    stackData.flatten(),
+    stackData,
+    charges,
 )
