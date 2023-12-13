@@ -1,0 +1,36 @@
+REMARK  EXECUTING CHARMM SCRIPT FROM PYTHON                                           
+REMARK   DATE:    12/ 8/23     14:57:54      CREATED BY USER: himmelreich             
+ATOM      1  CAY PHE     1      -4.698   0.845  -0.174  1.00  0.00      ADP 
+ATOM      2  HY1 PHE     1      -4.884   1.624   0.595  1.00  0.00      ADP 
+ATOM      3  HY2 PHE     1      -4.970  -0.149   0.238  1.00  0.00      ADP 
+ATOM      4  HY3 PHE     1      -5.339   1.051  -1.058  1.00  0.00      ADP 
+ATOM      5  CY  PHE     1      -3.275   0.867  -0.585  1.00  0.00      ADP 
+ATOM      6  OY  PHE     1      -2.923   1.397  -1.628  1.00  0.00      ADP 
+ATOM      7  N   PHE     1      -2.411   0.270   0.244  1.00  0.00      ADP 
+ATOM      8  HN  PHE     1      -2.730  -0.184   1.068  1.00  0.00      ADP 
+ATOM      9  CA  PHE     1      -1.003   0.121  -0.048  1.00  0.00      ADP 
+ATOM     10  HA  PHE     1      -0.814   0.368  -1.085  1.00  0.00      ADP 
+ATOM     11  CB  PHE     1      -0.154   1.031   0.887  1.00  0.00      ADP 
+ATOM     12  HB1 PHE     1      -0.498   2.082   0.773  1.00  0.00      ADP 
+ATOM     13  HB2 PHE     1      -0.298   0.736   1.949  1.00  0.00      ADP 
+ATOM     14  CG  PHE     1       1.315   0.992   0.549  1.00  0.00      ADP 
+ATOM     15  CD1 PHE     1       1.785   1.628  -0.611  1.00  0.00      ADP 
+ATOM     16  HD1 PHE     1       1.086   2.136  -1.260  1.00  0.00      ADP 
+ATOM     17  CE1 PHE     1       3.149   1.615  -0.930  1.00  0.00      ADP 
+ATOM     18  HE1 PHE     1       3.501   2.109  -1.824  1.00  0.00      ADP 
+ATOM     19  CZ  PHE     1       4.057   0.966  -0.083  1.00  0.00      ADP 
+ATOM     20  HZ  PHE     1       5.110   0.959  -0.324  1.00  0.00      ADP 
+ATOM     21  CD2 PHE     1       2.236   0.349   1.394  1.00  0.00      ADP 
+ATOM     22  HD2 PHE     1       1.886  -0.140   2.291  1.00  0.00      ADP 
+ATOM     23  CE2 PHE     1       3.601   0.331   1.079  1.00  0.00      ADP 
+ATOM     24  HE2 PHE     1       4.301  -0.168   1.734  1.00  0.00      ADP 
+ATOM     25  C   PHE     1      -0.666  -1.352   0.131  1.00  0.00      ADP 
+ATOM     26  O   PHE     1      -1.253  -2.032   0.972  1.00  0.00      ADP 
+ATOM     27  NT  PHE     1       0.276  -1.884  -0.670  1.00  0.00      ADP 
+ATOM     28  HNT PHE     1       0.757  -1.311  -1.326  1.00  0.00      ADP 
+ATOM     29  CAT PHE     1       0.640  -3.280  -0.591  1.00  0.00      ADP 
+ATOM     30  HT1 PHE     1      -0.262  -3.931  -0.671  1.00  0.00      ADP 
+ATOM     31  HT2 PHE     1       1.336  -3.549  -1.415  1.00  0.00      ADP 
+ATOM     32  HT3 PHE     1       1.142  -3.499   0.379  1.00  0.00      ADP 
+TER      33      PHE      1
+END

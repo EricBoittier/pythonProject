@@ -1,0 +1,35 @@
+REMARK  EXECUTING CHARMM SCRIPT FROM PYTHON                                           
+REMARK   DATE:    12/ 8/23     14:57:42      CREATED BY USER: himmelreich             
+ATOM      1  CAY ILE     1      -4.193   0.656  -0.055  1.00  0.00      ADP 
+ATOM      2  HY1 ILE     1      -3.960   1.602   0.480  1.00  0.00      ADP 
+ATOM      3  HY2 ILE     1      -4.740  -0.029   0.627  1.00  0.00      ADP 
+ATOM      4  HY3 ILE     1      -4.824   0.878  -0.942  1.00  0.00      ADP 
+ATOM      5  CY  ILE     1      -2.925   0.010  -0.497  1.00  0.00      ADP 
+ATOM      6  OY  ILE     1      -2.938  -1.055  -1.112  1.00  0.00      ADP 
+ATOM      7  N   ILE     1      -1.785   0.652  -0.186  1.00  0.00      ADP 
+ATOM      8  HN  ILE     1      -1.766   1.515   0.312  1.00  0.00      ADP 
+ATOM      9  CA  ILE     1      -0.524   0.098  -0.574  1.00  0.00      ADP 
+ATOM     10  HA  ILE     1      -0.545  -0.072  -1.643  1.00  0.00      ADP 
+ATOM     11  CB  ILE     1       0.677   1.043  -0.224  1.00  0.00      ADP 
+ATOM     12  HB  ILE     1       0.522   1.944  -0.871  1.00  0.00      ADP 
+ATOM     13  CG2 ILE     1       0.668   1.554   1.234  1.00  0.00      ADP 
+ATOM     14 HG21 ILE     1       1.445   2.334   1.379  1.00  0.00      ADP 
+ATOM     15 HG22 ILE     1      -0.313   2.005   1.490  1.00  0.00      ADP 
+ATOM     16 HG23 ILE     1       0.871   0.726   1.946  1.00  0.00      ADP 
+ATOM     17  CG1 ILE     1       2.058   0.470  -0.633  1.00  0.00      ADP 
+ATOM     18 HG11 ILE     1       2.217  -0.516  -0.141  1.00  0.00      ADP 
+ATOM     19 HG12 ILE     1       2.064   0.294  -1.733  1.00  0.00      ADP 
+ATOM     20  CD  ILE     1       3.244   1.389  -0.294  1.00  0.00      ADP 
+ATOM     21  HD1 ILE     1       4.194   0.945  -0.665  1.00  0.00      ADP 
+ATOM     22  HD2 ILE     1       3.117   2.385  -0.770  1.00  0.00      ADP 
+ATOM     23  HD3 ILE     1       3.337   1.531   0.803  1.00  0.00      ADP 
+ATOM     24  C   ILE     1      -0.418  -1.240   0.073  1.00  0.00      ADP 
+ATOM     25  O   ILE     1      -1.322  -1.671   0.787  1.00  0.00      ADP 
+ATOM     26  NT  ILE     1       0.707  -1.935  -0.167  1.00  0.00      ADP 
+ATOM     27  HNT ILE     1       1.444  -1.593  -0.745  1.00  0.00      ADP 
+ATOM     28  CAT ILE     1       0.887  -3.228   0.416  1.00  0.00      ADP 
+ATOM     29  HT1 ILE     1       0.076  -3.906   0.075  1.00  0.00      ADP 
+ATOM     30  HT2 ILE     1       1.870  -3.642   0.105  1.00  0.00      ADP 
+ATOM     31  HT3 ILE     1       0.856  -3.143   1.524  1.00  0.00      ADP 
+TER      32      ILE      1
+END

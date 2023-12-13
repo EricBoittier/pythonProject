@@ -1,0 +1,34 @@
+REMARK  EXECUTING CHARMM SCRIPT FROM PYTHON                                           
+REMARK   DATE:    12/ 8/23     14:57:40      CREATED BY USER: himmelreich             
+ATOM      1  CAY HSP     1      -4.050   0.321  -1.182  1.00  0.00      ADP 
+ATOM      2  HY1 HSP     1      -4.738   1.206  -1.262  1.00  0.00      ADP 
+ATOM      3  HY2 HSP     1      -4.395  -0.175  -0.225  1.00  0.00      ADP 
+ATOM      4  HY3 HSP     1      -4.231  -0.308  -2.097  1.00  0.00      ADP 
+ATOM      5  CY  HSP     1      -2.578   0.705  -1.109  1.00  0.00      ADP 
+ATOM      6  OY  HSP     1      -2.046   1.613  -1.728  1.00  0.00      ADP 
+ATOM      7  N   HSP     1      -1.829  -0.070  -0.404  1.00  0.00      ADP 
+ATOM      8  HN  HSP     1      -2.185  -0.884   0.046  1.00  0.00      ADP 
+ATOM      9  CA  HSP     1      -0.376  -0.001  -0.350  1.00  0.00      ADP 
+ATOM     10  HA  HSP     1       0.048   0.254  -1.281  1.00  0.00      ADP 
+ATOM     11  CB  HSP     1       0.001   1.045   0.642  1.00  0.00      ADP 
+ATOM     12  HB1 HSP     1      -0.527   1.998   0.287  1.00  0.00      ADP 
+ATOM     13  HB2 HSP     1      -0.497   0.733   1.634  1.00  0.00      ADP 
+ATOM     14  CD2 HSP     1       2.419   0.793   1.525  1.00  0.00      ADP 
+ATOM     15  HD2 HSP     1       2.239  -0.024   2.222  1.00  0.00      ADP 
+ATOM     16  CG  HSP     1       1.455   1.365   0.784  1.00  0.00      ADP 
+ATOM     17  NE2 HSP     1       3.607   1.344   1.191  1.00  0.00      ADP 
+ATOM     18  HE2 HSP     1       4.506   0.930   1.439  1.00  0.00      ADP 
+ATOM     19  ND1 HSP     1       2.142   2.326  -0.014  1.00  0.00      ADP 
+ATOM     20  HD1 HSP     1       1.724   2.959  -0.660  1.00  0.00      ADP 
+ATOM     21  CE1 HSP     1       3.451   2.242   0.241  1.00  0.00      ADP 
+ATOM     22  HE1 HSP     1       4.142   2.898  -0.122  1.00  0.00      ADP 
+ATOM     23  C   HSP     1       0.151  -1.388   0.155  1.00  0.00      ADP 
+ATOM     24  O   HSP     1       0.804  -1.516   1.209  1.00  0.00      ADP 
+ATOM     25  NT  HSP     1      -0.219  -2.394  -0.540  1.00  0.00      ADP 
+ATOM     26  HNT HSP     1      -0.785  -2.323  -1.368  1.00  0.00      ADP 
+ATOM     27  CAT HSP     1       0.204  -3.715  -0.470  1.00  0.00      ADP 
+ATOM     28  HT1 HSP     1       0.056  -3.978   0.594  1.00  0.00      ADP 
+ATOM     29  HT2 HSP     1      -0.226  -4.412  -1.188  1.00  0.00      ADP 
+ATOM     30  HT3 HSP     1       1.285  -3.783  -0.667  1.00  0.00      ADP 
+TER      31      HSP      1
+END

@@ -1,0 +1,32 @@
+REMARK  EXECUTING CHARMM SCRIPT FROM PYTHON                                           
+REMARK   DATE:    12/ 8/23     14:58:11      CREATED BY USER: himmelreich             
+ATOM      1  CAY VAL     1      -3.694  -0.703  -0.110  1.00  0.00      ADP 
+ATOM      2  HY1 VAL     1      -3.970   0.113   0.590  1.00  0.00      ADP 
+ATOM      3  HY2 VAL     1      -3.785  -1.681   0.407  1.00  0.00      ADP 
+ATOM      4  HY3 VAL     1      -4.396  -0.689  -0.973  1.00  0.00      ADP 
+ATOM      5  CY  VAL     1      -2.312  -0.517  -0.608  1.00  0.00      ADP 
+ATOM      6  OY  VAL     1      -2.028  -0.733  -1.777  1.00  0.00      ADP 
+ATOM      7  N   VAL     1      -1.404  -0.102   0.283  1.00  0.00      ADP 
+ATOM      8  HN  VAL     1      -1.648   0.020   1.238  1.00  0.00      ADP 
+ATOM      9  CA  VAL     1      -0.012   0.132  -0.059  1.00  0.00      ADP 
+ATOM     10  HA  VAL     1       0.110   0.121  -1.134  1.00  0.00      ADP 
+ATOM     11  CB  VAL     1       0.496   1.479   0.457  1.00  0.00      ADP 
+ATOM     12  HB  VAL     1       0.444   1.501   1.571  1.00  0.00      ADP 
+ATOM     13  CG1 VAL     1       1.957   1.714   0.018  1.00  0.00      ADP 
+ATOM     14 HG11 VAL     1       2.286   2.728   0.331  1.00  0.00      ADP 
+ATOM     15 HG12 VAL     1       2.646   0.978   0.483  1.00  0.00      ADP 
+ATOM     16 HG13 VAL     1       2.048   1.646  -1.086  1.00  0.00      ADP 
+ATOM     17  CG2 VAL     1      -0.403   2.607  -0.092  1.00  0.00      ADP 
+ATOM     18 HG21 VAL     1      -0.008   3.596   0.226  1.00  0.00      ADP 
+ATOM     19 HG22 VAL     1      -0.426   2.579  -1.202  1.00  0.00      ADP 
+ATOM     20 HG23 VAL     1      -1.443   2.517   0.286  1.00  0.00      ADP 
+ATOM     21  C   VAL     1       0.825  -1.000   0.511  1.00  0.00      ADP 
+ATOM     22  O   VAL     1       0.744  -1.307   1.698  1.00  0.00      ADP 
+ATOM     23  NT  VAL     1       1.646  -1.655  -0.338  1.00  0.00      ADP 
+ATOM     24  HNT VAL     1       1.663  -1.393  -1.298  1.00  0.00      ADP 
+ATOM     25  CAT VAL     1       2.491  -2.759   0.066  1.00  0.00      ADP 
+ATOM     26  HT1 VAL     1       2.047  -3.723  -0.268  1.00  0.00      ADP 
+ATOM     27  HT2 VAL     1       3.500  -2.661  -0.392  1.00  0.00      ADP 
+ATOM     28  HT3 VAL     1       2.624  -2.806   1.172  1.00  0.00      ADP 
+TER      29      VAL      1
+END

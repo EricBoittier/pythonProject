@@ -1,0 +1,33 @@
+REMARK  EXECUTING CHARMM SCRIPT FROM PYTHON                                           
+REMARK   DATE:    12/ 8/23     14:57:51      CREATED BY USER: himmelreich             
+ATOM      1  CAY MET     1      -4.260   1.455   0.053  1.00  0.00      ADP 
+ATOM      2  HY1 MET     1      -4.660   0.515   0.322  1.00  0.00      ADP 
+ATOM      3  HY2 MET     1      -4.796   2.026  -0.806  1.00  0.00      ADP 
+ATOM      4  HY3 MET     1      -4.287   2.143   0.959  1.00  0.00      ADP 
+ATOM      5  CY  MET     1      -2.859   1.451  -0.406  1.00  0.00      ADP 
+ATOM      6  OY  MET     1      -2.531   2.135  -1.337  1.00  0.00      ADP 
+ATOM      7  N   MET     1      -1.992   0.672   0.191  1.00  0.00      ADP 
+ATOM      8  HN  MET     1      -2.258   0.080   1.015  1.00  0.00      ADP 
+ATOM      9  CA  MET     1      -0.663   0.612  -0.332  1.00  0.00      ADP 
+ATOM     10  HA  MET     1      -0.560   0.896  -1.406  1.00  0.00      ADP 
+ATOM     11  CB  MET     1       0.374   1.473   0.474  1.00  0.00      ADP 
+ATOM     12  HB1 MET     1      -0.021   2.514   0.336  1.00  0.00      ADP 
+ATOM     13  HB2 MET     1       0.286   1.144   1.469  1.00  0.00      ADP 
+ATOM     14  CG  MET     1       1.866   1.483   0.114  1.00  0.00      ADP 
+ATOM     15  HG1 MET     1       1.992   1.471  -1.034  1.00  0.00      ADP 
+ATOM     16  HG2 MET     1       2.364   2.370   0.524  1.00  0.00      ADP 
+ATOM     17  SD  MET     1       2.951   0.194   0.649  1.00  0.00      ADP 
+ATOM     18  CE  MET     1       2.792   0.305   2.419  1.00  0.00      ADP 
+ATOM     19  HE1 MET     1       3.199   1.320   2.783  1.00  0.00      ADP 
+ATOM     20  HE2 MET     1       1.789   0.164   2.876  1.00  0.00      ADP 
+ATOM     21  HE3 MET     1       3.481  -0.454   2.994  1.00  0.00      ADP 
+ATOM     22  C   MET     1      -0.277  -0.873  -0.296  1.00  0.00      ADP 
+ATOM     23  O   MET     1      -0.818  -1.584   0.521  1.00  0.00      ADP 
+ATOM     24  NT  MET     1       0.658  -1.398  -1.160  1.00  0.00      ADP 
+ATOM     25  HNT MET     1       0.936  -0.790  -1.903  1.00  0.00      ADP 
+ATOM     26  CAT MET     1       1.032  -2.771  -1.037  1.00  0.00      ADP 
+ATOM     27  HT1 MET     1       0.244  -3.516  -1.408  1.00  0.00      ADP 
+ATOM     28  HT2 MET     1       1.953  -3.032  -1.614  1.00  0.00      ADP 
+ATOM     29  HT3 MET     1       1.199  -2.990   0.007  1.00  0.00      ADP 
+TER      30      MET      1
+END

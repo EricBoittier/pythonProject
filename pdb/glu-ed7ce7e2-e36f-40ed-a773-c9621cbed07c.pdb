@@ -1,0 +1,31 @@
+REMARK  EXECUTING CHARMM SCRIPT FROM PYTHON                                           
+REMARK   DATE:    12/ 8/23     14:57:28      CREATED BY USER: himmelreich             
+ATOM      1  CAY GLU     1      -4.044   0.693   0.000  1.00  0.00      ADP 
+ATOM      2  HY1 GLU     1      -3.924   1.626   0.591  1.00  0.00      ADP 
+ATOM      3  HY2 GLU     1      -4.426  -0.114   0.661  1.00  0.00      ADP 
+ATOM      4  HY3 GLU     1      -4.777   0.872  -0.815  1.00  0.00      ADP 
+ATOM      5  CY  GLU     1      -2.747   0.283  -0.585  1.00  0.00      ADP 
+ATOM      6  OY  GLU     1      -2.697  -0.275  -1.674  1.00  0.00      ADP 
+ATOM      7  N   GLU     1      -1.661   0.555   0.144  1.00  0.00      ADP 
+ATOM      8  HN  GLU     1      -1.743   0.998   1.028  1.00  0.00      ADP 
+ATOM      9  CA  GLU     1      -0.315   0.182  -0.238  1.00  0.00      ADP 
+ATOM     10  HA  GLU     1      -0.263   0.085  -1.314  1.00  0.00      ADP 
+ATOM     11  CB  GLU     1       0.674   1.294   0.192  1.00  0.00      ADP 
+ATOM     12  HB1 GLU     1       0.324   2.242  -0.280  1.00  0.00      ADP 
+ATOM     13  HB2 GLU     1       0.618   1.445   1.293  1.00  0.00      ADP 
+ATOM     14  CG  GLU     1       2.156   1.081  -0.207  1.00  0.00      ADP 
+ATOM     15  HG1 GLU     1       2.604   0.236   0.353  1.00  0.00      ADP 
+ATOM     16  HG2 GLU     1       2.237   0.885  -1.296  1.00  0.00      ADP 
+ATOM     17  CD  GLU     1       3.032   2.302   0.084  1.00  0.00      ADP 
+ATOM     18  OE1 GLU     1       4.242   2.215  -0.241  1.00  0.00      ADP 
+ATOM     19  OE2 GLU     1       2.508   3.311   0.621  1.00  0.00      ADP 
+ATOM     20  C   GLU     1       0.053  -1.174   0.357  1.00  0.00      ADP 
+ATOM     21  O   GLU     1      -0.547  -1.635   1.330  1.00  0.00      ADP 
+ATOM     22  NT  GLU     1       1.041  -1.871  -0.239  1.00  0.00      ADP 
+ATOM     23  HNT GLU     1       1.540  -1.453  -0.993  1.00  0.00      ADP 
+ATOM     24  CAT GLU     1       1.446  -3.180   0.215  1.00  0.00      ADP 
+ATOM     25  HT1 GLU     1       0.681  -3.940  -0.061  1.00  0.00      ADP 
+ATOM     26  HT2 GLU     1       2.416  -3.468  -0.246  1.00  0.00      ADP 
+ATOM     27  HT3 GLU     1       1.571  -3.196   1.322  1.00  0.00      ADP 
+TER      28      GLU      1
+END

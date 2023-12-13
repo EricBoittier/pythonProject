@@ -1,0 +1,30 @@
+REMARK  EXECUTING CHARMM SCRIPT FROM PYTHON                                           
+REMARK   DATE:    12/ 8/23     14:58: 3      CREATED BY USER: himmelreich             
+ATOM      1  CAY THR     1      -3.749  -0.470   0.328  1.00  0.00      ADP 
+ATOM      2  HY1 THR     1      -3.690  -0.530   1.487  1.00  0.00      ADP 
+ATOM      3  HY2 THR     1      -3.871  -1.472  -0.162  1.00  0.00      ADP 
+ATOM      4  HY3 THR     1      -4.680  -0.007   0.041  1.00  0.00      ADP 
+ATOM      5  CY  THR     1      -2.630   0.222  -0.228  1.00  0.00      ADP 
+ATOM      6  OY  THR     1      -2.873   0.917  -1.216  1.00  0.00      ADP 
+ATOM      7  N   THR     1      -1.361  -0.021   0.301  1.00  0.00      ADP 
+ATOM      8  HN  THR     1      -1.293  -0.467   1.208  1.00  0.00      ADP 
+ATOM      9  CA  THR     1      -0.163   0.007  -0.481  1.00  0.00      ADP 
+ATOM     10  HA  THR     1      -0.351  -0.517  -1.433  1.00  0.00      ADP 
+ATOM     11  CB  THR     1       0.465   1.353  -0.852  1.00  0.00      ADP 
+ATOM     12  HB  THR     1      -0.224   1.944  -1.468  1.00  0.00      ADP 
+ATOM     13  OG1 THR     1       1.650   1.184  -1.636  1.00  0.00      ADP 
+ATOM     14  HG1 THR     1       1.455   1.212  -2.577  1.00  0.00      ADP 
+ATOM     15  CG2 THR     1       0.848   2.147   0.429  1.00  0.00      ADP 
+ATOM     16 HG21 THR     1       1.244   3.142   0.212  1.00  0.00      ADP 
+ATOM     17 HG22 THR     1      -0.041   2.348   0.945  1.00  0.00      ADP 
+ATOM     18 HG23 THR     1       1.511   1.571   1.110  1.00  0.00      ADP 
+ATOM     19  C   THR     1       0.853  -0.978   0.183  1.00  0.00      ADP 
+ATOM     20  O   THR     1       0.616  -1.290   1.368  1.00  0.00      ADP 
+ATOM     21  NT  THR     1       1.920  -1.532  -0.420  1.00  0.00      ADP 
+ATOM     22  HNT THR     1       1.994  -1.198  -1.333  1.00  0.00      ADP 
+ATOM     23  CAT THR     1       2.840  -2.444   0.209  1.00  0.00      ADP 
+ATOM     24  HT1 THR     1       2.260  -2.996   0.991  1.00  0.00      ADP 
+ATOM     25  HT2 THR     1       3.175  -3.221  -0.459  1.00  0.00      ADP 
+ATOM     26  HT3 THR     1       3.735  -1.878   0.521  1.00  0.00      ADP 
+TER      27      THR      1
+END

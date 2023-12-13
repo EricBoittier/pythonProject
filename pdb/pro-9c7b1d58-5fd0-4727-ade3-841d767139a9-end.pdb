@@ -1,0 +1,30 @@
+REMARK  EXECUTING CHARMM SCRIPT FROM PYTHON                                           
+REMARK   DATE:    12/ 8/23     14:57:57      CREATED BY USER: himmelreich             
+ATOM      1  CAY PRO     1      -2.763  -0.892   1.335  1.00  0.00      ADP 
+ATOM      2  HY1 PRO     1      -3.508  -0.191   0.950  1.00  0.00      ADP 
+ATOM      3  HY2 PRO     1      -2.355  -0.456   2.218  1.00  0.00      ADP 
+ATOM      4  HY3 PRO     1      -3.238  -1.825   1.621  1.00  0.00      ADP 
+ATOM      5  CY  PRO     1      -1.660  -1.098   0.266  1.00  0.00      ADP 
+ATOM      6  OY  PRO     1      -1.216  -2.230   0.004  1.00  0.00      ADP 
+ATOM      7  N   PRO     1      -1.144  -0.002  -0.278  1.00  0.00      ADP 
+ATOM      8  CD  PRO     1      -1.510   1.383  -0.036  1.00  0.00      ADP 
+ATOM      9  HD1 PRO     1      -1.231   1.635   1.003  1.00  0.00      ADP 
+ATOM     10  HD2 PRO     1      -2.555   1.628  -0.211  1.00  0.00      ADP 
+ATOM     11  CA  PRO     1       0.155  -0.076  -0.957  1.00  0.00      ADP 
+ATOM     12  HA  PRO     1       0.123  -0.895  -1.643  1.00  0.00      ADP 
+ATOM     13  CB  PRO     1       0.206   1.180  -1.818  1.00  0.00      ADP 
+ATOM     14  HB1 PRO     1      -0.452   0.839  -2.682  1.00  0.00      ADP 
+ATOM     15  HB2 PRO     1       1.267   1.473  -2.109  1.00  0.00      ADP 
+ATOM     16  CG  PRO     1      -0.612   2.181  -0.947  1.00  0.00      ADP 
+ATOM     17  HG1 PRO     1      -1.076   2.972  -1.587  1.00  0.00      ADP 
+ATOM     18  HG2 PRO     1       0.133   2.631  -0.222  1.00  0.00      ADP 
+ATOM     19  C   PRO     1       1.319  -0.271  -0.080  1.00  0.00      ADP 
+ATOM     20  O   PRO     1       1.638   0.598   0.705  1.00  0.00      ADP 
+ATOM     21  NT  PRO     1       1.983  -1.476  -0.175  1.00  0.00      ADP 
+ATOM     22  HNT PRO     1       1.653  -2.217  -0.721  1.00  0.00      ADP 
+ATOM     23  CAT PRO     1       3.240  -1.842   0.487  1.00  0.00      ADP 
+ATOM     24  HT1 PRO     1       3.993  -1.013   0.364  1.00  0.00      ADP 
+ATOM     25  HT2 PRO     1       3.093  -2.026   1.564  1.00  0.00      ADP 
+ATOM     26  HT3 PRO     1       3.664  -2.698  -0.014  1.00  0.00      ADP 
+TER      27      PRO      1
+END

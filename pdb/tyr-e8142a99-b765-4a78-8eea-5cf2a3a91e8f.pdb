@@ -1,0 +1,37 @@
+REMARK  EXECUTING CHARMM SCRIPT FROM PYTHON                                           
+REMARK   DATE:    12/ 8/23     14:58: 8      CREATED BY USER: himmelreich             
+ATOM      1  CAY TYR     1      -4.930   0.625  -0.156  1.00  0.00      ADP 
+ATOM      2  HY1 TYR     1      -5.013   1.328   0.699  1.00  0.00      ADP 
+ATOM      3  HY2 TYR     1      -5.261  -0.386   0.164  1.00  0.00      ADP 
+ATOM      4  HY3 TYR     1      -5.593   0.973  -0.976  1.00  0.00      ADP 
+ATOM      5  CY  TYR     1      -3.534   0.565  -0.645  1.00  0.00      ADP 
+ATOM      6  OY  TYR     1      -3.275   0.646  -1.838  1.00  0.00      ADP 
+ATOM      7  N   TYR     1      -2.586   0.412   0.283  1.00  0.00      ADP 
+ATOM      8  HN  TYR     1      -2.836   0.315   1.239  1.00  0.00      ADP 
+ATOM      9  CA  TYR     1      -1.185   0.234  -0.030  1.00  0.00      ADP 
+ATOM     10  HA  TYR     1      -1.009   0.466  -1.074  1.00  0.00      ADP 
+ATOM     11  CB  TYR     1      -0.315   1.172   0.854  1.00  0.00      ADP 
+ATOM     12  HB1 TYR     1      -0.632   2.225   0.687  1.00  0.00      ADP 
+ATOM     13  HB2 TYR     1      -0.470   0.932   1.929  1.00  0.00      ADP 
+ATOM     14  CG  TYR     1       1.155   1.063   0.531  1.00  0.00      ADP 
+ATOM     15  CD1 TYR     1       1.696   1.766  -0.558  1.00  0.00      ADP 
+ATOM     16  HD1 TYR     1       1.057   2.394  -1.161  1.00  0.00      ADP 
+ATOM     17  CE1 TYR     1       3.058   1.651  -0.874  1.00  0.00      ADP 
+ATOM     18  HE1 TYR     1       3.469   2.185  -1.718  1.00  0.00      ADP 
+ATOM     19  CZ  TYR     1       3.891   0.843  -0.096  1.00  0.00      ADP 
+ATOM     20  OH  TYR     1       5.258   0.740  -0.417  1.00  0.00      ADP 
+ATOM     21  HH  TYR     1       5.677   0.207   0.256  1.00  0.00      ADP 
+ATOM     22  CD2 TYR     1       2.004   0.257   1.310  1.00  0.00      ADP 
+ATOM     23  HD2 TYR     1       1.595  -0.295   2.143  1.00  0.00      ADP 
+ATOM     24  CE2 TYR     1       3.367   0.143   0.997  1.00  0.00      ADP 
+ATOM     25  HE2 TYR     1       4.002  -0.486   1.601  1.00  0.00      ADP 
+ATOM     26  C   TYR     1      -0.826  -1.231   0.170  1.00  0.00      ADP 
+ATOM     27  O   TYR     1      -1.327  -1.882   1.086  1.00  0.00      ADP 
+ATOM     28  NT  TYR     1       0.053  -1.785  -0.685  1.00  0.00      ADP 
+ATOM     29  HNT TYR     1       0.458  -1.237  -1.410  1.00  0.00      ADP 
+ATOM     30  CAT TYR     1       0.437  -3.175  -0.596  1.00  0.00      ADP 
+ATOM     31  HT1 TYR     1      -0.352  -3.820  -1.037  1.00  0.00      ADP 
+ATOM     32  HT2 TYR     1       1.384  -3.359  -1.142  1.00  0.00      ADP 
+ATOM     33  HT3 TYR     1       0.584  -3.486   0.464  1.00  0.00      ADP 
+TER      34      TYR      1
+END
