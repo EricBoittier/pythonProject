@@ -152,7 +152,6 @@ print("len(charges)", len(charges))
 from jax.scipy import optimize
 
 loss = MDCMopt.get_charges_loss()
-print(loss)
 
 nparms = MDCMopt.Nchgparm
 from jax import random

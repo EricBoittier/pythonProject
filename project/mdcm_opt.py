@@ -74,6 +74,7 @@ def print_loss(esp,
     RMSE = jnp.sqrt(error.sum()) / len(esp)
     MAE = jnp.abs((esp - jnp.array(reference_esp))).sum() / len(esp)
     MAXERROR = jnp.abs(error).max()
+    print("Npoints", len(esp))
     print("MSE", MSE)
     print("RMSE", RMSE)
     print("MAE", MAE)
