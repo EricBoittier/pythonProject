@@ -1,0 +1,129 @@
+1 0          ! no. residue types defined here
+
+GLU !residue name
+16 ! no. axis system frames
+6 5 7 BO ! atom indices involved in frame 1 ! (650, 807, 1152)
+2 0      ! no. chgs and polarizabilities for atom 6 (0)
+     0.000000        0.000000        0.000000       1.00000
+     0.000000        0.000000        0.000000       1.00000
+2 0      ! no. chgs and polarizabilities for atom 5 (1)
+     0.000000        0.000000        0.000000       1.00000
+     0.000000        0.000000        0.000000       1.00000
+2 0      ! no. chgs and polarizabilities for atom 7 (2)
+     0.000000        0.000000        0.000000       1.00000
+     0.000000        0.000000        0.000000       1.00000
+21 20 22 BO ! atom indices involved in frame 2 ! (650, 807, 1152)
+2 0      ! no. chgs and polarizabilities for atom 21 (0)
+     0.000000        0.000000        0.000000       1.00000
+     0.000000        0.000000        0.000000       1.00000
+2 0      ! no. chgs and polarizabilities for atom 20 (1)
+     0.000000        0.000000        0.000000       1.00000
+     0.000000        0.000000        0.000000       1.00000
+2 0      ! no. chgs and polarizabilities for atom 22 (2)
+     0.000000        0.000000        0.000000       1.00000
+     0.000000        0.000000        0.000000       1.00000
+20 22 24 BO ! atom indices involved in frame 3 ! (807, 1152, 1057)
+0 0      ! no. chgs and polarizabilities for atom 20 (0)
+0 0      ! no. chgs and polarizabilities for atom 22 (1)
+2 0      ! no. chgs and polarizabilities for atom 24 (2)
+     0.000000        0.000000        0.000000       1.00000
+     0.000000        0.000000        0.000000       1.00000
+1 5 6 BO ! atom indices involved in frame 4 ! (1057, 807, 650)
+2 0      ! no. chgs and polarizabilities for atom 1 (0)
+     0.000000        0.000000        0.000000       1.00000
+     0.000000        0.000000        0.000000       1.00000
+0 0      ! no. chgs and polarizabilities for atom 5 (1)
+0 0      ! no. chgs and polarizabilities for atom 6 (2)
+7 9 20 BO ! atom indices involved in frame 6 ! (1152, 1, 807)
+0 0      ! no. chgs and polarizabilities for atom 7 (0)
+2 0      ! no. chgs and polarizabilities for atom 9 (1)
+     0.000000        0.000000        0.000000       1.00000
+     0.000000        0.000000        0.000000       1.00000
+0 0      ! no. chgs and polarizabilities for atom 20 (2)
+7 9 11 BO ! atom indices involved in frame 10 ! (1152, 1, 80)
+0 0      ! no. chgs and polarizabilities for atom 7 (0)
+0 0      ! no. chgs and polarizabilities for atom 9 (1)
+2 0      ! no. chgs and polarizabilities for atom 11 (2)
+     0.000000        0.000000        0.000000       1.00000
+     0.000000        0.000000        0.000000       1.00000
+18 17 14 BO ! atom indices involved in frame 12 ! (650, 807, 80)
+2 0      ! no. chgs and polarizabilities for atom 18 (0)
+     0.000000        0.000000        0.000000       1.00000
+     0.000000        0.000000        0.000000       1.00000
+2 0      ! no. chgs and polarizabilities for atom 17 (1)
+     0.000000        0.000000        0.000000       1.00000
+     0.000000        0.000000        0.000000       1.00000
+2 0      ! no. chgs and polarizabilities for atom 14 (2)
+     0.000000        0.000000        0.000000       1.00000
+     0.000000        0.000000        0.000000       1.00000
+18 17 19 BO ! atom indices involved in frame 14 ! (650, 807, 807)
+0 0      ! no. chgs and polarizabilities for atom 18 (0)
+0 0      ! no. chgs and polarizabilities for atom 17 (1)
+2 0      ! no. chgs and polarizabilities for atom 19 (2)
+     0.000000        0.000000        0.000000       1.00000
+     0.000000        0.000000        0.000000       1.00000
+2 0 0 BO ! atom indices involved in frame 16 ! (hydrogen)
+1 0      ! no. chgs and polarizabilities for atom 2 (0)
+     0.000000        0.000000        0.000000       1.00000
+0 0      ! no. chgs and polarizabilities for atom NULL (0)
+0 0      ! no. chgs and polarizabilities for atom NULL (0)
+3 0 0 BO ! atom indices involved in frame 31 ! (hydrogen)
+1 0      ! no. chgs and polarizabilities for atom 3 (0)
+     0.000000        0.000000        0.000000       1.00000
+0 0      ! no. chgs and polarizabilities for atom NULL (0)
+0 0      ! no. chgs and polarizabilities for atom NULL (0)
+4 0 0 BO ! atom indices involved in frame 46 ! (hydrogen)
+1 0      ! no. chgs and polarizabilities for atom 4 (0)
+     0.000000        0.000000        0.000000       1.00000
+0 0      ! no. chgs and polarizabilities for atom NULL (0)
+0 0      ! no. chgs and polarizabilities for atom NULL (0)
+8 0 0 BO ! atom indices involved in frame 61 ! (hydrogen)
+1 0      ! no. chgs and polarizabilities for atom 8 (0)
+     0.000000        0.000000        0.000000       1.00000
+0 0      ! no. chgs and polarizabilities for atom NULL (0)
+0 0      ! no. chgs and polarizabilities for atom NULL (0)
+10 0 0 BO ! atom indices involved in frame 76 ! (hydrogen)
+1 0      ! no. chgs and polarizabilities for atom 10 (0)
+     0.000000        0.000000        0.000000       1.00000
+0 0      ! no. chgs and polarizabilities for atom NULL (0)
+0 0      ! no. chgs and polarizabilities for atom NULL (0)
+12 0 0 BO ! atom indices involved in frame 91 ! (hydrogen)
+1 0      ! no. chgs and polarizabilities for atom 12 (0)
+     0.000000        0.000000        0.000000       1.00000
+0 0      ! no. chgs and polarizabilities for atom NULL (0)
+0 0      ! no. chgs and polarizabilities for atom NULL (0)
+13 0 0 BO ! atom indices involved in frame 106 ! (hydrogen)
+1 0      ! no. chgs and polarizabilities for atom 13 (0)
+     0.000000        0.000000        0.000000       1.00000
+0 0      ! no. chgs and polarizabilities for atom NULL (0)
+0 0      ! no. chgs and polarizabilities for atom NULL (0)
+15 0 0 BO ! atom indices involved in frame 121 ! (hydrogen)
+1 0      ! no. chgs and polarizabilities for atom 15 (0)
+     0.000000        0.000000        0.000000       1.00000
+0 0      ! no. chgs and polarizabilities for atom NULL (0)
+0 0      ! no. chgs and polarizabilities for atom NULL (0)
+16 0 0 BO ! atom indices involved in frame 136 ! (hydrogen)
+1 0      ! no. chgs and polarizabilities for atom 16 (0)
+     0.000000        0.000000        0.000000       1.00000
+0 0      ! no. chgs and polarizabilities for atom NULL (0)
+0 0      ! no. chgs and polarizabilities for atom NULL (0)
+23 0 0 BO ! atom indices involved in frame 151 ! (hydrogen)
+1 0      ! no. chgs and polarizabilities for atom 23 (0)
+     0.000000        0.000000        0.000000       1.00000
+0 0      ! no. chgs and polarizabilities for atom NULL (0)
+0 0      ! no. chgs and polarizabilities for atom NULL (0)
+25 0 0 BO ! atom indices involved in frame 166 ! (hydrogen)
+1 0      ! no. chgs and polarizabilities for atom 25 (0)
+     0.000000        0.000000        0.000000       1.00000
+0 0      ! no. chgs and polarizabilities for atom NULL (0)
+0 0      ! no. chgs and polarizabilities for atom NULL (0)
+26 0 0 BO ! atom indices involved in frame 181 ! (hydrogen)
+1 0      ! no. chgs and polarizabilities for atom 26 (0)
+     0.000000        0.000000        0.000000       1.00000
+0 0      ! no. chgs and polarizabilities for atom NULL (0)
+0 0      ! no. chgs and polarizabilities for atom NULL (0)
+27 0 0 BO ! atom indices involved in frame 196 ! (hydrogen)
+1 0      ! no. chgs and polarizabilities for atom 27 (0)
+     0.000000        0.000000        0.000000       1.00000
+0 0      ! no. chgs and polarizabilities for atom NULL (0)
+0 0      ! no. chgs and polarizabilities for atom NULL (0)

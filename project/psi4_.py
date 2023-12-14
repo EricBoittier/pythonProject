@@ -1,7 +1,9 @@
+import os
+
 import psi4
 
-from constants import mdcm_path, cubes_path
-from rdkit_ import get_water_data, get_pdb_data
+from project.constants_ import mdcm_path, cubes_path
+from project.rdkit_ import get_water_data, get_pdb_data
 import jax.numpy as np
 from scipy.spatial.distance import cdist
 
@@ -77,6 +79,7 @@ def test_mbis(test="water"):
     example of psi4
     :return:
     """
+    cube1 = None
     if test == "water":
         elements, monomer_coords = get_water_data()
     elif test == "cube":
@@ -106,21 +109,25 @@ def test_mbis(test="water"):
                                               fix_com=True,)
     psi4.core.set_output_file('output.dat', False)
     e, wfn = psi4.energy('PBE0', molecule=psi4_mol, return_wfn=True)
-    print(e, -76.3755896)
+    if test == 'water':
+        print(e, -76.3755896)
+    else:
+        print(e)
     psi4.oeprop(wfn, 'GRID_ESP', 'MBIS_CHARGES', title='MBIS Multipoles')
-
-
     reference_esp = [float(x) for x in open('grid_esp.dat')]
+    data = None
     if cube1 is not None:
         data = cube1.data.flatten()
         MSE = np.mean((data - reference_esp) ** 2)
         print("mse-psi4", MSE)
 
+        for i in range(len(reference_esp)):
+            print(i, data[i], reference_esp[i], data[i] / reference_esp[i])
 
-    for i in range(len(reference_esp)):
-        print(i, data[i], reference_esp[i], data[i] / reference_esp[i])
     return surface_points, data, reference_esp, monomer_coords
 
 # test_mbis(test="pdb")
-surface_points, data, reference_esp, monomer_coords = test_mbis(test="cube")
+#import os
+# os.chdir("/Users/ericboittier/Documents/github/pythonProject/psi4")
+# surface_points, data, reference_esp, monomer_coords = test_mbis(test="pdb")
 

@@ -1,14 +1,14 @@
-from mdcm import conv_clcl_cxyz
-from mdcm import compute_local_axes
-from mdcm import compute_esp
-from mdcm_io import read_charmm_mdcm, write_dcm_xyz
-from constants import mdcm_path, cubes_path
+from project.mdcm import conv_clcl_cxyz
+from project.mdcm import compute_local_axes
+from project.mdcm import compute_esp
+from project.mdcm_io import read_charmm_mdcm, write_dcm_xyz
+from project.constants_ import mdcm_path
 
 import jax.numpy as jnp
 
 doEval = False
 
-atoms, stackData, charges = read_charmm_mdcm(mdcm_path /"charmm/pbe0_dz.mdcm")
+framedata, atoms, stackData, charges = read_charmm_mdcm(mdcm_path / "charmm/pbe0_dz.mdcm")
 # flatten charges
 charges = charges.reshape(-1)
 
@@ -23,7 +23,7 @@ test_coords = jnp.array( [
 
 frames = jnp.array([
     [1,0,2],
-    [4, 3, 5]])
+    [4,3,5]])
 
 positions = []
 for frame in frames:
@@ -32,7 +32,7 @@ for frame in frames:
     positions.append(conv_clcl_cxyz(
         test_coords[frame,:],
         cla,
-        stackData,
+        stackData[0],
     ))
 
 print(positions)
@@ -44,7 +44,7 @@ print(charges)
 write_dcm_xyz("test.xyz", positions, charges)
 
 if doEval:
-    from psi4_ import surface_points, data, reference_esp, monomer_coords
+    from project.psi4_ import surface_points, data, reference_esp, monomer_coords
 
     # evaluate grid points
     esp = compute_esp(positions, charges, surface_points)

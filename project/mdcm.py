@@ -7,7 +7,7 @@ coloumns_constant = 3.32063711e2 / 627.509469
 eps = 1e-12  # A small epsilon value
 
 
-# @jit
+@jit
 def compute_local_axes(XYZ):
     # assign arrays
     B1 = XYZ[0] - XYZ[1]
@@ -23,7 +23,7 @@ def compute_local_axes(XYZ):
     eY = jnp.repeat(FAC / REY, 3).reshape(3, -1)
     eX = jnp.cross(eZ.T, eY.T).T
     # local z-axis
-    output = jnp.array([eX, eY, eZ])
+    output = jnp.nan_to_num(jnp.array([eX, eY, eZ]))
     return output
 
 
@@ -40,7 +40,7 @@ def conv_clcl_cxyz(
     :param charge:
     :return:
     """
-    # transpose mdcm_clcl so that it is (3,3,natm)
+    # transpose mdcm_clcl so that it is (3,3,nchg)
     mdcm_clcl = jnp.transpose(mdcm_clcl, (1, 0, 2))
     # multiply the local charge centers by the local axes
     result = mdcm_clcl[:, :, jnp.newaxis, :] * fatom_elcl.T[None, :, :, :]
