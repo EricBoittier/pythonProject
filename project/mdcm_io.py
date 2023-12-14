@@ -116,99 +116,63 @@ def write_dcm_xyz(filename, positions, charges):
                     )
                 )
 
-glu = "/Users/ericboittier/Documents/github/pythonProject/mdcm/gen/GLY.mdcm"
+glu = "/home/boittier/Documents/phd/pythonProject/mdcm/gen/GLY.mdcm"
 out = read_charmm_mdcm(glu)
-positions = []
 
-from project.mdcm import conv_clcl_cxyz
-from project.mdcm import compute_local_axes
-from project.mdcm import compute_esp
+from project.mdcm import compute_esp, calc_global_pos
+from project.mdcm_opt import MDCMopt, print_loss
 from project.rdkit_ import get_water_data, get_pdb_data
 
 elements, coords = get_pdb_data()
 frames, atoms, stackData, charges = out
-singleFrames = HashableArrayWrapper(jnp.array([0 not in frame for frame in atoms]))
 
+print("frames", frames)
 
-@jit
-def calc_global_pos(atoms, coords, stackData):
-    for i, frame in enumerate(atoms):
-        # index by frame order
-        _coords = coords[frame-1,:]
-        cla = compute_local_axes(_coords)
-        pos = conv_clcl_cxyz(
-            _coords,
-            cla,
-            stackData,
-        )
-        positions.append(pos)
-    return positions
 
 positions = calc_global_pos(atoms, coords, stackData[0])
 charges = charges.flatten()
-
-positions = jnp.stack(positions, axis=0).reshape(-1, 3)
+print("len(charges)", len(charges))
 
 reference_esp = [float(x) for x in
-                 open('/Users/ericboittier/Documents/github/pythonProject/psi4/grid_esp.dat')]
+                 open('/home/boittier/Documents/phd/pythonProject/psi4/grid_esp.dat')]
 
 from project.psi4_ import get_grid_points
+
 surface_points = get_grid_points(coords)
+
+MDCMopt = MDCMopt(charges, positions, surface_points, reference_esp, frames)
 
 # evaluate grid points
 esp = compute_esp(positions, charges, surface_points)
 
-@jit
-def constrain_charges(x0):
-    return x0 - ((charges * x0.sum()) / charges.sum())
-
-@jit
-def charges_loss(x0):
-    _charges = charges * x0
-    _charges = constrain_charges(_charges)
-    esp = compute_esp(positions, _charges, surface_points)
-    error = (esp - jnp.array(reference_esp)) ** 2
-    MSE = (error.sum()) / len(esp)
-    jax.debug.print("{x}", x=MSE * 627.509469)
-    return MSE
-
-def print_loss(esp,
-         reference_esp):
-    esp *= 627.509469
-    reference_esp = jnp.array(reference_esp) * 627.509469
-    error = (esp - jnp.array(reference_esp)) ** 2
-    MSE = (error.sum()) / len(esp)
-    RMSE = jnp.sqrt(error.sum()) / len(esp)
-    MAE = jnp.abs((esp - jnp.array(reference_esp))).sum() / len(esp)
-    MAXERROR = jnp.abs(error).max()
-    print("MSE", MSE )
-    print("RMSE", RMSE)
-    print("MAE", MAE)
-    print("MAXERROR", MAXERROR)
-    for i in range(len(esp)):
-        if i % 100 == 0:
-            print(i, esp[i], reference_esp[i], esp[i] - reference_esp[i])
-            # print(i, esp[i], data[i], esp[i] - data[i])
-    return MSE
-
-# print_loss(esp, reference_esp)
-
 write_dcm_xyz("test.xyz", positions, charges)
-print(len(charges))
-#print len non zero charges
-print(len([charges[i] for i in range(len(charges)) if charges[i] != 0]))
-import jax
+
+print("len(charges)", len(charges))
+
 from jax.scipy import optimize
 
-res = optimize.minimize(charges_loss, charges, method='BFGS', tol=1e-3)
+loss = MDCMopt.get_charges_loss()
+print(loss)
+
+nparms = MDCMopt.Nchgparm
+from jax import random
+key = random.PRNGKey(1)
+randVals = random.uniform(key, shape=(nparms,), minval=-1, maxval=1)
+
+res = optimize.minimize(loss, randVals, method='BFGS', tol=1e-3)
 print(res)
 print(charges)
-new_charges = constrain_charges(charges * res.x)
+x = res.x
+x = jnp.take(x, MDCMopt.chg_typ_idx)
+
+new_charges = MDCMopt.get_constraint()(charges * x)
+
+print("new charges", new_charges)
 write_dcm_xyz("testout.xyz", positions, new_charges)
 
 print(len([res.x[i] for i in range(len(new_charges)) if new_charges[i] != 0]))
 print(new_charges)
-print(new_charges.sum())
+print("sum:", new_charges.sum())
 esp = compute_esp(positions, new_charges, surface_points)
 print_loss(esp,
          reference_esp)

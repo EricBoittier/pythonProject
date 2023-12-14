@@ -66,7 +66,7 @@ def get_pdb_data():
     # pdb_mols = [read_pdb(p) for p in pdb_files[1:2]]
     # return pdb_mols[0]
     # pdb_file = "/Users/ericboittier/Documents/github/pythonProject/pdb/glu-ed7ce7e2-e36f-40ed-a773-c9621cbed07c-min.pdb"
-    pdb_file = "/Users/ericboittier/Documents/github/pythonProject/pdb/gly-70150091-70a0-453f-b6b8-c5389f387e84-min.pdb"
+    pdb_file = "/home/boittier/Documents/phd/pythonProject/pdb/gly-70150091-70a0-453f-b6b8-c5389f387e84-min.pdb"
     pdb_mol = read_pdb(pdb_file)
     return mol2data(pdb_mol)
 
