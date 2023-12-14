@@ -1,0 +1,207 @@
+
+Scratch directory: /tmp/
+   => Libint2 <=
+
+    Primary   basis highest AM E, G, H:  5, 4, 3
+    Auxiliary basis highest AM E, G, H:  6, 5, 4
+    Onebody   basis highest AM E, G, H:  6, 5, 4
+    Solid Harmonics ordering:            gaussian
+
+*** tstart() called on Erics-MBP
+*** at Wed Dec 13 23:10:21 2023
+
+   => Loading Basis Set <=
+
+    Name: DEF2-TZVP
+    Role: ORBITAL
+    Keyword: BASIS
+    atoms 1, 5, 9, 12, 16          entry C          line   123 file /Users/ericboittier/miniforge3/envs/jax/share/psi4/basis/def2-tzvp.gbs 
+    atoms 2-4, 8, 10-11, 15, 17-19 entry H          line    15 file /Users/ericboittier/miniforge3/envs/jax/share/psi4/basis/def2-tzvp.gbs 
+    atoms 6, 13                    entry O          line   189 file /Users/ericboittier/miniforge3/envs/jax/share/psi4/basis/def2-tzvp.gbs 
+    atoms 7, 14                    entry N          line   156 file /Users/ericboittier/miniforge3/envs/jax/share/psi4/basis/def2-tzvp.gbs 
+
+
+         ---------------------------------------------------------
+                                   SCF
+               by Justin Turney, Rob Parrish, Andy Simmonett
+                          and Daniel G. A. Smith
+                              RKS Reference
+                        1 Threads,    500 MiB Core
+         ---------------------------------------------------------
+
+  ==> Geometry <==
+
+    Molecular point group: c1
+    Full point group: C1
+
+    Geometry (in Angstrom), charge = 0, multiplicity = 1:
+
+       Center              X                  Y                   Z               Mass       
+    ------------   -----------------  -----------------  -----------------  -----------------
+         C           -3.523999929428    -0.421000003815    -0.029999999329    12.000000000000
+         H           -3.957000017166     0.116999998689     0.839999973774     1.007825032230
+         H           -3.226999998093    -1.445000052452     0.280000001192     1.007825032230
+         H           -4.296000003815    -0.495999991894    -0.825999975204     1.007825032230
+         C           -2.351000070572     0.317999988794    -0.549000024796    12.000000000000
+         O           -2.424000024796     0.995000004768    -1.565999984741    15.994914619570
+         N           -1.215999960899     0.197999998927     0.145999997854    14.003074004430
+         H           -1.171000003815    -0.356999993324     0.973999977112     1.007825032230
+         C            0.026000000536     0.827000021935    -0.263999998569    12.000000000000
+         H            0.026000000536     1.843999981880     0.098999999464     1.007825032230
+         H            0.140000000596     0.736000001431    -1.335000038147     1.007825032230
+         C            1.161000013351     0.098999999464     0.386999994516    12.000000000000
+         O            0.984000027180    -0.535000026226     1.422999978065    15.994914619570
+         N            2.364000082016     0.163000002503    -0.214000001550    14.003074004430
+         H            2.480999946594     0.683000028133    -1.054000020027     1.007825032230
+         C            3.512000083923    -0.537000000477     0.314000010490    12.000000000000
+         H            3.336999893188    -1.638000011444     0.310000002384     1.007825032230
+         H            4.414999961853    -0.326000005007    -0.298999994993     1.007825032230
+         H            3.720000028610    -0.224000006914     1.363000035286     1.007825032230
+
+  Running in c1 symmetry.
+
+  Rotational constants: A =      0.15558  B =      0.02319  C =      0.02100 [cm^-1]
+  Rotational constants: A =   4664.11794  B =    695.22007  C =    629.67563 [MHz]
+  Nuclear repulsion =  452.727834745860264
+
+  Charge       = 0
+  Multiplicity = 1
+  Electrons    = 70
+  Nalpha       = 35
+  Nbeta        = 35
+
+  ==> Algorithm <==
+
+  SCF Algorithm Type is DF.
+  DIIS enabled.
+  MOM disabled.
+  Fractional occupation disabled.
+  Guess Type is SAD.
+  Energy threshold   = 1.00e-06
+  Density threshold  = 1.00e-06
+  Integral threshold = 1.00e-12
+
+  ==> Primary Basis <==
+
+  Basis Set: DEF2-TZVP
+    Blend: DEF2-TZVP
+    Number of shells: 139
+    Number of basis functions: 339
+    Number of Cartesian functions: 384
+    Spherical Harmonics?: true
+    Max angular momentum: 3
+
+  ==> DFT Potential <==
+
+   => LibXC <=
+
+    Version 6.2.2
+    S. Lehtola, C. Steigemann, M. J.T. Oliveira, and M. A.L. Marques.,  SoftwareX 7, 1–5 (2018) (10.1016/j.softx.2017.11.002)
+
+   => Composite Functional: PBE0 <= 
+
+    PBE0 Hyb-GGA Exchange-Correlation Functional
+
+    C. Adamo and V. Barone.,  J. Chem. Phys. 110, 6158 (1999) (10.1063/1.478522)
+    M. Ernzerhof and G. E. Scuseria.,  J. Chem. Phys. 110, 5029 (1999) (10.1063/1.478401)
+
+    Deriv               =              1
+    GGA                 =           TRUE
+    Meta                =          FALSE
+
+    Exchange Hybrid     =           TRUE
+    MP2 Hybrid          =          FALSE
+
+   => Exchange Functionals <=
+
+    0.7500   Perdew, Burke & Ernzerhof
+
+   => Exact (HF) Exchange <=
+
+    0.2500               HF 
+
+   => Correlation Functionals <=
+
+    1.0000   Perdew, Burke & Ernzerhof
+
+   => LibXC Density Thresholds  <==
+
+    XC_HYB_GGA_XC_PBEH:  1.00E-15 
+
+   => Molecular Quadrature <=
+
+    Radial Scheme          =       TREUTLER
+    Pruning Scheme         =           NONE
+    Nuclear Scheme         =       TREUTLER
+
+    Blocking Scheme        =         OCTREE
+    BS radius alpha        =              1
+    Pruning alpha          =              1
+    Radial Points          =             75
+    Spherical Points       =            302
+    Total Points           =         402371
+    Total Blocks           =           2997
+    Max Points             =            256
+    Max Functions          =            291
+    Weights Tolerance      =       1.00E-15
+
+   => Loading Basis Set <=
+
+    Name: (DEF2-TZVP AUX)
+    Role: JKFIT
+    Keyword: DF_BASIS_SCF
+    atoms 1, 5, 9, 12, 16          entry C          line   198 file /Users/ericboittier/miniforge3/envs/jax/share/psi4/basis/def2-universal-jkfit.gbs 
+    atoms 2-4, 8, 10-11, 15, 17-19 entry H          line    18 file /Users/ericboittier/miniforge3/envs/jax/share/psi4/basis/def2-universal-jkfit.gbs 
+    atoms 6, 13                    entry O          line   318 file /Users/ericboittier/miniforge3/envs/jax/share/psi4/basis/def2-universal-jkfit.gbs 
+    atoms 7, 14                    entry N          line   258 file /Users/ericboittier/miniforge3/envs/jax/share/psi4/basis/def2-universal-jkfit.gbs 
+
+  ==> Integral Setup <==
+
+  ==> DiskDFJK: Density-Fitted J/K Matrices <==
+
+    J tasked:                  Yes
+    K tasked:                  Yes
+    wK tasked:                  No
+    OpenMP threads:              1
+    Integrals threads:           1
+    Memory [MiB]:              338
+    Algorithm:                Disk
+    Integral Cache:           NONE
+    Schwarz Cutoff:          1E-12
+    Fitting Condition:       1E-10
+
+   => Auxiliary Basis Set <=
+
+  Basis Set: (DEF2-TZVP AUX)
+    Blend: DEF2-UNIVERSAL-JKFIT
+    Number of shells: 285
+    Number of basis functions: 863
+    Number of Cartesian functions: 1017
+    Spherical Harmonics?: true
+    Max angular momentum: 4
+
+  Cached 1.6% of DFT collocation blocks in 0.035 [GiB].
+
+  Minimum eigenvalue in the overlap matrix is 1.6313948627E-04.
+  Reciprocal condition number of the overlap matrix is 1.8168867926E-05.
+    Using symmetric orthogonalization.
+
+  ==> Pre-Iterations <==
+
+  SCF Guess: Superposition of Atomic Densities via on-the-fly atomic UHF (no occupation information).
+
+   -------------------------
+    Irrep   Nso     Nmo    
+   -------------------------
+     A        339     339 
+   -------------------------
+    Total     339     339
+   -------------------------
+
+  ==> Iterations <==
+
+                           Total Energy        Delta E     RMS |[F,P]|
+
+   @DF-RKS iter SAD:  -455.50937946916821   -4.55509e+02   0.00000e+00 
+   @DF-RKS iter   1:  -455.57197785756694   -6.25984e-02   3.55004e-03 ADIIS/DIIS
+   @DF-RKS iter   2:  -455.36197175400309    2.10006e-01   4.11429e-03 ADIIS/DIIS
