@@ -158,7 +158,7 @@ proc vmdrestoremymaterials {} {
   material change ambient Goodsell 0.520000
   material change diffuse Goodsell 1.000000
   material change specular Goodsell 0.000000
-  material change shininess Goodsell -0.000000
+  material change shininess Goodsell 0.000000
   material change mirror Goodsell 0.000000
   material change opacity Goodsell 1.000000
   material change outline Goodsell 4.000000
@@ -332,12 +332,12 @@ mol clipplane color  5 0 top {0.5 0.5 0.5 }
 mol clipplane normal 5 0 top {0.0 0.0 1.0}
 mol clipplane status 5 0 top {0}
 mol rename top gly-70150091-70a0-453f-b6b8-c5389f387e84-min.pdb
-set viewpoints([molinfo top]) {{{1 0 0 0.635529} {0 1 0 0.658235} {0 0 1 0.684176} {0 0 0 1}} {{0.879593 0.308057 0.362324 0} {0.204371 -0.932696 0.29687 0} {0.429428 -0.187085 -0.883415 0} {0 0 0 1}} {{0.196515 0 0 0} {0 0.196515 0 0} {0 0 0.196515 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
+set viewpoints([molinfo top]) {{{1 0 0 0.635529} {0 1 0 0.658235} {0 0 1 0.684176} {0 0 0 1}} {{0.994239 0.103468 0.025216 0} {-0.0885869 0.934916 -0.343333 0} {-0.0590922 0.339143 0.938774 0} {0 0 0 1}} {{0.196515 0 0 0} {0 0.196515 0 0} {0 0 0.196515 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
 lappend viewplist [molinfo top]
 # done with molecule 0
 mol new testout.xyz type xyz first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
 mol delrep 0 top
-mol representation CPK 1.000000 0.000000 12.000000 12.000000
+mol representation CPK 0.300000 0.000000 12.000000 12.000000
 mol color Name
 mol selection {all}
 mol material Opaque
@@ -372,7 +372,7 @@ mol clipplane color  5 0 top {0.5 0.5 0.5 }
 mol clipplane normal 5 0 top {0.0 0.0 1.0}
 mol clipplane status 5 0 top {0}
 mol rename top test.xyz
-set viewpoints([molinfo top]) {{{1 0 0 0.635529} {0 1 0 0.658235} {0 0 1 0.684176} {0 0 0 1}} {{0.879593 0.308057 0.362324 0} {0.204371 -0.932696 0.29687 0} {0.429428 -0.187085 -0.883415 0} {0 0 0 1}} {{0.196515 0 0 0} {0 0.196515 0 0} {0 0 0.196515 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
+set viewpoints([molinfo top]) {{{1 0 0 0.635529} {0 1 0 0.658235} {0 0 1 0.684176} {0 0 0 1}} {{0.994239 0.103468 0.025216 0} {-0.0885869 0.934916 -0.343333 0} {-0.0590922 0.339143 0.938774 0} {0 0 0 1}} {{0.196515 0 0 0} {0 0.196515 0 0} {0 0 0.196515 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
 lappend viewplist [molinfo top]
 set topmol [molinfo top]
 # done with molecule 1
@@ -547,7 +547,9 @@ color scale colors CET_R2 {0.0 0.0 0.0} {0.0 0.0 0.0} {0.0 0.0 0.0}
     {color Segname {} red}
     {color Conformation {all} blue}
     {color Molecule {0} blue}
+    {color Molecule {gly-70150091-70a0-453f-b6b8-c5389f387e84-min.pdb} blue}
     {color Molecule {1} red}
+    {color Molecule {test.xyz} red}
     {color Structure {3_10_Helix} blue}
     {color Surface {Grasp} gray}
     {color Labels {Springs} orange}

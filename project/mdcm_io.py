@@ -1,21 +1,27 @@
 import jax.numpy as jnp
-from jax import jit
+from jax.scipy import optimize
+
 
 def some_hash_function(x):
-  return int(jnp.sum(x))
+    return int(jnp.sum(x))
+
 
 class HashableArrayWrapper:
-  def __init__(self, val):
-    self.val = val
-  def __hash__(self):
-    return some_hash_function(self.val)
-  def __eq__(self, other):
-    return (isinstance(other, HashableArrayWrapper) and
-            jnp.all(jnp.equal(self.val, other.val)))
-  def __getitem__(self, key):
-    return self.val[key]
+    def __init__(self, val):
+        self.val = val
 
-def read_charmm_mdcm(filename: str)->tuple:
+    def __hash__(self):
+        return some_hash_function(self.val)
+
+    def __eq__(self, other):
+        return (isinstance(other, HashableArrayWrapper) and
+                jnp.all(jnp.equal(self.val, other.val)))
+
+    def __getitem__(self, key):
+        return self.val[key]
+
+
+def read_charmm_mdcm(filename: str) -> tuple:
     """
 
     :param filename:
@@ -33,32 +39,25 @@ def read_charmm_mdcm(filename: str)->tuple:
     chargeArrays = []
     lineJump = 0
     while len(frameInfos) < Nframes:
-        frameInfo = lines[4+lineJump]
-        print("frameInfo", frameInfo)
-        print("resName", resName)
-        print("Nframes", Nframes)
-        a1 = int(lines[4+lineJump].split()[0])
-        a2 = int(lines[4+lineJump].split()[1])
-        a3 = int(lines[4+lineJump].split()[2])
-        frametype = str(lines[4+lineJump].split()[3])
-        Nchg1 = int(lines[5+lineJump].split()[0])
-        atom1 = lines[6+lineJump:6 + Nchg1+lineJump]
-        Nchg2 = int(lines[6 + Nchg1+lineJump].split()[0])
-        atom2 = lines[7+ Nchg1+lineJump:7 + Nchg1 + Nchg2+lineJump]
-        Nchg3 = int(lines[7 + Nchg1 + Nchg2+lineJump].split()[0])
-        atom3 = lines[8 + Nchg1 + Nchg2+lineJump:8 + Nchg1 + Nchg2 + Nchg3+lineJump]
+        frameInfo = lines[4 + lineJump]
+        a1 = int(lines[4 + lineJump].split()[0])
+        a2 = int(lines[4 + lineJump].split()[1])
+        a3 = int(lines[4 + lineJump].split()[2])
+        frametype = str(lines[4 + lineJump].split()[3])
+        Nchg1 = int(lines[5 + lineJump].split()[0])
+        atom1 = lines[6 + lineJump:6 + Nchg1 + lineJump]
+        Nchg2 = int(lines[6 + Nchg1 + lineJump].split()[0])
+        atom2 = lines[7 + Nchg1 + lineJump:7 + Nchg1 + Nchg2 + lineJump]
+        Nchg3 = int(lines[7 + Nchg1 + Nchg2 + lineJump].split()[0])
+        atom3 = lines[8 + Nchg1 + Nchg2 + lineJump:8 + Nchg1 + Nchg2 + Nchg3 + lineJump]
         aatom1 = [[float(x) for x in line.split()[:-1]] for line in atom1]
         aatom2 = [[float(x) for x in line.split()[:-1]] for line in atom2]
         aatom3 = [[float(x) for x in line.split()[:-1]] for line in atom3]
         cAt1 = [[float(x) for x in line.split()[-1:]] for line in atom1]
         cAt2 = [[float(x) for x in line.split()[-1:]] for line in atom2]
         cAt3 = [[float(x) for x in line.split()[-1:]] for line in atom3]
-        print("cAt1", cAt1)
-        print("cAt2", cAt2)
-        print("cAt3", cAt3)
         # pad arrays with zeros to make them all the same length
-        max_charges = 2 #max(Nchg1, Nchg2, Nchg3)
-        print("max charges", max_charges)
+        max_charges = 2  # max(Nchg1, Nchg2, Nchg3)
         if Nchg1 < max_charges:
             for _ in range(max_charges - Nchg1):
                 aatom1.append([0, 0, 0])
@@ -78,8 +77,7 @@ def read_charmm_mdcm(filename: str)->tuple:
         atom1 = jnp.array(aatom1)
         atom2 = jnp.array(aatom2)
         atom3 = jnp.array(aatom3)
-        lineJump  += 4 + Nchg1 + Nchg2 + Nchg3
-        print("lineJump", lineJump)
+        lineJump += 4 + Nchg1 + Nchg2 + Nchg3
         chargeArrays.append(jnp.array([cAt1, cAt2, cAt3]))
         frameAtoms.append(jnp.array([a1, a2, a3]))
         frameInfos.append(frameInfo)
@@ -87,8 +85,10 @@ def read_charmm_mdcm(filename: str)->tuple:
 
     chargeArrays = jnp.array(chargeArrays)
     frameAtoms = jnp.array(frameAtoms)
+    axisFrames = jnp.array(axisFrames)
 
     return frameInfos, frameAtoms, axisFrames, chargeArrays
+
 
 def write_dcm_xyz(filename, positions, charges):
     """
@@ -116,62 +116,87 @@ def write_dcm_xyz(filename, positions, charges):
                     )
                 )
 
-glu = "/home/boittier/Documents/phd/pythonProject/mdcm/gen/GLY.mdcm"
-out = read_charmm_mdcm(glu)
+cond = False
+if cond:
 
-from project.mdcm import compute_esp, calc_global_pos
-from project.mdcm_opt import MDCMopt, print_loss
-from project.rdkit_ import get_water_data, get_pdb_data
+    glu = "/home/boittier/Documents/phd/pythonProject/mdcm/gen/GLY.mdcm"
+    out = read_charmm_mdcm(glu)
 
-elements, coords = get_pdb_data()
-frames, atoms, stackData, charges = out
+    from project.mdcm import compute_esp, calc_global_pos
+    from project.mdcm_opt import MDCMopt, print_loss
+    from project.rdkit_ import get_water_data, get_pdb_data
 
-print("frames", frames)
+    elements, coords = get_pdb_data()
+    frames, atoms, stackData, charges = out
 
+    print("len(stackData)", stackData)
 
-positions = calc_global_pos(atoms, coords, stackData[0])
-charges = charges.flatten()
-print("len(charges)", len(charges))
+    print("frames", frames)
 
-reference_esp = [float(x) for x in
-                 open('/home/boittier/Documents/phd/pythonProject/psi4/grid_esp.dat')]
+    positions = calc_global_pos(atoms, coords, stackData)
+    charges = charges.flatten()
+    print("len(charges)", len(charges))
+    write_dcm_xyz("test.xyz", positions, charges)
 
-from project.psi4_ import get_grid_points
+    reference_esp = [float(x) for x in
+                     open('/home/boittier/Documents/phd/pythonProject/psi4/grid_esp.dat')]
 
-surface_points = get_grid_points(coords)
+    from project.psi4_ import get_grid_points
 
-MDCMopt = MDCMopt(charges, positions, surface_points, reference_esp, frames)
+    surface_points = get_grid_points(coords)
 
-# evaluate grid points
-esp = compute_esp(positions, charges, surface_points)
+    print("*" * 100)
+    print("Setting up optimization")
+    print("*" * 100)
 
-write_dcm_xyz("test.xyz", positions, charges)
+    MDCMopt = MDCMopt(
+        charges, atoms, coords,
+        surface_points, reference_esp,
+        frames, stackData,
+        atomCentered=False
+    )
 
-print("len(charges)", len(charges))
+    print("len(charges)", len(charges))
 
-from jax.scipy import optimize
+    loss = MDCMopt.get_charges_local_loss()
+    nparms = MDCMopt.get_N_params()  # 25
+    print("nparms", nparms)
 
-loss = MDCMopt.get_charges_loss()
+    from jax import random
 
-nparms = MDCMopt.Nchgparm
-from jax import random
-key = random.PRNGKey(1)
-randVals = random.uniform(key, shape=(nparms,), minval=-1, maxval=1)
+    for repeat in range(1):
+        print("repeat", repeat)
 
-res = optimize.minimize(loss, randVals, method='BFGS', tol=1e-3)
-print(res)
-print(charges)
-x = res.x
-x = jnp.take(x, MDCMopt.chg_typ_idx)
+        key = random.PRNGKey(repeat)
 
-new_charges = MDCMopt.get_constraint()(charges * x)
+        randVals = random.uniform(key, shape=(nparms,),
+                                  minval=-0.1, maxval=0.1)
 
-print("new charges", new_charges)
-write_dcm_xyz("testout.xyz", positions, new_charges)
+        res = optimize.minimize(loss,
+                                randVals,
+                                method='BFGS',
+                                tol=1e-3)
 
-print(len([res.x[i] for i in range(len(new_charges)) if new_charges[i] != 0]))
-print(new_charges)
-print("sum:", new_charges.sum())
-esp = compute_esp(positions, new_charges, surface_points)
-print_loss(esp,
-         reference_esp)
+        print(res)
+
+        _x = jnp.take(res.x, MDCMopt.chg_typ_idx)
+        new_charges = MDCMopt.get_constraint()(charges * _x)
+        x = res.x
+        x = x.at[MDCMopt.Nchgparm].set(0.0)
+        _locals = jnp.take(x, MDCMopt.local_typ_idx + MDCMopt.Nchgparm)
+        _locals = jnp.clip(_locals, -0.173, 0.173)
+        _locals = _locals.reshape(len(MDCMopt.frames), 3, 2, 3)
+
+        print("locals", _locals)
+        positions = calc_global_pos(MDCMopt.frameAtoms, MDCMopt.coords, _locals)
+
+        print("new charges", new_charges)
+        write_dcm_xyz(f"testout{repeat}.xyz", positions, new_charges)
+
+        print(new_charges)
+        print("sum:", new_charges.sum())
+        esp = compute_esp(positions,
+                          new_charges,
+                          surface_points)
+        print_loss(esp,
+                   reference_esp)

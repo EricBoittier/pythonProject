@@ -1,23 +1,16 @@
 import blender_plots as bplt
+import MolecularNodes as mn
 import numpy as np
-import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib import cm
-from matplotlib.colors import ListedColormap, LinearSegmentedColormap
-import ast
 import bpy
-import blf
-import mathutils
-import math
-
 from pathlib import Path
 
-data_path = Path("/Users/ericboittier/Documents/github/pythonProject")
+data_path = Path("/Users/ericboittier/Documents/github/pythonProject/psi4")
 
 #  read data
 grid = np.genfromtxt(data_path / "grid.dat")
 grid = grid.astype(np.float32)
-# grid = grid * 0.529177249
 
 #  read esp
 esp = np.genfromtxt(data_path / "grid_esp.dat")
@@ -32,7 +25,7 @@ print(grid)
 # convert esp to colors using red to blue colormap
 cmap = cm.get_cmap('bwr')
 norm = plt.Normalize(vmin=esp.min(), vmax=esp.max())
-norm = plt.Normalize(vmin=-0.1, vmax=0.1)
+norm = plt.Normalize(vmin=-0.01, vmax=0.01)
 colors = cmap(norm(esp))
 colors = colors[:, :3]
 
@@ -49,22 +42,15 @@ bplt.Scatter(
         name="points",
     )
 
-#  molecule from Molecular Nodes
-import MolecularNodes as mn
-print(mn)
-
 style = "ball_and_stick"
-pdb_path = Path("/Volumes/Extreme SSD/data/aa/pdb")
-pdb_files = list(pdb_path.glob("*.pdb"))
-pdb_files = ["/Volumes/Extreme SSD/data/aa/pdb/initial-test-79786930-01c3-4eb1-8484-aa3d374e5c0d.pdb"]
-pdb_files = [str(p) for p in pdb_files]
-mn.load.molecule_local(pdb_files[0], default_style=2)
+pdb_path = "/Users/ericboittier/Documents/github/pythonProject/pdb/gly-70150091-70a0-453f-b6b8-c5389f387e84-min.pdb"
+mn.load.molecule_local(pdb_path, default_style=0)
 
 
 #  scale molecule
 bpy.ops.object.select_all(action="DESELECT")
 bpy.data.objects["Name"].select_set(True)
-bpy.ops.transform.resize(value=(100., 100., 100.))
+bpy.ops.transform.resize(value=(100.*0.8, 100.*0.8, 100.*0.8))
 
 
 #  add camera
@@ -103,3 +89,22 @@ bpy.ops.view3d.camera_to_view_selected()
 
 bpy.ops.render.render()
 bpy.data.images["Render Result"].save_render(f"/Users/ericboittier/Downloads/test.png")
+
+# create a rotation animation for 360 degrees
+bpy.context.scene.frame_end = 360
+bpy.ops.object.select_all(action="DESELECT")
+bpy.data.objects["points"].select_set(True)
+bpy.data.objects["Camera"].select_set(True)
+bpy.data.objects["Name"].select_set(True)
+bpy.ops.anim.keyframe_insert_menu(type="Rotation")
+bpy.ops.anim.keyframe_insert_menu(type="Location")
+# loop to perform 360 degree rotation
+for i in range(0, 360, 30):
+    bpy.context.scene.frame_set(i)
+    bpy.data.objects["points"].rotation_euler[2] = np.radians(i)
+    bpy.data.objects["Camera"].rotation_euler[2] = np.radians(i)
+    bpy.data.objects["Name"].rotation_euler[2] = np.radians(i)
+    bpy.ops.anim.keyframe_insert_menu(type="Rotation")
+    bpy.ops.anim.keyframe_insert_menu(type="Location")
+
+

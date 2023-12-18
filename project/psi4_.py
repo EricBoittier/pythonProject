@@ -2,7 +2,7 @@ import os
 
 import psi4
 
-from project.constants_ import mdcm_path, cubes_path
+from project.constants_ import mdcm_path, cubes_path, psi4_path
 from project.rdkit_ import get_water_data, get_pdb_data
 import jax.numpy as np
 from scipy.spatial.distance import cdist
@@ -22,6 +22,7 @@ def make_grid_data(surface_points):
             for c in xyz:
                 file.write(str(c) + ' ')
             file.write('\n')
+
 
 def get_surface_points(coordinates):
     """
@@ -53,17 +54,12 @@ def get_grid_points(coordinates):
     :param coordinates:
     :return:
     """
-    bounds = np.array([np.min(coordinates, axis=0), np.max(coordinates, axis=0)])
-    print(bounds)
+    bounds = np.array([np.min(coordinates, axis=0),
+                       np.max(coordinates, axis=0)])
     padding = 2.0
     bounds = bounds + np.array([-1, 1])[:, None] * padding
-    print(bounds.shape)
-    grid_points = np.meshgrid(*[np.linspace(a, b, 10) for a,b in zip(bounds[0], bounds[1])])
-
-    # grid points are now a list of 3d arrays
-    print(len(grid_points))
-    for i in range(len(grid_points)):
-        print(grid_points[i].shape)
+    grid_points = np.meshgrid(*[np.linspace(a, b, 10)
+                                for a, b in zip(bounds[0], bounds[1])])
 
     grid_points = np.stack(grid_points, axis=0)
     grid_points = np.reshape(grid_points.T, [-1, 3])
@@ -93,7 +89,7 @@ def test_mbis(test="water"):
     else:
         raise NotImplementedError
 
-    for e,c in zip(elements, monomer_coords):
+    for e, c in zip(elements, monomer_coords):
         print(e, " ".join([str(_) for _ in c]))
 
     if test == "cube":
@@ -103,17 +99,8 @@ def test_mbis(test="water"):
     else:
         # surface_points = get_surface_points(monomer_coords)
         surface_points = get_grid_points(monomer_coords)
-    make_grid_data(surface_points)
-    psi4_mol = psi4.core.Molecule.from_arrays(monomer_coords, elem=elements,
-                                              fix_orientation=True,
-                                              fix_com=True,)
-    psi4.core.set_output_file('output.dat', False)
-    e, wfn = psi4.energy('PBE0', molecule=psi4_mol, return_wfn=True)
-    if test == 'water':
-        print(e, -76.3755896)
-    else:
-        print(e)
-    psi4.oeprop(wfn, 'GRID_ESP', 'MBIS_CHARGES', title='MBIS Multipoles')
+
+    esp_calc(surface_points, monomer_coords, elements)
     reference_esp = [float(x) for x in open('grid_esp.dat')]
     data = None
     if cube1 is not None:
@@ -126,8 +113,76 @@ def test_mbis(test="water"):
 
     return surface_points, data, reference_esp, monomer_coords
 
+
+def esp_calc(surface_points, monomer_coords, elements):
+    make_grid_data(surface_points)
+    psi4_mol = psi4.core.Molecule.from_arrays(monomer_coords, elem=elements,
+                                              fix_orientation=True,
+                                              fix_com=True, )
+    psi4.core.set_output_file('output.dat', False)
+    e, wfn = psi4.energy('PBE0', molecule=psi4_mol, return_wfn=True)
+    psi4.oeprop(wfn, 'GRID_ESP', 'MBIS_CHARGES', title='MBIS Multipoles')
+
+
+def make_psi4_dir(filename):
+    """
+    create a psi4 directory and change to it
+    :param filename:
+    :return:
+    """
+    print(filename)
+    psi4_dir = psi4_path / filename.stem
+    if not psi4_dir.exists():
+        psi4_dir.mkdir()
+    os.chdir(psi4_dir)
+    return psi4_dir
+
+
+def read_grid(filename):
+    """
+    read grid.dat file
+    :param filename:
+    :return:
+    """
+    psi4_dir = psi4_path / filename.stem
+    filename = psi4_dir / "grid.dat"
+    with open(filename, 'r') as file:
+        lines = file.readlines()
+    grid = []
+    for line in lines:
+        grid.append([float(x) for x in line.split()])
+    return np.array(grid)
+
+
+def read_ref_esp(filename):
+    psi4_dir = psi4_path / filename.stem
+    filename = psi4_dir / "grid_esp.dat"
+    with open(filename, 'r') as file:
+        lines = file.readlines()
+    grid = []
+    for line in lines:
+        grid.append([float(x) for x in line.split()])
+    return np.array(grid)
+
+
 # test_mbis(test="pdb")
-#import os
+# import os
 # os.chdir("/Users/ericboittier/Documents/github/pythonProject/psi4")
 # surface_points, data, reference_esp, monomer_coords = test_mbis(test="pdb")
 
+if __name__ == "__main__":
+    import argparse
+    from pathlib import Path
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-p", "--pdb", type=str, default=None)
+    args = parser.parse_args()
+    if args.pdb is not None:
+        pdb = Path(args.pdb)
+        print(type(pdb))
+        make_psi4_dir(pdb)
+    else:
+        raise NotImplementedError
+    elements, coords = get_pdb_data(pdb)
+    surface_points = get_grid_points(coords)
+    esp_calc(surface_points, coords, elements)

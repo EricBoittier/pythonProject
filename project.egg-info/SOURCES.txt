@@ -4,10 +4,12 @@ project/blender_.py
 project/constants_.py
 project/coulomb.py
 project/cubes_.py
+project/frameGen.py
 project/frames.py
 project/jax_md_.py
 project/mdcm.py
 project/mdcm_io.py
+project/mdcm_opt.py
 project/psi4_.py
 project/rdkit_.py
 project.egg-info/PKG-INFO
