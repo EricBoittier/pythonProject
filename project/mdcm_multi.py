@@ -92,46 +92,31 @@ class MDCMoptMulti:
 
 
 
-    @partial(jit, static_argnums=(0,))
     def init_x0_charges(self):
         return jax.random.uniform(self.random_key, (self.Nchgparm,),
                                   minval=-1.0, maxval=1.0)
 
-    @partial(jit, static_argnums=(0,))
     def init_x0_local(self):
         return jax.random.uniform(self.random_key, (self.Nlocalparm,),
                                   minval=-0.1, maxval=0.1)
 
-    @partial(jit, static_argnums=(0,))
     def init_x0(self):
         return jnp.concatenate([self.init_x0_charges(),
                                 self.init_x0_local()])
 
-    @partial(jit, static_argnums=(0,))
     def constrain_charges_multi(self, x0, ):
         """Constrain the charges to sum to zero."""
-        jax.debug.print("x0={x}, chg_idx={chg_idx}",
-                        x=x0, chg_idx=self.chg_idx)
         segment_sum = jax.ops.segment_sum(x0*self.charges, self.chg_idx,
                                           num_segments=2) / self.n_charges
-        jax.debug.print("segment_sum={segment_sum}",
-                        segment_sum=segment_sum)
-
         x0 = x0.at[:].add(-1 * segment_sum[self.chg_idx]) * self.charges
-
-        jax.debug.print("x0={x}", x=(x0))
-        jax.debug.print("sum(x0)={sum}", sum=(x0).sum())
         return x0
 
-    @partial(jit, static_argnums=(0,))
     def take_chg_parms(self, x0):
         return jnp.take(x0, self.chg_typ_idx)
 
-    @partial(jit, static_argnums=(0,))
     def take_local_parms(self, x0):
         return jnp.take(x0, self.local_typ_idx + self.Nchgparm)
 
-    @partial(jit, static_argnums=(0,))
     def take_local_parms_only(self, x0):
         return jnp.take(x0, self.local_typ_idx)
 
@@ -143,7 +128,6 @@ class MDCMoptMulti:
         print(res)
         return res.x
 
-    @partial(jit, static_argnums=(0,))
     def loss_charge_local(self, x0):
         x0_chg = self.take_chg_parms(x0)
 
@@ -163,7 +147,7 @@ class MDCMoptMulti:
 
         loss = jnp.sum((esp - self.all_ref_esp) ** 2)
 
-        jax.debug.print(".loss={loss}", loss=loss)
+        # jax.debug.print(".loss={loss}", loss=loss)
         return loss
 
 
@@ -173,4 +157,29 @@ glu = "/home/boittier/Documents/phd/pythonProject/mdcm/gen/GLY.mdcm"
 
 m = MDCMoptMulti(pdbs=[pdb1, pdb2], mdcms=[glu, glu])
 
-m.opt_charge_local()
+from mdcm_eqx import mdcm_eqx
+
+m_e = mdcm_eqx(
+    m.all_atoms,
+    m.all_coords,
+    m.all_grids,
+    m.all_ref_esp,
+    m.chg_idx,
+    m.grid_idx,
+    m.charges,
+    m.chg_typ_idx,
+    m.local_typ_idx,
+    m.n_all_frames,
+    m.Nchgparm,
+    m.Nlocalparm,
+    m.n_charges,
+)
+
+# m_e.loss_charge_local(m.init_x0())
+
+res = optimize.minimize(m_e.loss_charge_local,
+                        m.init_x0(),
+                        method='BFGS', )
+
+print(res.x)
+print(res)

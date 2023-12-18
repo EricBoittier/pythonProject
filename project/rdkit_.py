@@ -52,7 +52,6 @@ def read_pdb(filename):
     """
     with open(filename, 'r') as file:
         pdb = file.read()
-        print(pdb)
     mol = Chem.MolFromPDBBlock(pdb, sanitize=False, removeHs=False)
 
     return mol
