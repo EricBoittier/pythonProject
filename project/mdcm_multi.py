@@ -8,9 +8,10 @@ from pathlib import Path
 from jax.scipy import optimize
 import jax
 
+pdb_path = Path("/home/boittier/Documents/phd/pythonProject/pdb")
 
-# pdb_path = Path("/home/boittier/Documents/phd/pythonProject/pdb")
-pdb_path = Path("/Users/ericboittier/Documents/github/pythonProject/pdb")
+
+# pdb_path = Path("/Users/ericboittier/Documents/github/pythonProject/pdb")
 
 
 class MDCMoptMulti:
@@ -19,7 +20,7 @@ class MDCMoptMulti:
                  mdcms=None,
                  atomCentered=False,
                  ):
-        self.random_key = random.PRNGKey(31415)
+        self.random_key = random.PRNGKey(0)
         self.atomCentered = atomCentered
         self.pdbs = pdbs
         self.pdb_paths = [pdb_path / pdb for pdb in pdbs]
@@ -32,9 +33,11 @@ class MDCMoptMulti:
         self.atoms = [a for f, a, s, c in self.mdcms]
         self.stackData = [s for f, a, s, c in self.mdcms]
         self.charges = [c for f, a, s, c in self.mdcms]
+        print("self.charges", self.charges)
         self.n_charges = jnp.array([c.flatten().sum() for c
                                     in self.charges],
                                    dtype=jnp.int32)
+        print("self.n_charges", self.n_charges)
         self.n_atoms = [len(e) for e in self.elements]
         self.n_frames = [len(f) for f in self.frames]
         self.n_all_frames = sum(self.n_frames)
@@ -88,12 +91,13 @@ class MDCMoptMulti:
         )
 
         self.Nparm = self.Nchgparm + self.Nlocalparm
-
-
+        print("Nparm", self.Nparm)
+        print("Nchgparm", self.Nchgparm)
+        print("Nlocalparm", self.Nlocalparm)
 
     def init_x0_charges(self):
         return jax.random.uniform(self.random_key, (self.Nchgparm,),
-                                  minval=-1.0, maxval=1.0)
+                                  minval=-0.1, maxval=0.1)
 
     def init_x0_local(self):
         return jax.random.uniform(self.random_key, (self.Nlocalparm,),
@@ -105,8 +109,13 @@ class MDCMoptMulti:
 
     def constrain_charges_multi(self, x0, ):
         """Constrain the charges to sum to zero."""
-        segment_sum = jax.ops.segment_sum(x0*self.charges, self.chg_idx,
-                                          num_segments=2) / self.n_charges
+        jax.debug.print("x0 {x}", x=x0)
+        jax.debug.print("self.charges {x}", x=self.charges)
+        jax.debug.print("self.chg_idx {x}", x=self.chg_idx)
+        jax.debug.print("self.n_charges {x}", x=self.n_charges)
+        segment_sum = jax.ops.segment_sum(x0 * self.charges, self.chg_idx,
+                                          num_segments=1) / self.n_charges
+        jax.debug.print("segment_sum {x}", x=segment_sum)
         x0 = x0.at[:].add(-1 * segment_sum[self.chg_idx]) * self.charges
         jax.debug.print("x0 {x}", x=x0)
         return x0
@@ -128,9 +137,8 @@ class MDCMoptMulti:
         print(res)
         return res.x
 
-
     def get_pos_chgs_esp(self, x0):
-        x0 = x0.at[self.Nchgparm].set(0.0)
+        # x0 = x0.at[self.Nchgparm].set(0.0)
         x0_chg = self.take_chg_parms(x0)
         x0_chg = self.constrain_charges_multi(x0_chg)
         # local
@@ -148,12 +156,12 @@ class MDCMoptMulti:
     def get_chg_local_loss(self):
         @jax.jit
         def loss_charge_local(x0):
-            x0 = x0.at[self.Nchgparm].set(0.0)
+            # x0 = x0.at[self.Nchgparm].set(0.0)
             # jax.debug.print("x0 {x}", x=x0)
             # charges
             x0_chg = self.take_chg_parms(x0)
             x0_chg = self.constrain_charges_multi(x0_chg)
-            # jax.debug.print("chg {x}", x=x0_chg)
+            jax.debug.print("chg {x}", x=x0_chg)
             # local
             x0_local = self.take_local_parms(x0)
             # jax.debug.print("local {x}", x=x0_local)
@@ -168,40 +176,13 @@ class MDCMoptMulti:
             esp = compute_esp_multi(positions, x0_chg,
                                     self.all_grids,
                                     self.chg_idx, self.grid_idx)
+            jax.debug.print("esp {x}", x=esp.shape)
+            jax.debug.print("ref_esp {x}", x=self.all_ref_esp.shape)
             # loss
-            loss = jnp.sum((esp - self.all_ref_esp) ** 2)
+            loss = jnp.sum((esp - self.all_ref_esp.flatten()) ** 2)
             jax.debug.print(".loss={loss}", loss=loss)
             rmse = jnp.sqrt(loss / len(self.all_ref_esp))
-            jax.debug.print(".rmse={rmse}", rmse=rmse*627.509)
-            return loss/10**6  # divide to keep jax BFGS happy
+            jax.debug.print(".rmse={rmse}", rmse=rmse * 627.509)
+            return loss / 10 ** 4  # divide to keep jax BFGS happy
 
         return loss_charge_local
-
-pdb1 = pdb_path / "gly-70150091-70a0-453f-b6b8-c5389f387e84-end.pdb"
-pdb2 = pdb_path / "gly-70150091-70a0-453f-b6b8-c5389f387e84-min.pdb"
-
-# glu = "/home/boittier/Documents/phd/pythonProject/mdcm/gen/GLY.mdcm"
-glu = '/Users/ericboittier/Documents/github/pythonProject/mdcm/gen/GLY.mdcm'
-
-m = MDCMoptMulti(pdbs=[pdb1, pdb2], mdcms=[glu, glu])
-
-loss = m.get_chg_local_loss()
-
-print(loss)
-
-res = optimize.minimize(loss,
-                        m.init_x0(),
-                        method='BFGS',
-                        tol=1e-1,)
-
-print(res.x)
-print(res)
-pos, chgs, esp = m.get_pos_chgs_esp(res.x)
-print(pos)
-print(chgs)
-
-write_dcm_xyz("dcm_test.xyz", pos, chgs)
-
-for i in range(len(m.all_ref_esp)):
-    if i % 1000:
-        print(i, m.all_ref_esp[i], esp[i], m.all_grids[i])

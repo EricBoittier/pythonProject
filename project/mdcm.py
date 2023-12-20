@@ -70,11 +70,11 @@ def compute_esp_multi(positions, charges, grid_points, chg_idx, grid_idx):
     esp = jnp.zeros_like(grid_points[:,0])
     for i in range(len(charges)):
         distances = jnp.linalg.norm(grid_points - positions[i], axis=1)
-        jax.debug.print("distances {x}", x=distances.shape)
+        # jax.debug.print("distances {x}", x=distances.shape)
         cond = jnp.where(chg_idx[i] == grid_idx, 1.0, 0.0).reshape(1, -1)
-        jax.debug.print("cond {x}", x=cond.shape)
+        # jax.debug.print("cond {x}", x=cond.shape)
         ch = coulomb(charges[i], distances) * cond
-        jax.debug.print("ch {x}", x=ch[::1000])
+        # jax.debug.print("ch {x}", x=ch[::1000])
         esp = esp.at[:].add(ch.flatten())
     return esp
 
@@ -144,6 +144,13 @@ def process_frames(frames, atomCentered=True):
     all_local_type_set = list(set(locals))
     all_local_type_set.sort()
     local_typ_idx = jnp.array([all_local_type_set.index(i) for i in locals])
+
+    print("Number of charge types: ", len(all_charge_type_set))
+    print("Number of local types: ", len(all_local_type_set))
+    print("Number of frames: ", len(frames))
+
+    print("cidx", chg_typ_idx)
+    print("lidx", local_typ_idx)
 
     return len(all_charge_type_set), \
         chg_typ_idx, \

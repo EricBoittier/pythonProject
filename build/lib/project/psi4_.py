@@ -8,7 +8,6 @@ import jax.numpy as np
 from scipy.spatial.distance import cdist
 
 psi4.set_options({'basis': 'def2-TZVP', })
-B_to_A = 0.529177249
 
 
 def make_grid_data(surface_points):
@@ -22,6 +21,7 @@ def make_grid_data(surface_points):
             for c in xyz:
                 file.write(str(c) + ' ')
             file.write('\n')
+
 
 def get_surface_points(coordinates):
     """
@@ -57,14 +57,14 @@ def get_grid_points(coordinates):
                        np.max(coordinates, axis=0)])
     padding = 2.0
     bounds = bounds + np.array([-1, 1])[:, None] * padding
-    grid_points = np.meshgrid(*[np.linspace(a, b, 10)
-                                for a,b in zip(bounds[0], bounds[1])])
+    grid_points = np.meshgrid(*[np.linspace(a, b, 25)
+                                for a, b in zip(bounds[0], bounds[1])])
 
     grid_points = np.stack(grid_points, axis=0)
     grid_points = np.reshape(grid_points.T, [-1, 3])
     #  exclude points that are too close to the molecule
     grid_points = grid_points[
-        np.where(np.all(cdist(grid_points, coordinates) >= (1.0 - 1e-1), axis=-1))[0]]
+        np.where(np.all(cdist(grid_points, coordinates) >= (1.5 - 1e-1), axis=-1))[0]]
 
     return grid_points
 
@@ -88,7 +88,7 @@ def test_mbis(test="water"):
     else:
         raise NotImplementedError
 
-    for e,c in zip(elements, monomer_coords):
+    for e, c in zip(elements, monomer_coords):
         print(e, " ".join([str(_) for _ in c]))
 
     if test == "cube":
@@ -112,11 +112,12 @@ def test_mbis(test="water"):
 
     return surface_points, data, reference_esp, monomer_coords
 
+
 def esp_calc(surface_points, monomer_coords, elements):
     make_grid_data(surface_points)
     psi4_mol = psi4.core.Molecule.from_arrays(monomer_coords, elem=elements,
                                               fix_orientation=True,
-                                              fix_com=True,)
+                                              fix_com=True, )
     psi4.core.set_output_file('output.dat', False)
     e, wfn = psi4.energy('PBE0', molecule=psi4_mol, return_wfn=True)
     psi4.oeprop(wfn, 'GRID_ESP', 'MBIS_CHARGES', title='MBIS Multipoles')
@@ -136,14 +137,37 @@ def make_psi4_dir(filename):
     return psi4_dir
 
 
-# test_mbis(test="pdb")
-#import os
-# os.chdir("/Users/ericboittier/Documents/github/pythonProject/psi4")
-# surface_points, data, reference_esp, monomer_coords = test_mbis(test="pdb")
+def read_grid(filename):
+    """
+    read grid.dat file
+    :param filename:
+    :return:
+    """
+    psi4_dir = psi4_path / filename.stem
+    filename = psi4_dir / "grid.dat"
+    with open(filename, 'r') as file:
+        lines = file.readlines()
+    grid = []
+    for line in lines:
+        grid.append([float(x) for x in line.split()])
+    return np.array(grid)
+
+
+def read_ref_esp(filename):
+    psi4_dir = psi4_path / filename.stem
+    filename = psi4_dir / "grid_esp.dat"
+    with open(filename, 'r') as file:
+        lines = file.readlines()
+    grid = []
+    for line in lines:
+        grid.append([float(x) for x in line.split()])
+    return np.array(grid)
+
 
 if __name__ == "__main__":
     import argparse
     from pathlib import Path
+
     parser = argparse.ArgumentParser()
     parser.add_argument("-p", "--pdb", type=str, default=None)
     args = parser.parse_args()
@@ -154,6 +178,12 @@ if __name__ == "__main__":
     else:
         raise NotImplementedError
     elements, coords = get_pdb_data(pdb)
+    print(elements)
+    print(coords)
+    # from project.cubes_ import cube
+    # cube = cube("/home/boittier/Documents/phd/pythonProject/cubes/gaussian/testjax.chk.p.cube")
+    # surface_points = cube.get_grid()
+    # print(surface_points.shape)
     surface_points = get_grid_points(coords)
+    print("surface:", surface_points.shape)
     esp_calc(surface_points, coords, elements)
-

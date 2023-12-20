@@ -2,7 +2,6 @@ import jax
 import jax.numpy as jnp
 from jax import jit
 
-# coloumns_constant = 1389.35 / 4.186798 #3.32063711e2 / 627.509469
 # Constants
 eps = 1e-12  # A small epsilon value
 
@@ -53,7 +52,9 @@ def conv_clcl_cxyz(
 
 @jit
 def coulomb(q1, r12):
-    return ((q1) / r12)
+    # convert to atomic units
+    # r12 = r12 * 1.889725989
+    return q1 / (r12 * 1.889725989)
 
 
 @jit
@@ -64,15 +65,33 @@ def compute_esp(positions, charges, grid_points):
         esp += coulomb(charges[i, None], distances)
     return esp
 
+@jit
+def compute_esp_multi(positions, charges, grid_points, chg_idx, grid_idx):
+    esp = jnp.zeros_like(grid_points[:,0])
+    for i in range(len(charges)):
+        distances = jnp.linalg.norm(grid_points - positions[i], axis=1)
+        # jax.debug.print("distances {x}", x=distances.shape)
+        cond = jnp.where(chg_idx[i] == grid_idx, 1.0, 0.0).reshape(1, -1)
+        # jax.debug.print("cond {x}", x=cond.shape)
+        ch = coulomb(charges[i], distances) * cond
+        # jax.debug.print("ch {x}", x=ch[::1000])
+        esp = esp.at[:].add(ch.flatten())
+    return esp
 
 @jit
 def calc_global_pos(atoms, coords, stackData):
+    """
+
+    :param atoms:
+    :param coords:
+    :param stackData:
+    :return:
+    """
     positions = []
     for i, frame in enumerate(atoms):
         # index by frame order
         _coords = coords[frame - 1, :]
         cla = compute_local_axes(_coords)
-        # jax.debug.print("cla: {a} {x}", a=cla, x=cla.shape)
         pos = conv_clcl_cxyz(
             _coords,
             cla,
@@ -80,7 +99,6 @@ def calc_global_pos(atoms, coords, stackData):
         )
         positions.append(pos)
     positions = jnp.array(positions)
-    # jax.debug.print("positions: {a} {x}", a=positions, x=len(positions))
     positions = positions.reshape(-1, 3)
     return positions
 
@@ -90,7 +108,6 @@ def process_frames(frames, atomCentered=True):
     for frame in frames:
         atoms, _, key = frame.split("!")
         atoms = [int(i) for i in atoms.split()[:-1]]
-        print("atoms", atoms)
         key = key[2:-2].split(",")
         if key != ["hydrogen"]:
             key = [int(i) for i in key]
@@ -101,7 +118,6 @@ def process_frames(frames, atomCentered=True):
 
     key_set = list(set(keys))
     key_set.sort()
-    print("key_set", key_set)
     charges = []
     locals = []
     for ki, key in enumerate(keys):
@@ -120,23 +136,21 @@ def process_frames(frames, atomCentered=True):
             for i in range(1, 19):
                 locals.append(1)
 
-    print("charges", charges)
-    print("len(charges)", len(charges))
-    print(set(charges), "\n", len(set(charges)))
+
     all_charge_type_set = list(set(charges))
     all_charge_type_set.sort()
-    print("all_charge_type_set", all_charge_type_set)
     chg_typ_idx = jnp.array([all_charge_type_set.index(i) for i in charges])
-    print("chg_typ_idx", chg_typ_idx)
-    print("len(chg_typ_idx)", len(chg_typ_idx))
-    print("locals", locals)
-    print("len(locals)", len(locals))
-    print(set(locals), "\n", len(set(locals)))
+
     all_local_type_set = list(set(locals))
     all_local_type_set.sort()
-    print("all_local_type_set", all_local_type_set)
     local_typ_idx = jnp.array([all_local_type_set.index(i) for i in locals])
-    print("local_typ_idx", local_typ_idx)
+
+    print("Number of charge types: ", len(all_charge_type_set))
+    print("Number of local types: ", len(all_local_type_set))
+    print("Number of frames: ", len(frames))
+
+    print("cidx", chg_typ_idx)
+    print("lidx", local_typ_idx)
 
     return len(all_charge_type_set), \
         chg_typ_idx, \

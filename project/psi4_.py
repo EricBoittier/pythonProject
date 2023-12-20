@@ -57,14 +57,14 @@ def get_grid_points(coordinates):
                        np.max(coordinates, axis=0)])
     padding = 2.0
     bounds = bounds + np.array([-1, 1])[:, None] * padding
-    grid_points = np.meshgrid(*[np.linspace(a, b, 10)
+    grid_points = np.meshgrid(*[np.linspace(a, b, 25)
                                 for a, b in zip(bounds[0], bounds[1])])
 
     grid_points = np.stack(grid_points, axis=0)
     grid_points = np.reshape(grid_points.T, [-1, 3])
     #  exclude points that are too close to the molecule
     grid_points = grid_points[
-        np.where(np.all(cdist(grid_points, coordinates) >= (1.0 - 1e-1), axis=-1))[0]]
+        np.where(np.all(cdist(grid_points, coordinates) >= (1.5 - 1e-1), axis=-1))[0]]
 
     return grid_points
 
@@ -178,5 +178,12 @@ if __name__ == "__main__":
     else:
         raise NotImplementedError
     elements, coords = get_pdb_data(pdb)
+    print(elements)
+    print(coords)
+    # from project.cubes_ import cube
+    # cube = cube("/home/boittier/Documents/phd/pythonProject/cubes/gaussian/testjax.chk.p.cube")
+    # surface_points = cube.get_grid()
+    # print(surface_points.shape)
     surface_points = get_grid_points(coords)
+    print("surface:", surface_points.shape)
     esp_calc(surface_points, coords, elements)

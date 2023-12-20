@@ -1,0 +1,7 @@
+HEADER
+TITLE
+REMARK
+ATOM      1 OH2  TIP3    1      -0.006   0.385  -0.000  0.00  0.00           O
+ATOM      2 H1   TIP3    1      -0.796  -0.195  -0.000  0.00  0.00           H
+ATOM      3 H2   TIP3    1       0.803  -0.191   0.000  0.00  0.00           H
+END

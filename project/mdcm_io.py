@@ -87,6 +87,11 @@ def read_charmm_mdcm(filename: str) -> tuple:
     frameAtoms = jnp.array(frameAtoms)
     axisFrames = jnp.array(axisFrames)
 
+    print("frameInfos", frameInfos)
+    print("frameAtoms", frameAtoms)
+    print("axisFrames", axisFrames)
+    print("chargeArrays", chargeArrays)
+
     return frameInfos, frameAtoms, axisFrames, chargeArrays
 
 
@@ -116,6 +121,7 @@ def write_dcm_xyz(filename, positions, charges):
                     )
                 )
 
+
 cond = False
 if cond:
 
@@ -139,7 +145,8 @@ if cond:
     write_dcm_xyz("test.xyz", positions, charges)
 
     reference_esp = [float(x) for x in
-                     open('/home/boittier/Documents/phd/pythonProject/psi4/grid_esp.dat')]
+                     open(
+                         '/home/boittier/Documents/phd/pythonProject/psi4/grid_esp.dat')]
 
     from project.psi4_ import get_grid_points
 

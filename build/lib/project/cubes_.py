@@ -82,12 +82,6 @@ class cube():
         Returns an np array of the xyz grid
         :return:
         '''
-        # x = np.linspace(self.origin[0], self.origin[0]+self.X[0], self.NX)
-        # y = np.linspace(self.origin[1], self.origin[1]+self.Y[1], self.NY)
-        # z = np.linspace(self.origin[2], self.origin[2]+self.Z[2], self.NZ)
-        # grid = np.array(np.meshgrid(x,y,z))
-        # reshaped = np.reshape(grid.T, [-1, 3])
-        counter = 0
         grid = np.zeros((self.NX,self.NY,self.NZ,3))
         for ix in range(self.NX):
             for iy in range(self.NY):
@@ -95,11 +89,10 @@ class cube():
                     grid[ix,iy,iz,:] = np.array(
                         [self.origin[0]+self.X[0]*ix,
                          self.origin[1]+self.Y[1]*iy,
-                         self.origin[2]+self.Z[2]*iz]) * bohr_to_ang
-                    counter += 1
+                         self.origin[2]+self.Z[2]*iz])
         reshaped = np.reshape(grid, [-1, 3])
 
-        return reshaped
+        return reshaped * bohr_to_ang
 
     def get_atom_data(self):
         return self.atoms, np.array(self.atomsXYZ) * bohr_to_ang

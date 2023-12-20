@@ -15,12 +15,15 @@ class MDCMopt():
                  locals=None,
                  atomCentered=True,
                  ):
+
         self.locals = jnp.array(locals)
         print("locals", self.locals.shape)
         self.charges = charges
         self.coords = coords
         self.frameAtoms = frameAtoms
-        self.positions = calc_global_pos(self.frameAtoms, self.coords, locals)
+        self.positions = calc_global_pos(self.frameAtoms,
+                                         self.coords,
+                                         locals)
         self.surface_points = surface_points
         self.reference_esp = jnp.array(reference_esp)
         self.frames = frames
@@ -84,13 +87,13 @@ class MDCMopt():
             #  calculate the ESP
             esp = compute_esp(
                 positions, _charges, self.surface_points
-            ) #* 627.509469
+            )
 
             error = (esp - jnp.array(self.reference_esp)) ** 2
             MSE = (error.sum()) / len(esp)
             jax.debug.print("{x}", x=MSE * 627.509469**2)
             return MSE / jnp.linalg.norm(
-                jnp.array([8428.3213677, -2903921.86042314, 6528682.31072694]))
+                jnp.array([1000, 1000, 1000]))
 
         return charges_loss
 
@@ -118,5 +121,6 @@ def print_loss(esp,
     print("MAXERROR", MAXERROR * 627.509469)
     for i in range(len(esp)):
         if i % 10 == 0:
-            print(i, esp[i], reference_esp[i], (esp[i] - reference_esp[i])*627.509469)
+            print(i, esp[i], reference_esp[i],
+                  (esp[i] - reference_esp[i])*627.509469)
     return MSE
