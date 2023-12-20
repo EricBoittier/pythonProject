@@ -2,7 +2,6 @@ import jax
 import jax.numpy as jnp
 from jax import jit
 
-# coloumns_constant = 1389.35 / 4.186798 #3.32063711e2 / 627.509469
 # Constants
 eps = 1e-12  # A small epsilon value
 
@@ -53,7 +52,9 @@ def conv_clcl_cxyz(
 
 @jit
 def coulomb(q1, r12):
-    return q1 / r12
+    # convert to atomic units
+    # r12 = r12 * 1.889725989
+    return q1 / (r12 * 1.889725989)
 
 
 @jit
@@ -69,8 +70,11 @@ def compute_esp_multi(positions, charges, grid_points, chg_idx, grid_idx):
     esp = jnp.zeros_like(grid_points[:,0])
     for i in range(len(charges)):
         distances = jnp.linalg.norm(grid_points - positions[i], axis=1)
-        cond = jnp.where(chg_idx[i] == grid_idx, 1, 0)
-        ch = coulomb(charges[i], distances) * cond.T
+        jax.debug.print("distances {x}", x=distances.shape)
+        cond = jnp.where(chg_idx[i] == grid_idx, 1.0, 0.0).reshape(1, -1)
+        jax.debug.print("cond {x}", x=cond.shape)
+        ch = coulomb(charges[i], distances) * cond
+        jax.debug.print("ch {x}", x=ch[::1000])
         esp = esp.at[:].add(ch.flatten())
     return esp
 

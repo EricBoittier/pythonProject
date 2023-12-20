@@ -8,7 +8,6 @@ import jax.numpy as np
 from scipy.spatial.distance import cdist
 
 psi4.set_options({'basis': 'def2-TZVP', })
-B_to_A = 0.529177249
 
 
 def make_grid_data(surface_points):
@@ -164,11 +163,6 @@ def read_ref_esp(filename):
         grid.append([float(x) for x in line.split()])
     return np.array(grid)
 
-
-# test_mbis(test="pdb")
-# import os
-# os.chdir("/Users/ericboittier/Documents/github/pythonProject/psi4")
-# surface_points, data, reference_esp, monomer_coords = test_mbis(test="pdb")
 
 if __name__ == "__main__":
     import argparse

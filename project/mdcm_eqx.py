@@ -54,7 +54,7 @@ class mdcm_eqx(eqx.Module):
         self.n_charges = n_charges
 
     @jit
-    def constrain_charges_multi(self, x0, ):
+    def constrain_charges_multi(self, x0):
         """Constrain the charges to sum to zero."""
         segment_sum = jax.ops.segment_sum(x0 * self.charges, self.chg_idx,
                                           num_segments=2) / self.n_charges
@@ -66,9 +66,9 @@ class mdcm_eqx(eqx.Module):
     def take_chg_parms(self, x0):
         return jnp.take(x0, self.chg_typ_idx)
 
-    @partial(jit, static_argnums=(0,2, 3, 4))
-    def take_local_parms(self, x0, local_typ_idx, nchgparm, n_all_frames):
-        x0_local =  jnp.take(x0, local_typ_idx + nchgparm)
+    @partial(jit, static_argnums=(0, 2, 3, 4))
+    def take_local_parms(self, x0, local_typ_idx: int, nchgparm: int, n_all_frames: int):
+        x0_local = jnp.take(x0, local_typ_idx + nchgparm)
         x0_local = jnp.clip(x0_local, -0.173, 0.173)
         x0_local = x0_local.reshape(n_all_frames, 3, 2, 3)
         return x0_local
@@ -77,22 +77,36 @@ class mdcm_eqx(eqx.Module):
     def take_local_parms_only(self, x0):
         return jnp.take(x0, self.local_typ_idx)
 
-    @jit
-    def loss_charge_local(self, x0):
-        x0_chg = self.take_chg_parms(x0)
-        x0_chg = self.constrain_charges_multi(x0_chg)
-        x0_local = self.take_local_parms(x0,
-                                         self.local_typ_idx,
-                                         self.nchgparm,
-                                         self.n_all_frames
-                                         )
+    def get_loss_charge_local(self):
+        @partial(jit, static_argnums=(1,2,3,4,5,6,7,8,9))
+        def loss_charge_local(x0,
+                              local_typ_idx: int,
+                              nchgparm: int,
+                              n_all_frames: int,
+                              all_atoms: jnp.array,
+                                all_coords: jnp.array,
+                                all_grids: jnp.array,
+                                all_esp: jnp.array,
+                                chg_idx: jnp.array,
+                                grid_idx: jnp.array,
+                              ) -> float:
 
-        positions = calc_global_pos(self.all_atoms,
-                                    self.all_coords,
-                                    x0_local)
-        esp = compute_esp_multi(positions, x0_chg,
-                                self.all_grids,
-                                self.chg_idx, self.grid_idx)
-        loss = jnp.sum((esp - self.all_esp) ** 2)
-        jax.debug.print(".loss={loss}", loss=loss)
-        return loss / 10 ** 6
+            x0_chg = self.take_chg_parms(x0)
+            x0_chg = self.constrain_charges_multi(x0_chg)
+            x0_local = self.take_local_parms(x0,
+                                             local_typ_idx,
+                                             nchgparm,
+                                             n_all_frames
+                                             )
+
+            positions = calc_global_pos(all_atoms,
+                                        all_coords,
+                                        x0_local)
+            esp = compute_esp_multi(positions, x0_chg,
+                                    all_grids,
+                                    chg_idx,
+                                    grid_idx)
+            loss = jnp.sum((esp - all_esp) ** 2)
+            jax.debug.print(".loss={loss}", loss=loss)
+            return loss / 10 ** 6
+        return loss_charge_local

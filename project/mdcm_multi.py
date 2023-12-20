@@ -1,17 +1,16 @@
-from project.mdcm import compute_esp, compute_esp_multi, calc_global_pos, process_frames
-from project.mdcm_opt import MDCMopt, print_loss
-from project.rdkit_ import get_water_data, get_pdb_data
-from project.psi4_ import get_grid_points, read_grid, read_ref_esp
+from project.mdcm import compute_esp_multi, calc_global_pos, process_frames
+from project.rdkit_ import get_pdb_data
+from project.psi4_ import read_grid, read_ref_esp
 from project.mdcm_io import read_charmm_mdcm, write_dcm_xyz
 from jax import random
 import jax.numpy as jnp
 from pathlib import Path
 from jax.scipy import optimize
 import jax
-from jax import grad, jit, vmap
-from functools import partial
 
-pdb_path = Path("/home/boittier/Documents/phd/pythonProject/pdb")
+
+# pdb_path = Path("/home/boittier/Documents/phd/pythonProject/pdb")
+pdb_path = Path("/Users/ericboittier/Documents/github/pythonProject/pdb")
 
 
 class MDCMoptMulti:
@@ -20,7 +19,7 @@ class MDCMoptMulti:
                  mdcms=None,
                  atomCentered=False,
                  ):
-        self.random_key = random.PRNGKey(0)
+        self.random_key = random.PRNGKey(31415)
         self.atomCentered = atomCentered
         self.pdbs = pdbs
         self.pdb_paths = [pdb_path / pdb for pdb in pdbs]
@@ -109,6 +108,7 @@ class MDCMoptMulti:
         segment_sum = jax.ops.segment_sum(x0*self.charges, self.chg_idx,
                                           num_segments=2) / self.n_charges
         x0 = x0.at[:].add(-1 * segment_sum[self.chg_idx]) * self.charges
+        jax.debug.print("x0 {x}", x=x0)
         return x0
 
     def take_chg_parms(self, x0):
@@ -128,58 +128,80 @@ class MDCMoptMulti:
         print(res)
         return res.x
 
-    def loss_charge_local(self, x0):
+
+    def get_pos_chgs_esp(self, x0):
+        x0 = x0.at[self.Nchgparm].set(0.0)
         x0_chg = self.take_chg_parms(x0)
-
         x0_chg = self.constrain_charges_multi(x0_chg)
-
+        # local
         x0_local = self.take_local_parms(x0)
-        x0_local = jnp.clip(x0_local, -0.173, 0.173)
+        x0_local = jnp.clip(x0_local, -0.273, 0.273)
         x0_local = x0_local.reshape(self.n_all_frames, 3, 2, 3)
-
         positions = calc_global_pos(self.all_atoms,
                                     self.all_coords,
                                     x0_local)
-
         esp = compute_esp_multi(positions, x0_chg,
                                 self.all_grids,
                                 self.chg_idx, self.grid_idx)
+        return positions, x0_chg, esp
 
-        loss = jnp.sum((esp - self.all_ref_esp) ** 2)
+    def get_chg_local_loss(self):
+        @jax.jit
+        def loss_charge_local(x0):
+            x0 = x0.at[self.Nchgparm].set(0.0)
+            # jax.debug.print("x0 {x}", x=x0)
+            # charges
+            x0_chg = self.take_chg_parms(x0)
+            x0_chg = self.constrain_charges_multi(x0_chg)
+            # jax.debug.print("chg {x}", x=x0_chg)
+            # local
+            x0_local = self.take_local_parms(x0)
+            # jax.debug.print("local {x}", x=x0_local)
+            x0_local = jnp.clip(x0_local, -0.273, 0.273)
+            x0_local = x0_local.reshape(self.n_all_frames, 3, 2, 3)
+            # jax.debug.print("local {x}", x=x0_local)
+            # global
+            positions = calc_global_pos(self.all_atoms,
+                                        self.all_coords,
+                                        x0_local)
+            # esp
+            esp = compute_esp_multi(positions, x0_chg,
+                                    self.all_grids,
+                                    self.chg_idx, self.grid_idx)
+            # loss
+            loss = jnp.sum((esp - self.all_ref_esp) ** 2)
+            jax.debug.print(".loss={loss}", loss=loss)
+            rmse = jnp.sqrt(loss / len(self.all_ref_esp))
+            jax.debug.print(".rmse={rmse}", rmse=rmse*627.509)
+            return loss/10**6  # divide to keep jax BFGS happy
 
-        # jax.debug.print(".loss={loss}", loss=loss)
-        return loss
-
+        return loss_charge_local
 
 pdb1 = pdb_path / "gly-70150091-70a0-453f-b6b8-c5389f387e84-end.pdb"
 pdb2 = pdb_path / "gly-70150091-70a0-453f-b6b8-c5389f387e84-min.pdb"
-glu = "/home/boittier/Documents/phd/pythonProject/mdcm/gen/GLY.mdcm"
+
+# glu = "/home/boittier/Documents/phd/pythonProject/mdcm/gen/GLY.mdcm"
+glu = '/Users/ericboittier/Documents/github/pythonProject/mdcm/gen/GLY.mdcm'
 
 m = MDCMoptMulti(pdbs=[pdb1, pdb2], mdcms=[glu, glu])
 
-from mdcm_eqx import mdcm_eqx
+loss = m.get_chg_local_loss()
 
-m_e = mdcm_eqx(
-    m.all_atoms,
-    m.all_coords,
-    m.all_grids,
-    m.all_ref_esp,
-    m.chg_idx,
-    m.grid_idx,
-    m.charges,
-    m.chg_typ_idx,
-    m.local_typ_idx,
-    m.n_all_frames,
-    m.Nchgparm,
-    m.Nlocalparm,
-    m.n_charges,
-)
+print(loss)
 
-# m_e.loss_charge_local(m.init_x0())
-
-res = optimize.minimize(m_e.loss_charge_local,
+res = optimize.minimize(loss,
                         m.init_x0(),
-                        method='BFGS', )
+                        method='BFGS',
+                        tol=1e-1,)
 
 print(res.x)
 print(res)
+pos, chgs, esp = m.get_pos_chgs_esp(res.x)
+print(pos)
+print(chgs)
+
+write_dcm_xyz("dcm_test.xyz", pos, chgs)
+
+for i in range(len(m.all_ref_esp)):
+    if i % 1000:
+        print(i, m.all_ref_esp[i], esp[i], m.all_grids[i])
