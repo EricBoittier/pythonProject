@@ -67,6 +67,19 @@ def compute_esp(positions, charges, grid_points):
 
 @jit
 def compute_esp_multi(positions, charges, grid_points, chg_idx, grid_idx):
+
+    print("positions", positions.shape)
+    print("charges", charges.shape)
+    print("grid_points", grid_points.shape)
+    test = grid_points[:, jnp.newaxis, :] - positions
+    print(test.shape)
+    dists = jnp.linalg.norm(test, axis=2)
+    print(dists.shape)
+    jax.debug.print("dists {x}", x=dists[::1000])
+    esp = jnp.sum(coulomb(charges, dists), axis=1)
+    jax.debug.print("esp {x}", x=esp.shape)
+    jax.debug.print("esp1 {x}", x=esp[::1000])
+
     esp = jnp.zeros_like(grid_points[:,0])
     for i in range(len(charges)):
         distances = jnp.linalg.norm(grid_points - positions[i], axis=1)
@@ -76,6 +89,9 @@ def compute_esp_multi(positions, charges, grid_points, chg_idx, grid_idx):
         ch = coulomb(charges[i], distances) * cond
         # jax.debug.print("ch {x}", x=ch[::1000])
         esp = esp.at[:].add(ch.flatten())
+
+    jax.debug.print("esp {x}", x=esp.shape)
+    jax.debug.print("esp2 {x}", x=esp[::1000])
     return esp
 
 @jit

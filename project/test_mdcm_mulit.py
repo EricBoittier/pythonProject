@@ -10,8 +10,8 @@ import jax
 from project.mdcm_multi import MDCMoptMulti
 
 mac = False
-testGLY = True
-testTIP3 = False
+testGLY = False
+testTIP3 = True
 if testGLY:
     pdb_path = Path("/home/boittier/Documents/phd/pythonProject/pdb")
     if mac:
